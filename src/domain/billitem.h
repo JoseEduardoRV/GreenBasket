@@ -1,6 +1,12 @@
 #ifndef BILLITEM_H
 #define BILLITEM_H
 
+/* Como se realizaron cambios en la clase Product, la funcion 
+"const std::string_view size() const     { return m_product.size().toString(); }", ya
+no tiene sentido porque la categoria se encuentra en el miembro category de la clase SoldProduct
+
+*/
+
 #include <cstddef>
 
 #include "soldproduct.h"
