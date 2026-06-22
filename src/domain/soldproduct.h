@@ -1,13 +1,8 @@
 #ifndef SOLDPRODUCT_H
 #define SOLDPRODUCT_H
 
-#include <string_view>
-// nombre para lcase que lee de JASON loader o storage
 #include "product.h"
-
-enum class Category {
-    None, Drink, Food, Dessert
-};
+#include "productcategory.h"
 
 enum class e_size {
     None,
@@ -48,21 +43,28 @@ public:
 class SoldProduct : public Product
 {
     Size m_size;
-    Category m_category;
+    ProductCategory m_category;
 
 protected:
     void verifyProductData() override;
 
 public:
-    explicit SoldProduct(const std::string &name = "unknown", e_size size = e_size::None,
-                         double price = 0.0f, Category category = Category::None);
-    explicit SoldProduct(const Product &product, e_size size = e_size::None,
-                         Category category = Category::None);
+    explicit SoldProduct(const ProductCategory &category, std::string_view name,
+                         e_size size = e_size::None, double price = 0.0f);
+
+    explicit SoldProduct(const Product &product,
+                         const ProductCategory &category,
+                         e_size size = e_size::None);
+
     SoldProduct(const SoldProduct& other);
 
-    inline double price() const      { return Product::unitValue(); }
-    inline Size   size() const       { return m_size;               }
-    inline Category category() const { return m_category;           }
+    ~SoldProduct() override;
+
+    const ProductCategory &category() const { return m_category;           }
+
+    inline double price() const            { return Product::unitValue(); }
+    inline Size   size() const             { return m_size;               }
+
 
     void updatePrice(const double newPrice);
 };

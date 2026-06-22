@@ -39,6 +39,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/appGreenBasket.dir/src/domain/billitem.cpp.obj.d"
   "CMakeFiles/appGreenBasket.dir/src/domain/product.cpp.obj"
   "CMakeFiles/appGreenBasket.dir/src/domain/product.cpp.obj.d"
+  "CMakeFiles/appGreenBasket.dir/src/domain/productcategory.cpp.obj"
+  "CMakeFiles/appGreenBasket.dir/src/domain/productcategory.cpp.obj.d"
   "CMakeFiles/appGreenBasket.dir/src/domain/qmltypes/bill.cpp.obj"
   "CMakeFiles/appGreenBasket.dir/src/domain/qmltypes/bill.cpp.obj.d"
   "CMakeFiles/appGreenBasket.dir/src/domain/qmltypes/inventory.cpp.obj"

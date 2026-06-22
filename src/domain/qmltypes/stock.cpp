@@ -1,7 +1,7 @@
 #include "stock.h"
 
 Stock::Stock(QObject *parent)
-    : QObject{parent}, product()
+    : QObject{parent}
 {
 
 }

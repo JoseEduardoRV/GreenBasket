@@ -43,17 +43,10 @@ inline QDebug operator<<(QDebug debug, const Bill &bill)
     debug << "-------------- Bill -----------------------" << Qt::endl;
 
     foreach (auto p, bill.Items())
-        if(p.category() == Category::Food)
-            debug << p.name() << " $" << p.price() << " Pz" << p.quantity() << Qt::endl;
+        debug << p.name() << " $" << p.price() << " Pz" << p.quantity() << Qt::endl;
 
     debug << "Total de comida: " << bill.foodTotal()  << Qt::endl;
-
-    foreach (auto p, bill.Items())
-        if(p.category() == Category::Drink)
-            debug << p.name() << " $" << p.price() << " Pz" << p.quantity() << Qt::endl;
-
     debug << "Total de bebidas:" << bill.drinkTotal() << Qt::endl;
-
     debug << "Total:           " << bill.total()      << Qt::endl;
     return debug;
 }

@@ -310,6 +310,4 @@ C:/Users/Ing-Eduardo/Documents/Glintec/Proyects/Windows-11/GreenBasket/build/Des
   C:/Users/Ing-Eduardo/Documents/.app/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/sys/types.h \
   C:/Users/Ing-Eduardo/Documents/.app/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/time.h \
   C:/Users/Ing-Eduardo/Documents/.app/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/vadefs.h \
-  C:/Users/Ing-Eduardo/Documents/.app/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/wchar.h \
-  C:/Users/Ing-Eduardo/Documents/Glintec/Proyects/Windows-11/GreenBasket/src/domain/product.h \
-  C:/Users/Ing-Eduardo/Documents/Glintec/Proyects/Windows-11/GreenBasket/src/domain/stockproduct.h
+  C:/Users/Ing-Eduardo/Documents/.app/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/wchar.h

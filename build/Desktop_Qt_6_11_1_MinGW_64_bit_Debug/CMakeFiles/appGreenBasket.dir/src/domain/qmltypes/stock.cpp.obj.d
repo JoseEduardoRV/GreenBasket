@@ -321,6 +321,4 @@ CMakeFiles/appGreenBasket.dir/src/domain/qmltypes/stock.cpp.obj: \
  C:/Users/Ing-Eduardo/Documents/.app/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/chrono \
  C:/Users/Ing-Eduardo/Documents/.app/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/chrono.h \
  C:/Users/Ing-Eduardo/Documents/.app/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ratio \
- C:/Users/Ing-Eduardo/Documents/.app/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ctime \
- C:/Users/Ing-Eduardo/Documents/Glintec/Proyects/Windows-11/GreenBasket/src/domain/stockproduct.h \
- C:/Users/Ing-Eduardo/Documents/Glintec/Proyects/Windows-11/GreenBasket/src/domain/product.h
+ C:/Users/Ing-Eduardo/Documents/.app/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ctime

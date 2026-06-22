@@ -26,13 +26,5 @@ void Bill::calculateTotal()
     m_foodTotal  = 0.0f;
 
     foreach(const BillItem &item, m_billItem)
-    {
-             if(item.category() == Category::Food)
-            m_foodTotal  += item.price() * item.quantity();
-        else if(item.category() == Category::Drink)
-            m_drinkTotal += item.price() * item.quantity();
-
-    }
-
-    m_total = m_drinkTotal + m_foodTotal;
+        m_total  += item.price() * item.quantity();
 }

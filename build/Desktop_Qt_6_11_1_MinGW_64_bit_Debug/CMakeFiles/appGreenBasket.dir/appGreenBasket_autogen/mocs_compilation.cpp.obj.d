@@ -346,8 +346,14 @@ CMakeFiles/appGreenBasket.dir/appGreenBasket_autogen/mocs_compilation.cpp.obj: \
  C:/Users/Ing-Eduardo/Documents/.app/Qt/6.11.1/mingw_64/include/QtCore/q23utility.h \
  C:/Users/Ing-Eduardo/Documents/.app/Qt/6.11.1/mingw_64/include/QtCore/q20utility.h \
  C:/Users/Ing-Eduardo/Documents/.app/Qt/6.11.1/mingw_64/include/QtCore/QList \
+ C:/Users/Ing-Eduardo/Documents/.app/Qt/6.11.1/mingw_64/include/QtCore/QVariantList \
+ C:/Users/Ing-Eduardo/Documents/.app/Qt/6.11.1/mingw_64/include/QtCore/qvariantlist.h \
+ C:/Users/Ing-Eduardo/Documents/.app/Qt/6.11.1/mingw_64/include/QtCore/QList \
+ C:/Users/Ing-Eduardo/Documents/.app/Qt/6.11.1/mingw_64/include/QtCore/QVariant \
+ C:/Users/Ing-Eduardo/Documents/.app/Qt/6.11.1/mingw_64/include/QtCore/QString \
  C:/Users/Ing-Eduardo/Documents/Glintec/Proyects/Windows-11/GreenBasket/src/domain/soldproduct.h \
  C:/Users/Ing-Eduardo/Documents/Glintec/Proyects/Windows-11/GreenBasket/src/domain/product.h \
+ C:/Users/Ing-Eduardo/Documents/Glintec/Proyects/Windows-11/GreenBasket/src/domain/productcategory.h \
  C:/Users/Ing-Eduardo/Documents/.app/Qt/6.11.1/mingw_64/include/QtCore/qtmochelpers.h \
  C:/Users/Ing-Eduardo/Documents/.app/Qt/6.11.1/mingw_64/include/QtCore/qtmocconstants.h \
  C:/Users/Ing-Eduardo/Documents/.app/Qt/6.11.1/mingw_64/include/QtCore/q20algorithm.h \
@@ -372,5 +378,4 @@ CMakeFiles/appGreenBasket.dir/appGreenBasket_autogen/mocs_compilation.cpp.obj: \
  C:/Users/Ing-Eduardo/Documents/Glintec/Proyects/Windows-11/GreenBasket/src/domain/qmltypes/menu.h \
  C:/Users/Ing-Eduardo/Documents/Glintec/Proyects/Windows-11/GreenBasket/src/domain/qmltypes/bill.h \
  C:\Users\Ing-Eduardo\Documents\Glintec\Proyects\Windows-11\GreenBasket\build\Desktop_Qt_6_11_1_MinGW_64_bit_Debug\appGreenBasket_autogen\DWOB2VGVTO/moc_stock.cpp \
- C:/Users/Ing-Eduardo/Documents/Glintec/Proyects/Windows-11/GreenBasket/src/domain/qmltypes/stock.h \
- C:/Users/Ing-Eduardo/Documents/Glintec/Proyects/Windows-11/GreenBasket/src/domain/stockproduct.h
+ C:/Users/Ing-Eduardo/Documents/Glintec/Proyects/Windows-11/GreenBasket/src/domain/qmltypes/stock.h

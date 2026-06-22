@@ -2,6 +2,9 @@ C:/Users/Ing-Eduardo/Documents/Glintec/Proyects/Windows-11/GreenBasket/build/Des
   C:/Users/Ing-Eduardo/Documents/Glintec/Proyects/Windows-11/GreenBasket/build/Desktop_Qt_6_11_1_MinGW_64_bit_Debug/appGreenBasket_autogen/moc_predefs.h \
   C:/Users/Ing-Eduardo/Documents/.app/Qt/6.11.1/mingw_64/include/QtCore/QAbstractListModel \
   C:/Users/Ing-Eduardo/Documents/.app/Qt/6.11.1/mingw_64/include/QtCore/QList \
+  C:/Users/Ing-Eduardo/Documents/.app/Qt/6.11.1/mingw_64/include/QtCore/QString \
+  C:/Users/Ing-Eduardo/Documents/.app/Qt/6.11.1/mingw_64/include/QtCore/QVariant \
+  C:/Users/Ing-Eduardo/Documents/.app/Qt/6.11.1/mingw_64/include/QtCore/QVariantList \
   C:/Users/Ing-Eduardo/Documents/.app/Qt/6.11.1/mingw_64/include/QtCore/q17memory.h \
   C:/Users/Ing-Eduardo/Documents/.app/Qt/6.11.1/mingw_64/include/QtCore/q20bit.h \
   C:/Users/Ing-Eduardo/Documents/.app/Qt/6.11.1/mingw_64/include/QtCore/q20functional.h \
@@ -118,6 +121,7 @@ C:/Users/Ing-Eduardo/Documents/Glintec/Proyects/Windows-11/GreenBasket/build/Des
   C:/Users/Ing-Eduardo/Documents/.app/Qt/6.11.1/mingw_64/include/QtCore/qtypes.h \
   C:/Users/Ing-Eduardo/Documents/.app/Qt/6.11.1/mingw_64/include/QtCore/qutf8stringview.h \
   C:/Users/Ing-Eduardo/Documents/.app/Qt/6.11.1/mingw_64/include/QtCore/qvariant.h \
+  C:/Users/Ing-Eduardo/Documents/.app/Qt/6.11.1/mingw_64/include/QtCore/qvariantlist.h \
   C:/Users/Ing-Eduardo/Documents/.app/Qt/6.11.1/mingw_64/include/QtCore/qvarlengtharray.h \
   C:/Users/Ing-Eduardo/Documents/.app/Qt/6.11.1/mingw_64/include/QtCore/qversiontagging.h \
   C:/Users/Ing-Eduardo/Documents/.app/Qt/6.11.1/mingw_64/include/QtCore/qxptype_traits.h \
@@ -335,4 +339,5 @@ C:/Users/Ing-Eduardo/Documents/Glintec/Proyects/Windows-11/GreenBasket/build/Des
   C:/Users/Ing-Eduardo/Documents/.app/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/vadefs.h \
   C:/Users/Ing-Eduardo/Documents/.app/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/wchar.h \
   C:/Users/Ing-Eduardo/Documents/Glintec/Proyects/Windows-11/GreenBasket/src/domain/product.h \
+  C:/Users/Ing-Eduardo/Documents/Glintec/Proyects/Windows-11/GreenBasket/src/domain/productcategory.h \
   C:/Users/Ing-Eduardo/Documents/Glintec/Proyects/Windows-11/GreenBasket/src/domain/soldproduct.h

@@ -2,7 +2,7 @@
     "classes": [
         {
             "className": "Stock",
-            "lineNumber": 8,
+            "lineNumber": 6,
             "object": true,
             "qualifiedClassName": "Stock",
             "superClasses": [

@@ -1,9 +1,8 @@
 CMakeFiles/appGreenBasket.dir/src/domain/abstracModel/productlistmodel.cpp.obj: \
  C:\Users\Ing-Eduardo\Documents\Glintec\Proyects\Windows-11\GreenBasket\src\domain\abstracModel\productlistmodel.cpp \
- C:\Users\Ing-Eduardo\Documents\Glintec\Proyects\Windows-11\GreenBasket\src\domain\abstracModel\productlistmodel.h \
- C:/Users/Ing-Eduardo/Documents/.app/Qt/6.11.1/mingw_64/include/QtCore/QAbstractListModel \
- C:/Users/Ing-Eduardo/Documents/.app/Qt/6.11.1/mingw_64/include/QtCore/qabstractitemmodel.h \
- C:/Users/Ing-Eduardo/Documents/.app/Qt/6.11.1/mingw_64/include/QtCore/qcompare.h \
+ C:/Users/Ing-Eduardo/Documents/.app/Qt/6.11.1/mingw_64/include/QtCore/QString \
+ C:/Users/Ing-Eduardo/Documents/.app/Qt/6.11.1/mingw_64/include/QtCore/qstring.h \
+ C:/Users/Ing-Eduardo/Documents/.app/Qt/6.11.1/mingw_64/include/QtCore/qchar.h \
  C:/Users/Ing-Eduardo/Documents/.app/Qt/6.11.1/mingw_64/include/QtCore/qglobal.h \
  C:/Users/Ing-Eduardo/Documents/.app/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/type_traits \
  C:/Users/Ing-Eduardo/Documents/.app/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/c++config.h \
@@ -151,6 +150,7 @@ CMakeFiles/appGreenBasket.dir/src/domain/abstracModel/productlistmodel.cpp.obj: 
  C:/Users/Ing-Eduardo/Documents/.app/Qt/6.11.1/mingw_64/include/QtCore/qtresource.h \
  C:/Users/Ing-Eduardo/Documents/.app/Qt/6.11.1/mingw_64/include/QtCore/qttranslation.h \
  C:/Users/Ing-Eduardo/Documents/.app/Qt/6.11.1/mingw_64/include/QtCore/qversiontagging.h \
+ C:/Users/Ing-Eduardo/Documents/.app/Qt/6.11.1/mingw_64/include/QtCore/qcompare.h \
  C:/Users/Ing-Eduardo/Documents/.app/Qt/6.11.1/mingw_64/include/QtCore/qstdlibdetection.h \
  C:/Users/Ing-Eduardo/Documents/.app/Qt/6.11.1/mingw_64/include/QtCore/qcomparehelpers.h \
  C:/Users/Ing-Eduardo/Documents/.app/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/functional \
@@ -180,16 +180,21 @@ CMakeFiles/appGreenBasket.dir/src/domain/abstracModel/productlistmodel.cpp.obj: 
  C:/Users/Ing-Eduardo/Documents/.app/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/vector.tcc \
  C:/Users/Ing-Eduardo/Documents/.app/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/array \
  C:/Users/Ing-Eduardo/Documents/.app/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/compare \
- C:/Users/Ing-Eduardo/Documents/.app/Qt/6.11.1/mingw_64/include/QtCore/qhash.h \
- C:/Users/Ing-Eduardo/Documents/.app/Qt/6.11.1/mingw_64/include/QtCore/qalgorithms.h \
- C:/Users/Ing-Eduardo/Documents/.app/Qt/6.11.1/mingw_64/include/QtCore/q20bit.h \
- C:/Users/Ing-Eduardo/Documents/.app/Qt/6.11.1/mingw_64/include/QtCore/q20functional.h \
+ C:/Users/Ing-Eduardo/Documents/.app/Qt/6.11.1/mingw_64/include/QtCore/qstringview.h \
+ C:/Users/Ing-Eduardo/Documents/.app/Qt/6.11.1/mingw_64/include/QtCore/qbytearray.h \
+ C:/Users/Ing-Eduardo/Documents/.app/Qt/6.11.1/mingw_64/include/QtCore/qrefcount.h \
+ C:/Users/Ing-Eduardo/Documents/.app/Qt/6.11.1/mingw_64/include/QtCore/qnamespace.h \
+ C:/Users/Ing-Eduardo/Documents/.app/Qt/6.11.1/mingw_64/include/QtCore/qtmetamacros.h \
+ C:/Users/Ing-Eduardo/Documents/.app/Qt/6.11.1/mingw_64/include/QtCore/qarraydata.h \
+ C:/Users/Ing-Eduardo/Documents/.app/Qt/6.11.1/mingw_64/include/QtCore/qpair.h \
+ C:/Users/Ing-Eduardo/Documents/.app/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/string.h \
+ C:/Users/Ing-Eduardo/Documents/.app/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/sec_api/string_s.h \
+ C:/Users/Ing-Eduardo/Documents/.app/Qt/6.11.1/mingw_64/include/QtCore/qarraydatapointer.h \
+ C:/Users/Ing-Eduardo/Documents/.app/Qt/6.11.1/mingw_64/include/QtCore/qarraydataops.h \
  C:/Users/Ing-Eduardo/Documents/.app/Qt/6.11.1/mingw_64/include/QtCore/qcontainertools_impl.h \
  C:/Users/Ing-Eduardo/Documents/.app/Qt/6.11.1/mingw_64/include/QtCore/qxptype_traits.h \
  C:/Users/Ing-Eduardo/Documents/.app/Qt/6.11.1/mingw_64/include/QtCore/q23type_traits.h \
  C:/Users/Ing-Eduardo/Documents/.app/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cstring \
- C:/Users/Ing-Eduardo/Documents/.app/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/string.h \
- C:/Users/Ing-Eduardo/Documents/.app/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/sec_api/string_s.h \
  C:/Users/Ing-Eduardo/Documents/.app/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/iterator \
  C:/Users/Ing-Eduardo/Documents/.app/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stream_iterator.h \
  C:/Users/Ing-Eduardo/Documents/.app/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/iosfwd \
@@ -259,18 +264,7 @@ CMakeFiles/appGreenBasket.dir/src/domain/abstracModel/productlistmodel.cpp.obj: 
  C:/Users/Ing-Eduardo/Documents/.app/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/shared_ptr_atomic.h \
  C:/Users/Ing-Eduardo/Documents/.app/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward/auto_ptr.h \
  C:/Users/Ing-Eduardo/Documents/.app/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/pstl/glue_memory_defs.h \
- C:/Users/Ing-Eduardo/Documents/.app/Qt/6.11.1/mingw_64/include/QtCore/qhashfunctions.h \
- C:/Users/Ing-Eduardo/Documents/.app/Qt/6.11.1/mingw_64/include/QtCore/qstring.h \
- C:/Users/Ing-Eduardo/Documents/.app/Qt/6.11.1/mingw_64/include/QtCore/qchar.h \
- C:/Users/Ing-Eduardo/Documents/.app/Qt/6.11.1/mingw_64/include/QtCore/qstringview.h \
- C:/Users/Ing-Eduardo/Documents/.app/Qt/6.11.1/mingw_64/include/QtCore/qbytearray.h \
- C:/Users/Ing-Eduardo/Documents/.app/Qt/6.11.1/mingw_64/include/QtCore/qrefcount.h \
- C:/Users/Ing-Eduardo/Documents/.app/Qt/6.11.1/mingw_64/include/QtCore/qnamespace.h \
- C:/Users/Ing-Eduardo/Documents/.app/Qt/6.11.1/mingw_64/include/QtCore/qtmetamacros.h \
- C:/Users/Ing-Eduardo/Documents/.app/Qt/6.11.1/mingw_64/include/QtCore/qarraydata.h \
- C:/Users/Ing-Eduardo/Documents/.app/Qt/6.11.1/mingw_64/include/QtCore/qpair.h \
- C:/Users/Ing-Eduardo/Documents/.app/Qt/6.11.1/mingw_64/include/QtCore/qarraydatapointer.h \
- C:/Users/Ing-Eduardo/Documents/.app/Qt/6.11.1/mingw_64/include/QtCore/qarraydataops.h \
+ C:/Users/Ing-Eduardo/Documents/.app/Qt/6.11.1/mingw_64/include/QtCore/q20functional.h \
  C:/Users/Ing-Eduardo/Documents/.app/Qt/6.11.1/mingw_64/include/QtCore/q20memory.h \
  C:/Users/Ing-Eduardo/Documents/.app/Qt/6.11.1/mingw_64/include/QtCore/q17memory.h \
  C:/Users/Ing-Eduardo/Documents/.app/Qt/6.11.1/mingw_64/include/QtCore/qbytearrayalgorithms.h \
@@ -287,6 +281,13 @@ CMakeFiles/appGreenBasket.dir/src/domain/abstracModel/productlistmodel.cpp.obj: 
  C:/Users/Ing-Eduardo/Documents/.app/Qt/6.11.1/mingw_64/include/QtCore/qstringbuilder.h \
  C:/Users/Ing-Eduardo/Documents/.app/Qt/6.11.1/mingw_64/include/QtCore/qstringconverter.h \
  C:/Users/Ing-Eduardo/Documents/.app/Qt/6.11.1/mingw_64/include/QtCore/qstringconverter_base.h \
+ C:\Users\Ing-Eduardo\Documents\Glintec\Proyects\Windows-11\GreenBasket\src\domain\abstracModel\productlistmodel.h \
+ C:/Users/Ing-Eduardo/Documents/.app/Qt/6.11.1/mingw_64/include/QtCore/QAbstractListModel \
+ C:/Users/Ing-Eduardo/Documents/.app/Qt/6.11.1/mingw_64/include/QtCore/qabstractitemmodel.h \
+ C:/Users/Ing-Eduardo/Documents/.app/Qt/6.11.1/mingw_64/include/QtCore/qhash.h \
+ C:/Users/Ing-Eduardo/Documents/.app/Qt/6.11.1/mingw_64/include/QtCore/qalgorithms.h \
+ C:/Users/Ing-Eduardo/Documents/.app/Qt/6.11.1/mingw_64/include/QtCore/q20bit.h \
+ C:/Users/Ing-Eduardo/Documents/.app/Qt/6.11.1/mingw_64/include/QtCore/qhashfunctions.h \
  C:/Users/Ing-Eduardo/Documents/.app/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/numeric \
  C:/Users/Ing-Eduardo/Documents/.app/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_numeric.h \
  C:/Users/Ing-Eduardo/Documents/.app/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/pstl/glue_numeric_defs.h \
@@ -345,6 +346,10 @@ CMakeFiles/appGreenBasket.dir/src/domain/abstracModel/productlistmodel.cpp.obj: 
  C:/Users/Ing-Eduardo/Documents/.app/Qt/6.11.1/mingw_64/include/QtCore/q23utility.h \
  C:/Users/Ing-Eduardo/Documents/.app/Qt/6.11.1/mingw_64/include/QtCore/q20utility.h \
  C:/Users/Ing-Eduardo/Documents/.app/Qt/6.11.1/mingw_64/include/QtCore/QList \
+ C:/Users/Ing-Eduardo/Documents/.app/Qt/6.11.1/mingw_64/include/QtCore/QVariantList \
+ C:/Users/Ing-Eduardo/Documents/.app/Qt/6.11.1/mingw_64/include/QtCore/qvariantlist.h \
+ C:/Users/Ing-Eduardo/Documents/.app/Qt/6.11.1/mingw_64/include/QtCore/QList \
+ C:/Users/Ing-Eduardo/Documents/.app/Qt/6.11.1/mingw_64/include/QtCore/QVariant \
  C:/Users/Ing-Eduardo/Documents/Glintec/Proyects/Windows-11/GreenBasket/src/domain/soldproduct.h \
  C:/Users/Ing-Eduardo/Documents/Glintec/Proyects/Windows-11/GreenBasket/src/domain/product.h \
- C:/Users/Ing-Eduardo/Documents/.app/Qt/6.11.1/mingw_64/include/QtCore/QString
+ C:/Users/Ing-Eduardo/Documents/Glintec/Proyects/Windows-11/GreenBasket/src/domain/productcategory.h

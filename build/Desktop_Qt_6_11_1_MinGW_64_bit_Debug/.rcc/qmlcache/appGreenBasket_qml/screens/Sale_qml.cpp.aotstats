@@ -16,7 +16,7 @@
                         {
                             "codegenResult": 0,
                             "column": 31,
-                            "durationMicroseconds": 0,
+                            "durationMicroseconds": 1000,
                             "functionName": "alignment",
                             "line": 25,
                             "message": ""
@@ -30,187 +30,91 @@
                             "message": ""
                         },
                         {
-                            "codegenResult": 0,
-                            "column": 27,
-                            "durationMicroseconds": 0,
-                            "functionName": "contentWidth",
-                            "line": 42,
-                            "message": ""
+                            "codegenResult": 2,
+                            "column": 20,
+                            "durationMicroseconds": 1000,
+                            "functionName": "model",
+                            "line": 36,
+                            "message": "Cannot access value for name menuController"
                         },
                         {
                             "codegenResult": 0,
+                            "column": 49,
+                            "durationMicroseconds": 0,
+                            "functionName": "currentCategoryId",
+                            "line": 41,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 2,
                             "column": 24,
                             "durationMicroseconds": 0,
+                            "functionName": "title",
+                            "line": 43,
+                            "message": "Cannot access value for name menuController"
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 34,
+                            "durationMicroseconds": 0,
+                            "functionName": "orientation",
+                            "line": 54,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 28,
+                            "durationMicroseconds": 0,
+                            "functionName": "model",
+                            "line": 58,
+                            "message": "Cannot access value for name menuController"
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 35,
+                            "durationMicroseconds": 0,
+                            "functionName": "fill",
+                            "line": 51,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 34,
+                            "durationMicroseconds": 0,
+                            "functionName": "visible",
+                            "line": 67,
+                            "message": "Cannot access value for name currentCategoryId"
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 32,
+                            "durationMicroseconds": 1000,
                             "functionName": "width",
-                            "line": 45,
+                            "line": 69,
                             "message": ""
                         },
                         {
                             "codegenResult": 0,
-                            "column": 38,
-                            "durationMicroseconds": 0,
-                            "functionName": "orientation",
-                            "line": 59,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 2,
-                            "column": 32,
-                            "durationMicroseconds": 0,
-                            "functionName": "model",
-                            "line": 63,
-                            "message": "Cannot access value for name menuController"
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 39,
-                            "durationMicroseconds": 0,
-                            "functionName": "fill",
-                            "line": 56,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 2,
-                            "column": 37,
+                            "column": 33,
                             "durationMicroseconds": 0,
                             "functionName": "height",
+                            "line": 70,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 31,
+                            "durationMicroseconds": 0,
+                            "functionName": "text",
                             "line": 72,
-                            "message": "Cannot access value for name drinksList"
-                        },
-                        {
-                            "codegenResult": 2,
-                            "column": 38,
-                            "durationMicroseconds": 0,
-                            "functionName": "enabled",
-                            "line": 73,
-                            "message": "Cannot access value for name salePage"
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 35,
-                            "durationMicroseconds": 0,
-                            "functionName": "text",
-                            "line": 75,
                             "message": ""
                         },
                         {
                             "codegenResult": 2,
-                            "column": 40,
+                            "column": 36,
                             "durationMicroseconds": 0,
                             "functionName": "onClicked",
-                            "line": 77,
-                            "message": "Cannot access value for name saleController"
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 38,
-                            "durationMicroseconds": 0,
-                            "functionName": "orientation",
-                            "line": 98,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 2,
-                            "column": 32,
-                            "durationMicroseconds": 0,
-                            "functionName": "model",
-                            "line": 102,
-                            "message": "Cannot access value for name menuController"
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 39,
-                            "durationMicroseconds": 0,
-                            "functionName": "fill",
-                            "line": 95,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 2,
-                            "column": 37,
-                            "durationMicroseconds": 0,
-                            "functionName": "height",
-                            "line": 111,
-                            "message": "Cannot access value for name foodList"
-                        },
-                        {
-                            "codegenResult": 2,
-                            "column": 38,
-                            "durationMicroseconds": 0,
-                            "functionName": "enabled",
-                            "line": 112,
-                            "message": "Cannot access value for name salePage"
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 35,
-                            "durationMicroseconds": 0,
-                            "functionName": "text",
-                            "line": 114,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 2,
-                            "column": 40,
-                            "durationMicroseconds": 0,
-                            "functionName": "onClicked",
-                            "line": 116,
-                            "message": "Cannot access value for name saleController"
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 38,
-                            "durationMicroseconds": 0,
-                            "functionName": "orientation",
-                            "line": 137,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 2,
-                            "column": 32,
-                            "durationMicroseconds": 0,
-                            "functionName": "model",
-                            "line": 141,
-                            "message": "Cannot access value for name menuController"
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 39,
-                            "durationMicroseconds": 0,
-                            "functionName": "fill",
-                            "line": 134,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 2,
-                            "column": 37,
-                            "durationMicroseconds": 0,
-                            "functionName": "height",
-                            "line": 150,
-                            "message": "Cannot access value for name dessertsList"
-                        },
-                        {
-                            "codegenResult": 2,
-                            "column": 38,
-                            "durationMicroseconds": 0,
-                            "functionName": "enabled",
-                            "line": 151,
-                            "message": "Cannot access value for name salePage"
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 35,
-                            "durationMicroseconds": 0,
-                            "functionName": "text",
-                            "line": 153,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 2,
-                            "column": 40,
-                            "durationMicroseconds": 0,
-                            "functionName": "onClicked",
-                            "line": 155,
+                            "line": 74,
                             "message": "Cannot access value for name saleController"
                         },
                         {
@@ -218,7 +122,7 @@
                             "column": 31,
                             "durationMicroseconds": 0,
                             "functionName": "fill",
-                            "line": 173,
+                            "line": 91,
                             "message": ""
                         },
                         {
@@ -226,7 +130,7 @@
                             "column": 32,
                             "durationMicroseconds": 0,
                             "functionName": "onClicked",
-                            "line": 182,
+                            "line": 100,
                             "message": "Cannot access value for name saleController"
                         },
                         {
@@ -234,7 +138,7 @@
                             "column": 30,
                             "durationMicroseconds": 0,
                             "functionName": "enabled",
-                            "line": 193,
+                            "line": 111,
                             "message": ""
                         },
                         {
@@ -242,7 +146,7 @@
                             "column": 32,
                             "durationMicroseconds": 0,
                             "functionName": "onClicked",
-                            "line": 195,
+                            "line": 113,
                             "message": "Cannot access value for name saleController"
                         },
                         {
@@ -250,7 +154,7 @@
                             "column": 28,
                             "durationMicroseconds": 0,
                             "functionName": "onCompleted",
-                            "line": 205,
+                            "line": 123,
                             "message": "Cannot access value for name menuController"
                         }
                     ],

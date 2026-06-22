@@ -1,3 +1,18 @@
+
+/*El siguiente texto es para redactar la descripción general de la clase.
+ * Menu
+→ recibe la lista de productos.
+→ administra el modelo para QML.
+→ permite buscar productos.
+
+
+Falta codificar
+ProductProvider / Repository / Loader
+→ obtiene productos desde JSON, SQLite, archivo o memoria.
+
+
+ */
+
 #ifndef MENU_H
 #define MENU_H
 
@@ -13,17 +28,10 @@
 class Menu : public QObject
 {
     Q_OBJECT
-    Q_PROPERTY(QAbstractListModel* drinksModel   READ drinksModel   CONSTANT)
-    Q_PROPERTY(QAbstractListModel* foodModel     READ foodModel     CONSTANT)
-    Q_PROPERTY(QAbstractListModel* dessertsModel READ dessertsModel CONSTANT)
+    Q_PROPERTY(QAbstractListModel* productsModel READ productsModel CONSTANT)
 
-    QList<SoldProduct> m_drinks;
-    QList<SoldProduct> m_food;
-    QList<SoldProduct> m_desserts;
-
-    ProductListModel m_drinksModel;
-    ProductListModel m_foodModel;
-    ProductListModel m_dessertsModel;
+    QList<SoldProduct> m_products;
+    ProductListModel m_productsModel;
 
 public:
     explicit Menu(QObject *parent = nullptr);
@@ -36,13 +44,17 @@ public:
     /*Aqui va el argumenteo para pasarle el archivo JSOM de alimentos*/
     void loadDesserts();
 
-    const QList<SoldProduct> &drinks()   const { return m_drinks;   }
-    const QList<SoldProduct> &food()     const { return m_food;     }
-    const QList<SoldProduct> &desserts() const { return m_desserts; }
+    const SoldProduct *productAtRow(int row) const
+    {
+        if (row < 0 || row >= m_products.size())
+            return nullptr;
 
-    QAbstractListModel *drinksModel()   { return &m_drinksModel;   }
-    QAbstractListModel *foodModel()     { return &m_foodModel;     }
-    QAbstractListModel *dessertsModel() { return &m_dessertsModel; }
+        return &m_products.at(row);
+    }
+
+    const QList<SoldProduct> &products() const { return m_products;   }
+
+    QAbstractListModel *productsModel() { return &m_productsModel;   }
 
 signals:
 };
@@ -51,17 +63,8 @@ inline QDebug operator<<(QDebug debug, const Menu &menu)
 {
     debug << "-------------- Menu  class -----------------------" << Qt::endl;
     debug << "--------------   bebidas   -----------------------" << Qt::endl;
-    foreach (const SoldProduct &p, menu.drinks()) {
+    foreach (const SoldProduct &p, menu.products())
         debug << p.name() << p.size().toString() << p.price() << Qt::endl;
-    }
-    debug << "--------------   Alimentos   -----------------------" << Qt::endl;
-    foreach (const SoldProduct &p, menu.food()) {
-        debug << p.name() << p.size().toString() << p.price() << Qt::endl;
-    }
-    debug << "--------------    Postres    -----------------------" << Qt::endl;
-    foreach (const SoldProduct &p, menu.desserts()) {
-        debug << p.name() << p.size().toString() << p.price() << Qt::endl;
-    }
     return debug;
 }
 #endif // MENU_H

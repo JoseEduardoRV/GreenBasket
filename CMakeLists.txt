@@ -41,6 +41,7 @@ qt_add_qml_module(appGreenBasket
         SOURCES src/domain/qmltypes/menu.h       src/domain/qmltypes/menu.cpp
 
         SOURCES src/domain/abstracModel/productlistmodel.h src/domain/abstracModel/productlistmodel.cpp
+        SOURCES src/domain/productcategory.h src/domain/productcategory.cpp
 )
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.

@@ -39,21 +39,15 @@ template <> constexpr inline auto Menu::qt_create_metaobjectdata<qt_meta_tag_ZN4
     namespace QMC = QtMocConstants;
     QtMocHelpers::StringRefStorage qt_stringData {
         "Menu",
-        "drinksModel",
-        "QAbstractListModel*",
-        "foodModel",
-        "dessertsModel"
+        "productsModel",
+        "QAbstractListModel*"
     };
 
     QtMocHelpers::UintData qt_methods {
     };
     QtMocHelpers::UintData qt_properties {
-        // property 'drinksModel'
+        // property 'productsModel'
         QtMocHelpers::PropertyData<QAbstractListModel*>(1, 0x80000000 | 2, QMC::DefaultPropertyFlags | QMC::EnumOrFlag | QMC::Constant),
-        // property 'foodModel'
-        QtMocHelpers::PropertyData<QAbstractListModel*>(3, 0x80000000 | 2, QMC::DefaultPropertyFlags | QMC::EnumOrFlag | QMC::Constant),
-        // property 'dessertsModel'
-        QtMocHelpers::PropertyData<QAbstractListModel*>(4, 0x80000000 | 2, QMC::DefaultPropertyFlags | QMC::EnumOrFlag | QMC::Constant),
     };
     QtMocHelpers::UintData qt_enums {
     };
@@ -76,8 +70,6 @@ void Menu::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void *
     if (_c == QMetaObject::RegisterPropertyMetaType) {
         switch (_id) {
         default: *reinterpret_cast<int*>(_a[0]) = -1; break;
-        case 2:
-        case 1:
         case 0:
             *reinterpret_cast<int*>(_a[0]) = qRegisterMetaType< QAbstractListModel* >(); break;
         }
@@ -85,9 +77,7 @@ void Menu::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void *
     if (_c == QMetaObject::ReadProperty) {
         void *_v = _a[0];
         switch (_id) {
-        case 0: *reinterpret_cast<QAbstractListModel**>(_v) = _t->drinksModel(); break;
-        case 1: *reinterpret_cast<QAbstractListModel**>(_v) = _t->foodModel(); break;
-        case 2: *reinterpret_cast<QAbstractListModel**>(_v) = _t->dessertsModel(); break;
+        case 0: *reinterpret_cast<QAbstractListModel**>(_v) = _t->productsModel(); break;
         default: break;
         }
     }
@@ -115,7 +105,7 @@ int Menu::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
             || _c == QMetaObject::ResetProperty || _c == QMetaObject::BindableProperty
             || _c == QMetaObject::RegisterPropertyMetaType) {
         qt_static_metacall(this, _c, _id, _a);
-        _id -= 3;
+        _id -= 1;
     }
     return _id;
 }

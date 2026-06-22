@@ -12,8 +12,13 @@ void StockProduct::verifyProductData()
         Product::authorizeProduct();
 }
 
-StockProduct::StockProduct(const std::string &name, const double cost)
+StockProduct::StockProduct(std::string_view name, const double cost)
     : Product(name, cost)
+{
+
+}
+
+StockProduct::~StockProduct()
 {
 
 }

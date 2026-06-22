@@ -412,11 +412,26 @@ CMakeFiles/appGreenBasket.dir/src/domain/abstracModel/productlistmodel.cpp.s: cm
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/appGreenBasket.dir/src/domain/abstracModel/productlistmodel.cpp.s"
 	C:\Users\Ing-Eduardo\Documents\.app\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Ing-Eduardo\Documents\Glintec\Proyects\Windows-11\GreenBasket\src\domain\abstracModel\productlistmodel.cpp -o CMakeFiles\appGreenBasket.dir\src\domain\abstracModel\productlistmodel.cpp.s
 
+CMakeFiles/appGreenBasket.dir/src/domain/productcategory.cpp.obj: CMakeFiles/appGreenBasket.dir/flags.make
+CMakeFiles/appGreenBasket.dir/src/domain/productcategory.cpp.obj: CMakeFiles/appGreenBasket.dir/includes_CXX.rsp
+CMakeFiles/appGreenBasket.dir/src/domain/productcategory.cpp.obj: C:/Users/Ing-Eduardo/Documents/Glintec/Proyects/Windows-11/GreenBasket/src/domain/productcategory.cpp
+CMakeFiles/appGreenBasket.dir/src/domain/productcategory.cpp.obj: CMakeFiles/appGreenBasket.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\Ing-Eduardo\Documents\Glintec\Proyects\Windows-11\GreenBasket\build\Desktop_Qt_6_11_1_MinGW_64_bit_Debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building CXX object CMakeFiles/appGreenBasket.dir/src/domain/productcategory.cpp.obj"
+	C:\Users\Ing-Eduardo\Documents\.app\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/appGreenBasket.dir/src/domain/productcategory.cpp.obj -MF CMakeFiles\appGreenBasket.dir\src\domain\productcategory.cpp.obj.d -o CMakeFiles\appGreenBasket.dir\src\domain\productcategory.cpp.obj -c C:\Users\Ing-Eduardo\Documents\Glintec\Proyects\Windows-11\GreenBasket\src\domain\productcategory.cpp
+
+CMakeFiles/appGreenBasket.dir/src/domain/productcategory.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/appGreenBasket.dir/src/domain/productcategory.cpp.i"
+	C:\Users\Ing-Eduardo\Documents\.app\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Ing-Eduardo\Documents\Glintec\Proyects\Windows-11\GreenBasket\src\domain\productcategory.cpp > CMakeFiles\appGreenBasket.dir\src\domain\productcategory.cpp.i
+
+CMakeFiles/appGreenBasket.dir/src/domain/productcategory.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/appGreenBasket.dir/src/domain/productcategory.cpp.s"
+	C:\Users\Ing-Eduardo\Documents\.app\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Ing-Eduardo\Documents\Glintec\Proyects\Windows-11\GreenBasket\src\domain\productcategory.cpp -o CMakeFiles\appGreenBasket.dir\src\domain\productcategory.cpp.s
+
 CMakeFiles/appGreenBasket.dir/build/Desktop_Qt_6_11_1_MinGW_64_bit_Debug/.rcc/qmlcache/appGreenBasket_qmlcache_loader.cpp.obj: CMakeFiles/appGreenBasket.dir/flags.make
 CMakeFiles/appGreenBasket.dir/build/Desktop_Qt_6_11_1_MinGW_64_bit_Debug/.rcc/qmlcache/appGreenBasket_qmlcache_loader.cpp.obj: CMakeFiles/appGreenBasket.dir/includes_CXX.rsp
 CMakeFiles/appGreenBasket.dir/build/Desktop_Qt_6_11_1_MinGW_64_bit_Debug/.rcc/qmlcache/appGreenBasket_qmlcache_loader.cpp.obj: .rcc/qmlcache/appGreenBasket_qmlcache_loader.cpp
 CMakeFiles/appGreenBasket.dir/build/Desktop_Qt_6_11_1_MinGW_64_bit_Debug/.rcc/qmlcache/appGreenBasket_qmlcache_loader.cpp.obj: CMakeFiles/appGreenBasket.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\Ing-Eduardo\Documents\Glintec\Proyects\Windows-11\GreenBasket\build\Desktop_Qt_6_11_1_MinGW_64_bit_Debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building CXX object CMakeFiles/appGreenBasket.dir/build/Desktop_Qt_6_11_1_MinGW_64_bit_Debug/.rcc/qmlcache/appGreenBasket_qmlcache_loader.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\Ing-Eduardo\Documents\Glintec\Proyects\Windows-11\GreenBasket\build\Desktop_Qt_6_11_1_MinGW_64_bit_Debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building CXX object CMakeFiles/appGreenBasket.dir/build/Desktop_Qt_6_11_1_MinGW_64_bit_Debug/.rcc/qmlcache/appGreenBasket_qmlcache_loader.cpp.obj"
 	C:\Users\Ing-Eduardo\Documents\.app\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/appGreenBasket.dir/build/Desktop_Qt_6_11_1_MinGW_64_bit_Debug/.rcc/qmlcache/appGreenBasket_qmlcache_loader.cpp.obj -MF CMakeFiles\appGreenBasket.dir\build\Desktop_Qt_6_11_1_MinGW_64_bit_Debug\.rcc\qmlcache\appGreenBasket_qmlcache_loader.cpp.obj.d -o CMakeFiles\appGreenBasket.dir\build\Desktop_Qt_6_11_1_MinGW_64_bit_Debug\.rcc\qmlcache\appGreenBasket_qmlcache_loader.cpp.obj -c C:\Users\Ing-Eduardo\Documents\Glintec\Proyects\Windows-11\GreenBasket\build\Desktop_Qt_6_11_1_MinGW_64_bit_Debug\.rcc\qmlcache\appGreenBasket_qmlcache_loader.cpp
 
 CMakeFiles/appGreenBasket.dir/build/Desktop_Qt_6_11_1_MinGW_64_bit_Debug/.rcc/qmlcache/appGreenBasket_qmlcache_loader.cpp.i: cmake_force
@@ -431,7 +446,7 @@ CMakeFiles/appGreenBasket.dir/build/Desktop_Qt_6_11_1_MinGW_64_bit_Debug/.rcc/qm
 CMakeFiles/appGreenBasket.dir/build/Desktop_Qt_6_11_1_MinGW_64_bit_Debug/.rcc/qmlcache/appGreenBasket_Main_qml.cpp.obj: CMakeFiles/appGreenBasket.dir/includes_CXX.rsp
 CMakeFiles/appGreenBasket.dir/build/Desktop_Qt_6_11_1_MinGW_64_bit_Debug/.rcc/qmlcache/appGreenBasket_Main_qml.cpp.obj: .rcc/qmlcache/appGreenBasket_Main_qml.cpp
 CMakeFiles/appGreenBasket.dir/build/Desktop_Qt_6_11_1_MinGW_64_bit_Debug/.rcc/qmlcache/appGreenBasket_Main_qml.cpp.obj: CMakeFiles/appGreenBasket.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\Ing-Eduardo\Documents\Glintec\Proyects\Windows-11\GreenBasket\build\Desktop_Qt_6_11_1_MinGW_64_bit_Debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building CXX object CMakeFiles/appGreenBasket.dir/build/Desktop_Qt_6_11_1_MinGW_64_bit_Debug/.rcc/qmlcache/appGreenBasket_Main_qml.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\Ing-Eduardo\Documents\Glintec\Proyects\Windows-11\GreenBasket\build\Desktop_Qt_6_11_1_MinGW_64_bit_Debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Building CXX object CMakeFiles/appGreenBasket.dir/build/Desktop_Qt_6_11_1_MinGW_64_bit_Debug/.rcc/qmlcache/appGreenBasket_Main_qml.cpp.obj"
 	C:\Users\Ing-Eduardo\Documents\.app\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/appGreenBasket.dir/build/Desktop_Qt_6_11_1_MinGW_64_bit_Debug/.rcc/qmlcache/appGreenBasket_Main_qml.cpp.obj -MF CMakeFiles\appGreenBasket.dir\build\Desktop_Qt_6_11_1_MinGW_64_bit_Debug\.rcc\qmlcache\appGreenBasket_Main_qml.cpp.obj.d -o CMakeFiles\appGreenBasket.dir\build\Desktop_Qt_6_11_1_MinGW_64_bit_Debug\.rcc\qmlcache\appGreenBasket_Main_qml.cpp.obj -c C:\Users\Ing-Eduardo\Documents\Glintec\Proyects\Windows-11\GreenBasket\build\Desktop_Qt_6_11_1_MinGW_64_bit_Debug\.rcc\qmlcache\appGreenBasket_Main_qml.cpp
 
 CMakeFiles/appGreenBasket.dir/build/Desktop_Qt_6_11_1_MinGW_64_bit_Debug/.rcc/qmlcache/appGreenBasket_Main_qml.cpp.i: cmake_force
@@ -446,7 +461,7 @@ CMakeFiles/appGreenBasket.dir/build/Desktop_Qt_6_11_1_MinGW_64_bit_Debug/.rcc/qm
 CMakeFiles/appGreenBasket.dir/build/Desktop_Qt_6_11_1_MinGW_64_bit_Debug/.rcc/qmlcache/appGreenBasket_qml/screens/Sale_qml.cpp.obj: CMakeFiles/appGreenBasket.dir/includes_CXX.rsp
 CMakeFiles/appGreenBasket.dir/build/Desktop_Qt_6_11_1_MinGW_64_bit_Debug/.rcc/qmlcache/appGreenBasket_qml/screens/Sale_qml.cpp.obj: .rcc/qmlcache/appGreenBasket_qml/screens/Sale_qml.cpp
 CMakeFiles/appGreenBasket.dir/build/Desktop_Qt_6_11_1_MinGW_64_bit_Debug/.rcc/qmlcache/appGreenBasket_qml/screens/Sale_qml.cpp.obj: CMakeFiles/appGreenBasket.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\Ing-Eduardo\Documents\Glintec\Proyects\Windows-11\GreenBasket\build\Desktop_Qt_6_11_1_MinGW_64_bit_Debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Building CXX object CMakeFiles/appGreenBasket.dir/build/Desktop_Qt_6_11_1_MinGW_64_bit_Debug/.rcc/qmlcache/appGreenBasket_qml/screens/Sale_qml.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\Ing-Eduardo\Documents\Glintec\Proyects\Windows-11\GreenBasket\build\Desktop_Qt_6_11_1_MinGW_64_bit_Debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Building CXX object CMakeFiles/appGreenBasket.dir/build/Desktop_Qt_6_11_1_MinGW_64_bit_Debug/.rcc/qmlcache/appGreenBasket_qml/screens/Sale_qml.cpp.obj"
 	C:\Users\Ing-Eduardo\Documents\.app\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/appGreenBasket.dir/build/Desktop_Qt_6_11_1_MinGW_64_bit_Debug/.rcc/qmlcache/appGreenBasket_qml/screens/Sale_qml.cpp.obj -MF CMakeFiles\appGreenBasket.dir\build\Desktop_Qt_6_11_1_MinGW_64_bit_Debug\.rcc\qmlcache\appGreenBasket_qml\screens\Sale_qml.cpp.obj.d -o CMakeFiles\appGreenBasket.dir\build\Desktop_Qt_6_11_1_MinGW_64_bit_Debug\.rcc\qmlcache\appGreenBasket_qml\screens\Sale_qml.cpp.obj -c C:\Users\Ing-Eduardo\Documents\Glintec\Proyects\Windows-11\GreenBasket\build\Desktop_Qt_6_11_1_MinGW_64_bit_Debug\.rcc\qmlcache\appGreenBasket_qml\screens\Sale_qml.cpp
 
 CMakeFiles/appGreenBasket.dir/build/Desktop_Qt_6_11_1_MinGW_64_bit_Debug/.rcc/qmlcache/appGreenBasket_qml/screens/Sale_qml.cpp.i: cmake_force
@@ -461,7 +476,7 @@ CMakeFiles/appGreenBasket.dir/build/Desktop_Qt_6_11_1_MinGW_64_bit_Debug/.qt/rcc
 CMakeFiles/appGreenBasket.dir/build/Desktop_Qt_6_11_1_MinGW_64_bit_Debug/.qt/rcc/qrc_appGreenBasket_raw_qml_0.cpp.obj: CMakeFiles/appGreenBasket.dir/includes_CXX.rsp
 CMakeFiles/appGreenBasket.dir/build/Desktop_Qt_6_11_1_MinGW_64_bit_Debug/.qt/rcc/qrc_appGreenBasket_raw_qml_0.cpp.obj: .qt/rcc/qrc_appGreenBasket_raw_qml_0.cpp
 CMakeFiles/appGreenBasket.dir/build/Desktop_Qt_6_11_1_MinGW_64_bit_Debug/.qt/rcc/qrc_appGreenBasket_raw_qml_0.cpp.obj: CMakeFiles/appGreenBasket.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\Ing-Eduardo\Documents\Glintec\Proyects\Windows-11\GreenBasket\build\Desktop_Qt_6_11_1_MinGW_64_bit_Debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Building CXX object CMakeFiles/appGreenBasket.dir/build/Desktop_Qt_6_11_1_MinGW_64_bit_Debug/.qt/rcc/qrc_appGreenBasket_raw_qml_0.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\Ing-Eduardo\Documents\Glintec\Proyects\Windows-11\GreenBasket\build\Desktop_Qt_6_11_1_MinGW_64_bit_Debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_33) "Building CXX object CMakeFiles/appGreenBasket.dir/build/Desktop_Qt_6_11_1_MinGW_64_bit_Debug/.qt/rcc/qrc_appGreenBasket_raw_qml_0.cpp.obj"
 	C:\Users\Ing-Eduardo\Documents\.app\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/appGreenBasket.dir/build/Desktop_Qt_6_11_1_MinGW_64_bit_Debug/.qt/rcc/qrc_appGreenBasket_raw_qml_0.cpp.obj -MF CMakeFiles\appGreenBasket.dir\build\Desktop_Qt_6_11_1_MinGW_64_bit_Debug\.qt\rcc\qrc_appGreenBasket_raw_qml_0.cpp.obj.d -o CMakeFiles\appGreenBasket.dir\build\Desktop_Qt_6_11_1_MinGW_64_bit_Debug\.qt\rcc\qrc_appGreenBasket_raw_qml_0.cpp.obj -c C:\Users\Ing-Eduardo\Documents\Glintec\Proyects\Windows-11\GreenBasket\build\Desktop_Qt_6_11_1_MinGW_64_bit_Debug\.qt\rcc\qrc_appGreenBasket_raw_qml_0.cpp
 
 CMakeFiles/appGreenBasket.dir/build/Desktop_Qt_6_11_1_MinGW_64_bit_Debug/.qt/rcc/qrc_appGreenBasket_raw_qml_0.cpp.i: cmake_force
@@ -476,7 +491,7 @@ CMakeFiles/appGreenBasket.dir/build/Desktop_Qt_6_11_1_MinGW_64_bit_Debug/.qt/rcc
 CMakeFiles/appGreenBasket.dir/build/Desktop_Qt_6_11_1_MinGW_64_bit_Debug/.qt/rcc/qrc_appGreenBasket_raw_res_0.cpp.obj: CMakeFiles/appGreenBasket.dir/includes_CXX.rsp
 CMakeFiles/appGreenBasket.dir/build/Desktop_Qt_6_11_1_MinGW_64_bit_Debug/.qt/rcc/qrc_appGreenBasket_raw_res_0.cpp.obj: .qt/rcc/qrc_appGreenBasket_raw_res_0.cpp
 CMakeFiles/appGreenBasket.dir/build/Desktop_Qt_6_11_1_MinGW_64_bit_Debug/.qt/rcc/qrc_appGreenBasket_raw_res_0.cpp.obj: CMakeFiles/appGreenBasket.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\Ing-Eduardo\Documents\Glintec\Proyects\Windows-11\GreenBasket\build\Desktop_Qt_6_11_1_MinGW_64_bit_Debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_33) "Building CXX object CMakeFiles/appGreenBasket.dir/build/Desktop_Qt_6_11_1_MinGW_64_bit_Debug/.qt/rcc/qrc_appGreenBasket_raw_res_0.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\Ing-Eduardo\Documents\Glintec\Proyects\Windows-11\GreenBasket\build\Desktop_Qt_6_11_1_MinGW_64_bit_Debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_34) "Building CXX object CMakeFiles/appGreenBasket.dir/build/Desktop_Qt_6_11_1_MinGW_64_bit_Debug/.qt/rcc/qrc_appGreenBasket_raw_res_0.cpp.obj"
 	C:\Users\Ing-Eduardo\Documents\.app\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/appGreenBasket.dir/build/Desktop_Qt_6_11_1_MinGW_64_bit_Debug/.qt/rcc/qrc_appGreenBasket_raw_res_0.cpp.obj -MF CMakeFiles\appGreenBasket.dir\build\Desktop_Qt_6_11_1_MinGW_64_bit_Debug\.qt\rcc\qrc_appGreenBasket_raw_res_0.cpp.obj.d -o CMakeFiles\appGreenBasket.dir\build\Desktop_Qt_6_11_1_MinGW_64_bit_Debug\.qt\rcc\qrc_appGreenBasket_raw_res_0.cpp.obj -c C:\Users\Ing-Eduardo\Documents\Glintec\Proyects\Windows-11\GreenBasket\build\Desktop_Qt_6_11_1_MinGW_64_bit_Debug\.qt\rcc\qrc_appGreenBasket_raw_res_0.cpp
 
 CMakeFiles/appGreenBasket.dir/build/Desktop_Qt_6_11_1_MinGW_64_bit_Debug/.qt/rcc/qrc_appGreenBasket_raw_res_0.cpp.i: cmake_force
@@ -491,7 +506,7 @@ CMakeFiles/appGreenBasket.dir/build/Desktop_Qt_6_11_1_MinGW_64_bit_Debug/.qt/rcc
 CMakeFiles/appGreenBasket.dir/build/Desktop_Qt_6_11_1_MinGW_64_bit_Debug/.qt/rcc/qrc_appGreenBasket_raw_qml_0_extra_qmldirs.cpp.obj: CMakeFiles/appGreenBasket.dir/includes_CXX.rsp
 CMakeFiles/appGreenBasket.dir/build/Desktop_Qt_6_11_1_MinGW_64_bit_Debug/.qt/rcc/qrc_appGreenBasket_raw_qml_0_extra_qmldirs.cpp.obj: .qt/rcc/qrc_appGreenBasket_raw_qml_0_extra_qmldirs.cpp
 CMakeFiles/appGreenBasket.dir/build/Desktop_Qt_6_11_1_MinGW_64_bit_Debug/.qt/rcc/qrc_appGreenBasket_raw_qml_0_extra_qmldirs.cpp.obj: CMakeFiles/appGreenBasket.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\Ing-Eduardo\Documents\Glintec\Proyects\Windows-11\GreenBasket\build\Desktop_Qt_6_11_1_MinGW_64_bit_Debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_34) "Building CXX object CMakeFiles/appGreenBasket.dir/build/Desktop_Qt_6_11_1_MinGW_64_bit_Debug/.qt/rcc/qrc_appGreenBasket_raw_qml_0_extra_qmldirs.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\Ing-Eduardo\Documents\Glintec\Proyects\Windows-11\GreenBasket\build\Desktop_Qt_6_11_1_MinGW_64_bit_Debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_35) "Building CXX object CMakeFiles/appGreenBasket.dir/build/Desktop_Qt_6_11_1_MinGW_64_bit_Debug/.qt/rcc/qrc_appGreenBasket_raw_qml_0_extra_qmldirs.cpp.obj"
 	C:\Users\Ing-Eduardo\Documents\.app\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/appGreenBasket.dir/build/Desktop_Qt_6_11_1_MinGW_64_bit_Debug/.qt/rcc/qrc_appGreenBasket_raw_qml_0_extra_qmldirs.cpp.obj -MF CMakeFiles\appGreenBasket.dir\build\Desktop_Qt_6_11_1_MinGW_64_bit_Debug\.qt\rcc\qrc_appGreenBasket_raw_qml_0_extra_qmldirs.cpp.obj.d -o CMakeFiles\appGreenBasket.dir\build\Desktop_Qt_6_11_1_MinGW_64_bit_Debug\.qt\rcc\qrc_appGreenBasket_raw_qml_0_extra_qmldirs.cpp.obj -c C:\Users\Ing-Eduardo\Documents\Glintec\Proyects\Windows-11\GreenBasket\build\Desktop_Qt_6_11_1_MinGW_64_bit_Debug\.qt\rcc\qrc_appGreenBasket_raw_qml_0_extra_qmldirs.cpp
 
 CMakeFiles/appGreenBasket.dir/build/Desktop_Qt_6_11_1_MinGW_64_bit_Debug/.qt/rcc/qrc_appGreenBasket_raw_qml_0_extra_qmldirs.cpp.i: cmake_force
@@ -520,6 +535,7 @@ appGreenBasket_OBJECTS = \
 "CMakeFiles/appGreenBasket.dir/src/domain/qmltypes/inventory.cpp.obj" \
 "CMakeFiles/appGreenBasket.dir/src/domain/qmltypes/menu.cpp.obj" \
 "CMakeFiles/appGreenBasket.dir/src/domain/abstracModel/productlistmodel.cpp.obj" \
+"CMakeFiles/appGreenBasket.dir/src/domain/productcategory.cpp.obj" \
 "CMakeFiles/appGreenBasket.dir/build/Desktop_Qt_6_11_1_MinGW_64_bit_Debug/.rcc/qmlcache/appGreenBasket_qmlcache_loader.cpp.obj" \
 "CMakeFiles/appGreenBasket.dir/build/Desktop_Qt_6_11_1_MinGW_64_bit_Debug/.rcc/qmlcache/appGreenBasket_Main_qml.cpp.obj" \
 "CMakeFiles/appGreenBasket.dir/build/Desktop_Qt_6_11_1_MinGW_64_bit_Debug/.rcc/qmlcache/appGreenBasket_qml/screens/Sale_qml.cpp.obj" \
@@ -546,6 +562,7 @@ appGreenBasket.exe: CMakeFiles/appGreenBasket.dir/src/domain/qmltypes/stock.cpp.
 appGreenBasket.exe: CMakeFiles/appGreenBasket.dir/src/domain/qmltypes/inventory.cpp.obj
 appGreenBasket.exe: CMakeFiles/appGreenBasket.dir/src/domain/qmltypes/menu.cpp.obj
 appGreenBasket.exe: CMakeFiles/appGreenBasket.dir/src/domain/abstracModel/productlistmodel.cpp.obj
+appGreenBasket.exe: CMakeFiles/appGreenBasket.dir/src/domain/productcategory.cpp.obj
 appGreenBasket.exe: CMakeFiles/appGreenBasket.dir/build/Desktop_Qt_6_11_1_MinGW_64_bit_Debug/.rcc/qmlcache/appGreenBasket_qmlcache_loader.cpp.obj
 appGreenBasket.exe: CMakeFiles/appGreenBasket.dir/build/Desktop_Qt_6_11_1_MinGW_64_bit_Debug/.rcc/qmlcache/appGreenBasket_Main_qml.cpp.obj
 appGreenBasket.exe: CMakeFiles/appGreenBasket.dir/build/Desktop_Qt_6_11_1_MinGW_64_bit_Debug/.rcc/qmlcache/appGreenBasket_qml/screens/Sale_qml.cpp.obj
@@ -565,7 +582,7 @@ appGreenBasket.exe: appGreenBasket.exe.manifest
 appGreenBasket.exe: CMakeFiles/appGreenBasket.dir/linkLibs.rsp
 appGreenBasket.exe: CMakeFiles/appGreenBasket.dir/objects1.rsp
 appGreenBasket.exe: CMakeFiles/appGreenBasket.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=C:\Users\Ing-Eduardo\Documents\Glintec\Proyects\Windows-11\GreenBasket\build\Desktop_Qt_6_11_1_MinGW_64_bit_Debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_35) "Linking CXX executable appGreenBasket.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=C:\Users\Ing-Eduardo\Documents\Glintec\Proyects\Windows-11\GreenBasket\build\Desktop_Qt_6_11_1_MinGW_64_bit_Debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_36) "Linking CXX executable appGreenBasket.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\appGreenBasket.dir\link.txt --verbose=$(VERBOSE)
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold "Firmando appGreenBasket.exe con certificado local de desarrollo"
 	"C:\Program Files (x86)\Windows Kits\10\bin\10.0.28000.0\x64\signtool.exe" sign /fd SHA256 /s My /sha1 A7DCF02CDA7304F2C1082CB2F6EBAA1F4C472054 C:/Users/Ing-Eduardo/Documents/Glintec/Proyects/Windows-11/GreenBasket/build/Desktop_Qt_6_11_1_MinGW_64_bit_Debug/appGreenBasket.exe

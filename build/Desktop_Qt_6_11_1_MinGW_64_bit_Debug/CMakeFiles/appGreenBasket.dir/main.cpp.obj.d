@@ -410,8 +410,14 @@ CMakeFiles/appGreenBasket.dir/main.cpp.obj: \
  C:/Users/Ing-Eduardo/Documents/.app/Qt/6.11.1/mingw_64/include/QtCore/qabstractitemmodel.h \
  C:/Users/Ing-Eduardo/Documents/Glintec/Proyects/Windows-11/GreenBasket/src/domain/abstracModel/productlistmodel.h \
  C:/Users/Ing-Eduardo/Documents/.app/Qt/6.11.1/mingw_64/include/QtCore/QList \
+ C:/Users/Ing-Eduardo/Documents/.app/Qt/6.11.1/mingw_64/include/QtCore/QVariantList \
+ C:/Users/Ing-Eduardo/Documents/.app/Qt/6.11.1/mingw_64/include/QtCore/qvariantlist.h \
+ C:/Users/Ing-Eduardo/Documents/.app/Qt/6.11.1/mingw_64/include/QtCore/QList \
+ C:/Users/Ing-Eduardo/Documents/.app/Qt/6.11.1/mingw_64/include/QtCore/QVariant \
+ C:/Users/Ing-Eduardo/Documents/.app/Qt/6.11.1/mingw_64/include/QtCore/QString \
  C:/Users/Ing-Eduardo/Documents/Glintec/Proyects/Windows-11/GreenBasket/src/domain/soldproduct.h \
  C:/Users/Ing-Eduardo/Documents/Glintec/Proyects/Windows-11/GreenBasket/src/domain/product.h \
+ C:/Users/Ing-Eduardo/Documents/Glintec/Proyects/Windows-11/GreenBasket/src/domain/productcategory.h \
  C:/Users/Ing-Eduardo/Documents/.app/Qt/6.11.1/mingw_64/include/QtCore/QDebug \
  C:/Users/Ing-Eduardo/Documents/Glintec/Proyects/Windows-11/GreenBasket/src/domain/soldproduct.h \
  C:\Users\Ing-Eduardo\Documents\Glintec\Proyects\Windows-11\GreenBasket\src/domain/qmltypes/bill.h \

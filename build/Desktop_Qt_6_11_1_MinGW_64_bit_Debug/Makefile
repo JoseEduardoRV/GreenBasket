@@ -743,6 +743,30 @@ src/domain/product.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\appGreenBasket.dir\build.make CMakeFiles/appGreenBasket.dir/src/domain/product.cpp.s
 .PHONY : src/domain/product.cpp.s
 
+src/domain/productcategory.obj: src/domain/productcategory.cpp.obj
+.PHONY : src/domain/productcategory.obj
+
+# target to build an object file
+src/domain/productcategory.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\appGreenBasket.dir\build.make CMakeFiles/appGreenBasket.dir/src/domain/productcategory.cpp.obj
+.PHONY : src/domain/productcategory.cpp.obj
+
+src/domain/productcategory.i: src/domain/productcategory.cpp.i
+.PHONY : src/domain/productcategory.i
+
+# target to preprocess a source file
+src/domain/productcategory.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\appGreenBasket.dir\build.make CMakeFiles/appGreenBasket.dir/src/domain/productcategory.cpp.i
+.PHONY : src/domain/productcategory.cpp.i
+
+src/domain/productcategory.s: src/domain/productcategory.cpp.s
+.PHONY : src/domain/productcategory.s
+
+# target to generate assembly for a file
+src/domain/productcategory.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\appGreenBasket.dir\build.make CMakeFiles/appGreenBasket.dir/src/domain/productcategory.cpp.s
+.PHONY : src/domain/productcategory.cpp.s
+
 src/domain/qmltypes/bill.obj: src/domain/qmltypes/bill.cpp.obj
 .PHONY : src/domain/qmltypes/bill.obj
 
@@ -1008,6 +1032,9 @@ help:
 	@echo ... src/domain/product.obj
 	@echo ... src/domain/product.i
 	@echo ... src/domain/product.s
+	@echo ... src/domain/productcategory.obj
+	@echo ... src/domain/productcategory.i
+	@echo ... src/domain/productcategory.s
 	@echo ... src/domain/qmltypes/bill.obj
 	@echo ... src/domain/qmltypes/bill.i
 	@echo ... src/domain/qmltypes/bill.s

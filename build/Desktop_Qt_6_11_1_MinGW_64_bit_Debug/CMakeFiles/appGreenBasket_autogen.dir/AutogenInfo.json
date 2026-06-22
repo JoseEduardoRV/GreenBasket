@@ -1124,6 +1124,12 @@
 			null
 		],
 		[
+			"C:/Users/Ing-Eduardo/Documents/Glintec/Proyects/Windows-11/GreenBasket/src/domain/productcategory.h",
+			"MU",
+			"A7EWVEEJ67/moc_productcategory.cpp",
+			null
+		],
+		[
 			"C:/Users/Ing-Eduardo/Documents/Glintec/Proyects/Windows-11/GreenBasket/src/domain/qmltypes/bill.h",
 			"MU",
 			"DWOB2VGVTO/moc_bill.cpp",
@@ -1286,6 +1292,11 @@
 		],
 		[
 			"C:/Users/Ing-Eduardo/Documents/Glintec/Proyects/Windows-11/GreenBasket/src/domain/product.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/Users/Ing-Eduardo/Documents/Glintec/Proyects/Windows-11/GreenBasket/src/domain/productcategory.cpp",
 			"MU",
 			null
 		],

@@ -333,4 +333,5 @@ C:/Users/Ing-Eduardo/Documents/Glintec/Proyects/Windows-11/GreenBasket/build/Des
   C:/Users/Ing-Eduardo/Documents/.app/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/wchar.h \
   C:/Users/Ing-Eduardo/Documents/Glintec/Proyects/Windows-11/GreenBasket/src/domain/billitem.h \
   C:/Users/Ing-Eduardo/Documents/Glintec/Proyects/Windows-11/GreenBasket/src/domain/product.h \
+  C:/Users/Ing-Eduardo/Documents/Glintec/Proyects/Windows-11/GreenBasket/src/domain/productcategory.h \
   C:/Users/Ing-Eduardo/Documents/Glintec/Proyects/Windows-11/GreenBasket/src/domain/soldproduct.h

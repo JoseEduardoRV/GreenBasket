@@ -14,19 +14,19 @@ void Product::invalidateProduct()
 
 bool Product::updateUnitValue(const double newValue)
 {
-         if(productIsValid())
-              return false;
+    if(productIsValid())
+        return false;
     else if (newValue < 1.0f)
-              return false;
+        return false;
     else if (std::abs(newValue - unitValue()) > 0.00001f)
     {
-              m_unitValue = newValue;
-              return true;
+        m_unitValue = newValue;
+        return true;
     }
     else return false;
 }
 
-void Product::setName(const std::string &name)
+void Product::setName(std::string_view name)
 {
     //Esta funcion tiene muchos puntos en los que
     // debo trabajar
@@ -35,7 +35,7 @@ void Product::setName(const std::string &name)
     m_name = name;
 }
 
-Product::Product(const std::string &name, const double unitValue)
+Product::Product(std::string_view name, const double unitValue)
     : m_validProduct{false}
     , m_unitValue{unitValue}
     , m_name{name}
@@ -47,4 +47,11 @@ Product::Product(const Product &other)
     : m_validProduct{other.m_validProduct}
     , m_unitValue{other.m_unitValue}
     , m_name{other.m_name}
-{}
+{
+
+}
+
+Product::~Product()
+{
+
+}

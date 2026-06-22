@@ -14,14 +14,7 @@
                 {
                     "access": "public",
                     "index": 2,
-                    "lineNumber": 39,
-                    "name": "addProduct",
-                    "returnType": "void"
-                },
-                {
-                    "access": "public",
-                    "index": 3,
-                    "lineNumber": 41,
+                    "lineNumber": 40,
                     "name": "closeBill",
                     "returnType": "void"
                 },
@@ -29,7 +22,7 @@
                     "access": "public",
                     "arguments": [
                         {
-                            "name": "index",
+                            "name": "productRow",
                             "type": "int"
                         },
                         {
@@ -37,43 +30,9 @@
                             "type": "int"
                         }
                     ],
-                    "index": 4,
-                    "lineNumber": 43,
-                    "name": "addDrink",
-                    "returnType": "void"
-                },
-                {
-                    "access": "public",
-                    "arguments": [
-                        {
-                            "name": "index",
-                            "type": "int"
-                        },
-                        {
-                            "name": "quantity",
-                            "type": "int"
-                        }
-                    ],
-                    "index": 5,
-                    "lineNumber": 57,
-                    "name": "addFood",
-                    "returnType": "void"
-                },
-                {
-                    "access": "public",
-                    "arguments": [
-                        {
-                            "name": "index",
-                            "type": "int"
-                        },
-                        {
-                            "name": "quantity",
-                            "type": "int"
-                        }
-                    ],
-                    "index": 6,
-                    "lineNumber": 71,
-                    "name": "addDessert",
+                    "index": 3,
+                    "lineNumber": 42,
+                    "name": "addProductByRow",
                     "returnType": "void"
                 }
             ],
@@ -83,7 +42,7 @@
                 {
                     "access": "public",
                     "index": 0,
-                    "lineNumber": 86,
+                    "lineNumber": 59,
                     "name": "paidBill",
                     "returnType": "void"
                 }

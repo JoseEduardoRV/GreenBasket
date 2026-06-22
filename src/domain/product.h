@@ -2,6 +2,7 @@
 #define PRODUCT_H
 
 #include <string>
+#include <string_view>
 
 class Product
 {
@@ -13,19 +14,21 @@ protected:
 
             void authorizeProduct();
             void invalidateProduct();
-            void setName(const std::string &name);
+            void setName(std::string_view name);
     virtual void verifyProductData() =  0;
 
             bool updateUnitValue(const double newValue);
 
 public:
-    explicit Product(const std::string& name = "unknown", const double unitValue = 0.0f);
-    Product(const Product &other);
-    virtual ~Product() = default;
+    explicit Product(std::string_view name, const double unitValue = 0.0f);
 
-    inline const std::string &name()   const { return m_name;         }
-    inline       bool productIsValid() const { return m_validProduct; }
-    inline       double unitValue()    const { return m_unitValue;    }
+    Product(const Product &other);
+
+    virtual ~Product();
+
+    inline const std::string_view name() const { return m_name;         }
+    inline       bool productIsValid()   const { return m_validProduct; }
+    inline       double unitValue()      const { return m_unitValue;    }
 };
 
 #endif // PRODUCT_H

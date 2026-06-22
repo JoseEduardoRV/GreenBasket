@@ -9,9 +9,11 @@ protected:
     void verifyProductData() override;
 
 public:
-    explicit StockProduct(const std::string &name = "unknow", const double cost = 1.0f);
+    explicit StockProduct(std::string_view name, const double cost = 1.0f);
 
-    inline const double cost() const { return Product::unitValue(); }
+    ~StockProduct() override;
+
+    inline double cost() const { return Product::unitValue(); }
 
     void updateCost(const double newCost);
 };

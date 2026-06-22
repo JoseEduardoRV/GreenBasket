@@ -42,13 +42,10 @@ template <> constexpr inline auto Sale::qt_create_metaobjectdata<qt_meta_tag_ZN4
         "paidBill",
         "",
         "openBill",
-        "addProduct",
         "closeBill",
-        "addDrink",
-        "index",
-        "quantity",
-        "addFood",
-        "addDessert"
+        "addProductByRow",
+        "productRow",
+        "quantity"
     };
 
     QtMocHelpers::UintData qt_methods {
@@ -56,21 +53,11 @@ template <> constexpr inline auto Sale::qt_create_metaobjectdata<qt_meta_tag_ZN4
         QtMocHelpers::SignalData<void()>(1, 2, QMC::AccessPublic, QMetaType::Void),
         // Method 'openBill'
         QtMocHelpers::MethodData<void()>(3, 2, QMC::AccessPublic, QMetaType::Void),
-        // Method 'addProduct'
-        QtMocHelpers::MethodData<void()>(4, 2, QMC::AccessPublic, QMetaType::Void),
         // Method 'closeBill'
-        QtMocHelpers::MethodData<void()>(5, 2, QMC::AccessPublic, QMetaType::Void),
-        // Method 'addDrink'
-        QtMocHelpers::MethodData<void(int, int)>(6, 2, QMC::AccessPublic, QMetaType::Void, {{
-            { QMetaType::Int, 7 }, { QMetaType::Int, 8 },
-        }}),
-        // Method 'addFood'
-        QtMocHelpers::MethodData<void(int, int)>(9, 2, QMC::AccessPublic, QMetaType::Void, {{
-            { QMetaType::Int, 7 }, { QMetaType::Int, 8 },
-        }}),
-        // Method 'addDessert'
-        QtMocHelpers::MethodData<void(int, int)>(10, 2, QMC::AccessPublic, QMetaType::Void, {{
-            { QMetaType::Int, 7 }, { QMetaType::Int, 8 },
+        QtMocHelpers::MethodData<void()>(4, 2, QMC::AccessPublic, QMetaType::Void),
+        // Method 'addProductByRow'
+        QtMocHelpers::MethodData<void(int, int)>(5, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { QMetaType::Int, 6 }, { QMetaType::Int, 7 },
         }}),
     };
     QtMocHelpers::UintData qt_properties {
@@ -97,11 +84,8 @@ void Sale::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void *
         switch (_id) {
         case 0: _t->paidBill(); break;
         case 1: _t->openBill(); break;
-        case 2: _t->addProduct(); break;
-        case 3: _t->closeBill(); break;
-        case 4: _t->addDrink((*reinterpret_cast<std::add_pointer_t<int>>(_a[1])),(*reinterpret_cast<std::add_pointer_t<int>>(_a[2]))); break;
-        case 5: _t->addFood((*reinterpret_cast<std::add_pointer_t<int>>(_a[1])),(*reinterpret_cast<std::add_pointer_t<int>>(_a[2]))); break;
-        case 6: _t->addDessert((*reinterpret_cast<std::add_pointer_t<int>>(_a[1])),(*reinterpret_cast<std::add_pointer_t<int>>(_a[2]))); break;
+        case 2: _t->closeBill(); break;
+        case 3: _t->addProductByRow((*reinterpret_cast<std::add_pointer_t<int>>(_a[1])),(*reinterpret_cast<std::add_pointer_t<int>>(_a[2]))); break;
         default: ;
         }
     }
@@ -130,14 +114,14 @@ int Sale::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 7)
+        if (_id < 4)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 7;
+        _id -= 4;
     }
     if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 7)
+        if (_id < 4)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 7;
+        _id -= 4;
     }
     return _id;
 }

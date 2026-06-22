@@ -3,15 +3,12 @@
 
 #include <QObject>
 
-#include "../stockproduct.h"
-
 class Stock : public QObject
 {
     Q_OBJECT
 
     double number;
     char unit;
-    StockProduct product;
 
 public:
     explicit Stock(QObject *parent = nullptr);

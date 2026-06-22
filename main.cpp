@@ -33,7 +33,6 @@ int main(int argc, char *argv[])
     Sale sale(menu, &parent);
 
     sale.openBill();
-    sale.addProduct();
     sale.closeBill();
 
 

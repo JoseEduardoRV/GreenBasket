@@ -39,7 +39,7 @@
         "classes": [
             {
                 "className": "Menu",
-                "lineNumber": 13,
+                "lineNumber": 28,
                 "object": true,
                 "properties": [
                     {
@@ -47,42 +47,10 @@
                         "designable": true,
                         "final": false,
                         "index": 0,
-                        "lineNumber": 16,
-                        "name": "drinksModel",
+                        "lineNumber": 31,
+                        "name": "productsModel",
                         "override": false,
-                        "read": "drinksModel",
-                        "required": false,
-                        "scriptable": true,
-                        "stored": true,
-                        "type": "QAbstractListModel*",
-                        "user": false,
-                        "virtual": false
-                    },
-                    {
-                        "constant": true,
-                        "designable": true,
-                        "final": false,
-                        "index": 1,
-                        "lineNumber": 17,
-                        "name": "foodModel",
-                        "override": false,
-                        "read": "foodModel",
-                        "required": false,
-                        "scriptable": true,
-                        "stored": true,
-                        "type": "QAbstractListModel*",
-                        "user": false,
-                        "virtual": false
-                    },
-                    {
-                        "constant": true,
-                        "designable": true,
-                        "final": false,
-                        "index": 2,
-                        "lineNumber": 18,
-                        "name": "dessertsModel",
-                        "override": false,
-                        "read": "dessertsModel",
+                        "read": "productsModel",
                         "required": false,
                         "scriptable": true,
                         "stored": true,
@@ -119,14 +87,7 @@
                     {
                         "access": "public",
                         "index": 2,
-                        "lineNumber": 39,
-                        "name": "addProduct",
-                        "returnType": "void"
-                    },
-                    {
-                        "access": "public",
-                        "index": 3,
-                        "lineNumber": 41,
+                        "lineNumber": 40,
                         "name": "closeBill",
                         "returnType": "void"
                     },
@@ -134,7 +95,7 @@
                         "access": "public",
                         "arguments": [
                             {
-                                "name": "index",
+                                "name": "productRow",
                                 "type": "int"
                             },
                             {
@@ -142,43 +103,9 @@
                                 "type": "int"
                             }
                         ],
-                        "index": 4,
-                        "lineNumber": 43,
-                        "name": "addDrink",
-                        "returnType": "void"
-                    },
-                    {
-                        "access": "public",
-                        "arguments": [
-                            {
-                                "name": "index",
-                                "type": "int"
-                            },
-                            {
-                                "name": "quantity",
-                                "type": "int"
-                            }
-                        ],
-                        "index": 5,
-                        "lineNumber": 57,
-                        "name": "addFood",
-                        "returnType": "void"
-                    },
-                    {
-                        "access": "public",
-                        "arguments": [
-                            {
-                                "name": "index",
-                                "type": "int"
-                            },
-                            {
-                                "name": "quantity",
-                                "type": "int"
-                            }
-                        ],
-                        "index": 6,
-                        "lineNumber": 71,
-                        "name": "addDessert",
+                        "index": 3,
+                        "lineNumber": 42,
+                        "name": "addProductByRow",
                         "returnType": "void"
                     }
                 ],
@@ -188,7 +115,7 @@
                     {
                         "access": "public",
                         "index": 0,
-                        "lineNumber": 86,
+                        "lineNumber": 59,
                         "name": "paidBill",
                         "returnType": "void"
                     }
@@ -208,7 +135,7 @@
         "classes": [
             {
                 "className": "Stock",
-                "lineNumber": 8,
+                "lineNumber": 6,
                 "object": true,
                 "qualifiedClassName": "Stock",
                 "superClasses": [
@@ -226,9 +153,67 @@
         "classes": [
             {
                 "className": "ProductListModel",
-                "lineNumber": 9,
+                "lineNumber": 13,
+                "methods": [
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "categoryId",
+                                "type": "int"
+                            }
+                        ],
+                        "index": 1,
+                        "isConst": true,
+                        "lineNumber": 48,
+                        "name": "categoryName",
+                        "returnType": "QString"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "categoryId",
+                                "type": "int"
+                            }
+                        ],
+                        "index": 2,
+                        "isConst": true,
+                        "lineNumber": 49,
+                        "name": "categoryKey",
+                        "returnType": "QString"
+                    }
+                ],
                 "object": true,
+                "properties": [
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 0,
+                        "lineNumber": 16,
+                        "name": "categoryIds",
+                        "notify": "categoriesChanged",
+                        "override": false,
+                        "read": "categoryIds",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QVariantList",
+                        "user": false,
+                        "virtual": false
+                    }
+                ],
                 "qualifiedClassName": "ProductListModel",
+                "signals": [
+                    {
+                        "access": "public",
+                        "index": 0,
+                        "lineNumber": 52,
+                        "name": "categoriesChanged",
+                        "returnType": "void"
+                    }
+                ],
                 "superClasses": [
                     {
                         "access": "public",

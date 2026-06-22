@@ -23,16 +23,6 @@ void Sale::openBill()
     qDebug() << "Se agregó una nueva cuenta. Total de cuentas:" << m_bills.size();
 }
 
-void Sale::addProduct()
-{
-    if(m_bill == nullptr)
-        return;
-
-    m_bill->addItem(m_menu.food().at(0),   4);
-    m_bill->addItem(m_menu.food().at(1),   1);
-    m_bill->addItem(m_menu.drinks().at(0), 3);
-}
-
 void Sale::closeBill()
 {
     if(m_bill == nullptr)
@@ -40,7 +30,4 @@ void Sale::closeBill()
     m_bill->calculateTotal();
     qDebug() << "*** Cobrar cuenta ***" << Qt::endl
              << *m_bill;
-
-
-
 }

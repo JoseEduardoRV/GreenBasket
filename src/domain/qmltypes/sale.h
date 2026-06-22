@@ -36,11 +36,10 @@ public:
     */
 
     Q_INVOKABLE void openBill();
-    Q_INVOKABLE void addProduct();
     /*Q_INVOKABLE*/ void changeBill(){}
     Q_INVOKABLE void closeBill();
 
-    Q_INVOKABLE void addDrink(int index, int quantity)
+    Q_INVOKABLE void addProductByRow(int productRow, int quantity)
     {
         if (m_bill == nullptr)
             return;
@@ -48,38 +47,12 @@ public:
         if (quantity <= 0)
             return;
 
-        if (index < 0 || index >= m_menu.drinks().size())
+        const SoldProduct *product = m_menu.productAtRow(productRow);
+
+        if (product == nullptr)
             return;
 
-        m_bill->addItem(m_menu.drinks().at(index), static_cast<std::size_t>(quantity));
-    }
-
-    Q_INVOKABLE void addFood(int index, int quantity)
-    {
-        if (m_bill == nullptr)
-            return;
-
-        if (quantity <= 0)
-            return;
-
-        if (index < 0 || index >= m_menu.drinks().size())
-            return;
-
-        m_bill->addItem(m_menu.food().at(index), static_cast<std::size_t>(quantity));
-    }
-
-    Q_INVOKABLE void addDessert(int index, int quantity)
-    {
-        if (m_bill == nullptr)
-            return;
-
-        if (quantity <= 0)
-            return;
-
-        if (index < 0 || index >= m_menu.drinks().size())
-            return;
-
-        m_bill->addItem(m_menu.desserts().at(index), static_cast<std::size_t>(quantity));
+        m_bill->addItem(*product, static_cast<std::size_t>(quantity));
     }
 
 signals:
