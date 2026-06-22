@@ -4,6 +4,16 @@
 #include "product.h"
 #include "productcategory.h"
 
+/* Se debe de eliminar la clase e_size y Size por las dos razones siguientes:
+primer, para tener mayor flexibilidad porque con el uso de estos dos tipos de datos,
+para agregar una nueva presentacion se tiene que hacer en tiempo de compilacion.
+hacer en tiempo de compilacion.
+segunda razon, se creó una clase que se llama Category, la cual es usada para asignar una 
+categoria a cada instancia de la clase SoldProduct, entonces resulta conveniente mover 
+el miembro presentacion a esta clase, con eso se resuelve la primera consideracion.
+
+*/
+
 enum class e_size {
     None,
     Small,
