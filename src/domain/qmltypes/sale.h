@@ -14,6 +14,15 @@
  * Bills no deberia pertenecera a Sale? o si?
  * a la clase Sale le hace falta unatributo que haga referecnia al
  * mesero queatendio la cuenta y le falta un atributo que se llame comensal
+
+La clase Sale nodeberia conocer a la clase menu, solo debe de conocer a bill,
+como se agrega un producto a la cuenta al menu? eso se hace dese qml, en la interfaz se crear una
+una lista dinamica que mjesrra los menus creados yndesd ahi sepasa una copia sea por referencia o por valor
+eso depende del diseño
+
+
+
+ 
  */
 
 class Sale : public QObject
