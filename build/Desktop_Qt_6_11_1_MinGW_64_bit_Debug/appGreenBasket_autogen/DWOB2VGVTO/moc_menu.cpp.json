@@ -1,0 +1,68 @@
+{
+    "classes": [
+        {
+            "className": "Menu",
+            "lineNumber": 13,
+            "object": true,
+            "properties": [
+                {
+                    "constant": true,
+                    "designable": true,
+                    "final": false,
+                    "index": 0,
+                    "lineNumber": 16,
+                    "name": "drinksModel",
+                    "override": false,
+                    "read": "drinksModel",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QAbstractListModel*",
+                    "user": false,
+                    "virtual": false
+                },
+                {
+                    "constant": true,
+                    "designable": true,
+                    "final": false,
+                    "index": 1,
+                    "lineNumber": 17,
+                    "name": "foodModel",
+                    "override": false,
+                    "read": "foodModel",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QAbstractListModel*",
+                    "user": false,
+                    "virtual": false
+                },
+                {
+                    "constant": true,
+                    "designable": true,
+                    "final": false,
+                    "index": 2,
+                    "lineNumber": 18,
+                    "name": "dessertsModel",
+                    "override": false,
+                    "read": "dessertsModel",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QAbstractListModel*",
+                    "user": false,
+                    "virtual": false
+                }
+            ],
+            "qualifiedClassName": "Menu",
+            "superClasses": [
+                {
+                    "access": "public",
+                    "name": "QObject"
+                }
+            ]
+        }
+    ],
+    "inputFile": "menu.h",
+    "outputRevision": 69
+}

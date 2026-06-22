@@ -1,0 +1,18 @@
+{
+    "classes": [
+        {
+            "className": "Bill",
+            "lineNumber": 12,
+            "object": true,
+            "qualifiedClassName": "Bill",
+            "superClasses": [
+                {
+                    "access": "public",
+                    "name": "QObject"
+                }
+            ]
+        }
+    ],
+    "inputFile": "bill.h",
+    "outputRevision": 69
+}

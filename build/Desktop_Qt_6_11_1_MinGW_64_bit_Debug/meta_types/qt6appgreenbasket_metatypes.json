@@ -1,0 +1,243 @@
+[
+    {
+        "classes": [
+            {
+                "className": "Bill",
+                "lineNumber": 12,
+                "object": true,
+                "qualifiedClassName": "Bill",
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QObject"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "bill.h",
+        "outputRevision": 69
+    },
+    {
+        "classes": [
+            {
+                "className": "Inventory",
+                "lineNumber": 9,
+                "object": true,
+                "qualifiedClassName": "Inventory",
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QObject"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "inventory.h",
+        "outputRevision": 69
+    },
+    {
+        "classes": [
+            {
+                "className": "Menu",
+                "lineNumber": 13,
+                "object": true,
+                "properties": [
+                    {
+                        "constant": true,
+                        "designable": true,
+                        "final": false,
+                        "index": 0,
+                        "lineNumber": 16,
+                        "name": "drinksModel",
+                        "override": false,
+                        "read": "drinksModel",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QAbstractListModel*",
+                        "user": false,
+                        "virtual": false
+                    },
+                    {
+                        "constant": true,
+                        "designable": true,
+                        "final": false,
+                        "index": 1,
+                        "lineNumber": 17,
+                        "name": "foodModel",
+                        "override": false,
+                        "read": "foodModel",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QAbstractListModel*",
+                        "user": false,
+                        "virtual": false
+                    },
+                    {
+                        "constant": true,
+                        "designable": true,
+                        "final": false,
+                        "index": 2,
+                        "lineNumber": 18,
+                        "name": "dessertsModel",
+                        "override": false,
+                        "read": "dessertsModel",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QAbstractListModel*",
+                        "user": false,
+                        "virtual": false
+                    }
+                ],
+                "qualifiedClassName": "Menu",
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QObject"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "menu.h",
+        "outputRevision": 69
+    },
+    {
+        "classes": [
+            {
+                "className": "Sale",
+                "lineNumber": 19,
+                "methods": [
+                    {
+                        "access": "public",
+                        "index": 1,
+                        "lineNumber": 38,
+                        "name": "openBill",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 2,
+                        "lineNumber": 39,
+                        "name": "addProduct",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 3,
+                        "lineNumber": 41,
+                        "name": "closeBill",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "index",
+                                "type": "int"
+                            },
+                            {
+                                "name": "quantity",
+                                "type": "int"
+                            }
+                        ],
+                        "index": 4,
+                        "lineNumber": 43,
+                        "name": "addDrink",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "index",
+                                "type": "int"
+                            },
+                            {
+                                "name": "quantity",
+                                "type": "int"
+                            }
+                        ],
+                        "index": 5,
+                        "lineNumber": 57,
+                        "name": "addFood",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "index",
+                                "type": "int"
+                            },
+                            {
+                                "name": "quantity",
+                                "type": "int"
+                            }
+                        ],
+                        "index": 6,
+                        "lineNumber": 71,
+                        "name": "addDessert",
+                        "returnType": "void"
+                    }
+                ],
+                "object": true,
+                "qualifiedClassName": "Sale",
+                "signals": [
+                    {
+                        "access": "public",
+                        "index": 0,
+                        "lineNumber": 86,
+                        "name": "paidBill",
+                        "returnType": "void"
+                    }
+                ],
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QObject"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "sale.h",
+        "outputRevision": 69
+    },
+    {
+        "classes": [
+            {
+                "className": "Stock",
+                "lineNumber": 8,
+                "object": true,
+                "qualifiedClassName": "Stock",
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QObject"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "stock.h",
+        "outputRevision": 69
+    },
+    {
+        "classes": [
+            {
+                "className": "ProductListModel",
+                "lineNumber": 9,
+                "object": true,
+                "qualifiedClassName": "ProductListModel",
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QAbstractListModel"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "productlistmodel.h",
+        "outputRevision": 69
+    }
+]

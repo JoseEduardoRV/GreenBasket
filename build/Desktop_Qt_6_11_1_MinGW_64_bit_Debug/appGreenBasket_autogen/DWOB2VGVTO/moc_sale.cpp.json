@@ -1,0 +1,101 @@
+{
+    "classes": [
+        {
+            "className": "Sale",
+            "lineNumber": 19,
+            "methods": [
+                {
+                    "access": "public",
+                    "index": 1,
+                    "lineNumber": 38,
+                    "name": "openBill",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 2,
+                    "lineNumber": 39,
+                    "name": "addProduct",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 3,
+                    "lineNumber": 41,
+                    "name": "closeBill",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "index",
+                            "type": "int"
+                        },
+                        {
+                            "name": "quantity",
+                            "type": "int"
+                        }
+                    ],
+                    "index": 4,
+                    "lineNumber": 43,
+                    "name": "addDrink",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "index",
+                            "type": "int"
+                        },
+                        {
+                            "name": "quantity",
+                            "type": "int"
+                        }
+                    ],
+                    "index": 5,
+                    "lineNumber": 57,
+                    "name": "addFood",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "index",
+                            "type": "int"
+                        },
+                        {
+                            "name": "quantity",
+                            "type": "int"
+                        }
+                    ],
+                    "index": 6,
+                    "lineNumber": 71,
+                    "name": "addDessert",
+                    "returnType": "void"
+                }
+            ],
+            "object": true,
+            "qualifiedClassName": "Sale",
+            "signals": [
+                {
+                    "access": "public",
+                    "index": 0,
+                    "lineNumber": 86,
+                    "name": "paidBill",
+                    "returnType": "void"
+                }
+            ],
+            "superClasses": [
+                {
+                    "access": "public",
+                    "name": "QObject"
+                }
+            ]
+        }
+    ],
+    "inputFile": "sale.h",
+    "outputRevision": 69
+}

@@ -1,0 +1,18 @@
+{
+    "classes": [
+        {
+            "className": "Stock",
+            "lineNumber": 8,
+            "object": true,
+            "qualifiedClassName": "Stock",
+            "superClasses": [
+                {
+                    "access": "public",
+                    "name": "QObject"
+                }
+            ]
+        }
+    ],
+    "inputFile": "stock.h",
+    "outputRevision": 69
+}

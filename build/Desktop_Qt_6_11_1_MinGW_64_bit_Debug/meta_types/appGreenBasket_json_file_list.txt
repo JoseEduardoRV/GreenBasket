@@ -1,0 +1,6 @@
+C:/Users/Ing-Eduardo/Documents/Glintec/Proyects/Windows-11/GreenBasket/build/Desktop_Qt_6_11_1_MinGW_64_bit_Debug/appGreenBasket_autogen/include/../DWOB2VGVTO/moc_bill.cpp.json
+C:/Users/Ing-Eduardo/Documents/Glintec/Proyects/Windows-11/GreenBasket/build/Desktop_Qt_6_11_1_MinGW_64_bit_Debug/appGreenBasket_autogen/include/../DWOB2VGVTO/moc_inventory.cpp.json
+C:/Users/Ing-Eduardo/Documents/Glintec/Proyects/Windows-11/GreenBasket/build/Desktop_Qt_6_11_1_MinGW_64_bit_Debug/appGreenBasket_autogen/include/../DWOB2VGVTO/moc_menu.cpp.json
+C:/Users/Ing-Eduardo/Documents/Glintec/Proyects/Windows-11/GreenBasket/build/Desktop_Qt_6_11_1_MinGW_64_bit_Debug/appGreenBasket_autogen/include/../DWOB2VGVTO/moc_sale.cpp.json
+C:/Users/Ing-Eduardo/Documents/Glintec/Proyects/Windows-11/GreenBasket/build/Desktop_Qt_6_11_1_MinGW_64_bit_Debug/appGreenBasket_autogen/include/../DWOB2VGVTO/moc_stock.cpp.json
+C:/Users/Ing-Eduardo/Documents/Glintec/Proyects/Windows-11/GreenBasket/build/Desktop_Qt_6_11_1_MinGW_64_bit_Debug/appGreenBasket_autogen/include/../SOOBK6YMJ5/moc_productlistmodel.cpp.json

@@ -1,0 +1,16 @@
+-rootPath
+C:/Users/Ing-Eduardo/Documents/Glintec/Proyects/Windows-11/GreenBasket
+-cmake-output
+-output-file
+C:/Users/Ing-Eduardo/Documents/Glintec/Proyects/Windows-11/GreenBasket/build/Desktop_Qt_6_11_1_MinGW_64_bit_Debug/.qt/qml_imports/appGreenBasket_build.cmake
+-importPath
+C:/Users/Ing-Eduardo/Documents/Glintec/Proyects/Windows-11/GreenBasket/build/Desktop_Qt_6_11_1_MinGW_64_bit_Debug
+-importPath
+C:/Users/Ing-Eduardo/Documents/Glintec/Proyects/Windows-11/GreenBasket/build/Desktop_Qt_6_11_1_MinGW_64_bit_Debug/GreenBasket
+-importPath
+C:/Users/Ing-Eduardo/Documents/.app/Qt/6.11.1/mingw_64/qml
+-qrcFiles
+C:/Users/Ing-Eduardo/Documents/Glintec/Proyects/Windows-11/GreenBasket/build/Desktop_Qt_6_11_1_MinGW_64_bit_Debug/.qt/rcc/qmake_GreenBasket.qrc
+C:/Users/Ing-Eduardo/Documents/Glintec/Proyects/Windows-11/GreenBasket/build/Desktop_Qt_6_11_1_MinGW_64_bit_Debug/.qt/rcc/appGreenBasket_raw_qml_0.qrc
+C:/Users/Ing-Eduardo/Documents/Glintec/Proyects/Windows-11/GreenBasket/build/Desktop_Qt_6_11_1_MinGW_64_bit_Debug/.qt/rcc/appGreenBasket_raw_res_0.qrc
+C:/Users/Ing-Eduardo/Documents/Glintec/Proyects/Windows-11/GreenBasket/build/Desktop_Qt_6_11_1_MinGW_64_bit_Debug/.qt/rcc/appGreenBasket_raw_qml_0_extra_qmldirs.qrc

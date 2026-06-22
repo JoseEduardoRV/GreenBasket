@@ -1,0 +1,18 @@
+{
+    "classes": [
+        {
+            "className": "ProductListModel",
+            "lineNumber": 9,
+            "object": true,
+            "qualifiedClassName": "ProductListModel",
+            "superClasses": [
+                {
+                    "access": "public",
+                    "name": "QAbstractListModel"
+                }
+            ]
+        }
+    ],
+    "inputFile": "productlistmodel.h",
+    "outputRevision": 69
+}
