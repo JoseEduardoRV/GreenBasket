@@ -9,6 +9,13 @@ class Product
     bool        m_validProduct;
     double      m_unitValue;
     std::string m_name;
+    /* Se debe de analizar si m_validProduct es un nombre adecuado porque es una buena idea
+    tener un miembro que sea usado para guardar el estado de la minima consistencia del valor
+    que contiene m_uniitValu3 y m_name.
+    ejemplo:
+    n_unitValue deve ser siempre mayor a 1.
+    n_mname no debe se ser un string vacio.
+    */
 
 protected:
 
