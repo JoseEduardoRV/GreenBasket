@@ -1,0 +1,42 @@
+# ====== Archivos específicos de Qt Creator ======
+# Guarda la configuración local del usuario (rutas de compilación, kits, etc.)
+*.pro.user
+*.pro.user.*
+*.shared
+
+# ====== Carpetas y archivos de compilación (Builds) ======
+# Evita subir los directorios donde Qt genera los ejecutables y archivos .obj/.o
+build-*/
+CMakePresets.json
+CMakeUserPresets.json
+
+# ====== Archivos temporales del compilador ======
+*.o
+*.obj
+*.d
+*.a
+*.lib
+*.so
+*.dll
+*.exe
+*.out
+*.app
+
+# ====== Archivos generados automáticamente por Qt (MOC, UI, RCC) ======
+# (Solo si se generan en la carpeta del código fuente; si usas shadow building no aparecen aquí)
+moc_*.cpp
+moc_*.h
+qrc_*.cpp
+ui_*.h
+Makefile*
+*-qmake.cache
+
+# ====== Archivos del Sistema Operativo ======
+.DS_Store
+Thumbs.db
+
+# ====== Archivos temporales de herramientas de análisis ======
+.clang-format
+.kate-swp
+*.swp
+*~
