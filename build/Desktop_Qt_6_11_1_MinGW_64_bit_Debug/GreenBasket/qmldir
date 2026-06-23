@@ -1,7 +1,0 @@
-module GreenBasket
-typeinfo appGreenBasket.qmltypes
-prefer :/qt/qml/GreenBasket/
-Main 254.0 Main.qml
-Sale 254.0 qml/screens/Sale.qml
-depends QtQuick
-

@@ -1,7 +1,0 @@
-<RCC>
-  <qresource prefix="/qt/qml/GreenBasket/">
-    <file alias="Main.qml">C:/Users/Ing-Eduardo/Documents/Glintec/Proyects/Windows-11/GreenBasket/Main.qml</file>
-    <file alias="qml/screens/Sale.qml">C:/Users/Ing-Eduardo/Documents/Glintec/Proyects/Windows-11/GreenBasket/qml/screens/Sale.qml</file>
-  </qresource>
-</RCC>
-
