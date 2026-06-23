@@ -27,7 +27,6 @@ public:
         SizeRole,
         PriceRole,
         CategoryIdRole,
-        CategoryKeyRole,
         CategoryNameRole
     };
 
@@ -46,7 +45,6 @@ public:
     QVariantList categoryIds() const;
 
     Q_INVOKABLE QString categoryName(int categoryId) const;
-    Q_INVOKABLE QString categoryKey(int categoryId) const;
 
 signals:
     void categoriesChanged();

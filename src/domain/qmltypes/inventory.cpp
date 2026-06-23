@@ -2,4 +2,6 @@
 
 Inventory::Inventory(QObject *parent)
     : QObject{parent}
-{}
+{
+
+}

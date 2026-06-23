@@ -7,9 +7,6 @@ class Stock : public QObject
 {
     Q_OBJECT
 
-    double number;
-    char unit;
-
 public:
     explicit Stock(QObject *parent = nullptr);
 

@@ -43,7 +43,6 @@ template <> constexpr inline auto ProductListModel::qt_create_metaobjectdata<qt_
         "",
         "categoryName",
         "categoryId",
-        "categoryKey",
         "categoryIds",
         "QVariantList"
     };
@@ -55,14 +54,10 @@ template <> constexpr inline auto ProductListModel::qt_create_metaobjectdata<qt_
         QtMocHelpers::MethodData<QString(int) const>(3, 2, QMC::AccessPublic, QMetaType::QString, {{
             { QMetaType::Int, 4 },
         }}),
-        // Method 'categoryKey'
-        QtMocHelpers::MethodData<QString(int) const>(5, 2, QMC::AccessPublic, QMetaType::QString, {{
-            { QMetaType::Int, 4 },
-        }}),
     };
     QtMocHelpers::UintData qt_properties {
         // property 'categoryIds'
-        QtMocHelpers::PropertyData<QVariantList>(6, 0x80000000 | 7, QMC::DefaultPropertyFlags | QMC::EnumOrFlag, 0),
+        QtMocHelpers::PropertyData<QVariantList>(5, 0x80000000 | 6, QMC::DefaultPropertyFlags | QMC::EnumOrFlag, 0),
     };
     QtMocHelpers::UintData qt_enums {
     };
@@ -86,8 +81,6 @@ void ProductListModel::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int
         switch (_id) {
         case 0: _t->categoriesChanged(); break;
         case 1: { QString _r = _t->categoryName((*reinterpret_cast<std::add_pointer_t<int>>(_a[1])));
-            if (_a[0]) *reinterpret_cast<QString*>(_a[0]) = std::move(_r); }  break;
-        case 2: { QString _r = _t->categoryKey((*reinterpret_cast<std::add_pointer_t<int>>(_a[1])));
             if (_a[0]) *reinterpret_cast<QString*>(_a[0]) = std::move(_r); }  break;
         default: ;
         }
@@ -124,14 +117,14 @@ int ProductListModel::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 3)
+        if (_id < 2)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 3;
+        _id -= 2;
     }
     if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 3)
+        if (_id < 2)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 3;
+        _id -= 2;
     }
     if (_c == QMetaObject::ReadProperty || _c == QMetaObject::WriteProperty
             || _c == QMetaObject::ResetProperty || _c == QMetaObject::BindableProperty

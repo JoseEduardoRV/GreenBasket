@@ -12,10 +12,6 @@ public:
     explicit StockProduct(std::string_view name, const double cost = 1.0f);
 
     ~StockProduct() override;
-
-    inline double cost() const { return Product::unitValue(); }
-
-    void updateCost(const double newCost);
 };
 
 #endif // STOCKPRODUCT_H

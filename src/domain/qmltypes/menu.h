@@ -64,7 +64,7 @@ inline QDebug operator<<(QDebug debug, const Menu &menu)
     debug << "-------------- Menu  class -----------------------" << Qt::endl;
     debug << "--------------   bebidas   -----------------------" << Qt::endl;
     foreach (const SoldProduct &p, menu.products())
-        debug << p.name() << p.size().toString() << p.price() << Qt::endl;
+        debug << p.name() << p.category().size() << p.price() << Qt::endl;
     return debug;
 }
 #endif // MENU_H

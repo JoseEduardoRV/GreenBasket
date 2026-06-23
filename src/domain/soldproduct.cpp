@@ -12,21 +12,18 @@ void SoldProduct::verifyProductData()
         Product::authorizeProduct();
 }
 
-SoldProduct::SoldProduct(const ProductCategory &category, std::string_view name, e_size size, double price)
+SoldProduct::SoldProduct(const ProductCategory &category, std::string_view name, double price)
     : Product{name, price}
-    , m_size{size}
     , m_category{category}
 {}
 
-SoldProduct::SoldProduct(const Product &product, const ProductCategory &category, e_size size)
+SoldProduct::SoldProduct(const Product &product, const ProductCategory &category)
     : Product{product}
-    , m_size{size}
     , m_category{category}
 {}
 
 SoldProduct::SoldProduct(const SoldProduct &other)
     : Product{other}
-    , m_size{other.m_size}
     , m_category{other.m_category}
 {
 

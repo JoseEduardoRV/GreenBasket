@@ -71,19 +71,12 @@ QVariant ProductListModel::data(const QModelIndex &index, int role) const
         return productRow;
     case ProductRoles::NameRole:
         return QString::fromStdString(std::string(product.name()));
-
     case ProductRoles::SizeRole:
-        return QString::fromStdString(std::string(product.size().toString()));
-
+        return QString::fromStdString(std::string(product.category().size()));
     case ProductRoles::PriceRole:
         return product.price();
-
     case ProductRoles::CategoryIdRole:
         return product.category().id();
-
-    case ProductRoles::CategoryKeyRole:
-        return QString::fromStdString(std::string(product.category().key()));
-
     case ProductRoles::CategoryNameRole:
         return QString::fromStdString(std::string(product.category().name()));
 
@@ -100,7 +93,6 @@ QHash<int, QByteArray> ProductListModel::roleNames() const
         { ProductRoles::SizeRole,         "size"         },
         { ProductRoles::PriceRole,        "price"        },
         { ProductRoles::CategoryIdRole,   "categoryId"   },
-        { ProductRoles::CategoryKeyRole,  "categoryKey"  },
         { ProductRoles::CategoryNameRole, "categoryName" }
     };
 }
@@ -123,20 +115,6 @@ QString ProductListModel::categoryName(int categoryId) const
     for (const SoldProduct &product : *m_products) {
         if (product.category().id() == categoryId) {
             return QString::fromStdString(std::string(product.category().name()));
-        }
-    }
-
-    return {};
-}
-
-QString ProductListModel::categoryKey(int categoryId) const
-{
-    if (m_products == nullptr)
-        return {};
-
-    for (const SoldProduct &product : *m_products) {
-        if (product.category().id() == categoryId) {
-            return QString::fromStdString(std::string(product.category().key()));
         }
     }
 
