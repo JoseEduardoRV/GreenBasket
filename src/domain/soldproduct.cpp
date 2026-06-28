@@ -1,30 +1,21 @@
 #include "soldproduct.h"
 
-void SoldProduct::verifyProductData()
+SoldProduct::SoldProduct(const Product &product,
+                         const double price,
+                         std::string_view presentation)
+    : Product(product)
+    , m_price{price}
+    , m_available{true}
+    , m_presentation{presentation}
 {
-    if (name() == "unknown")
-        Product::invalidateProduct();
-    else if (name().empty())
-        Product::invalidateProduct();
-    else if (price() < 1.0f)
-        Product::invalidateProduct();
-    else
-        Product::authorizeProduct();
+
 }
-
-SoldProduct::SoldProduct(const ProductCategory &category, std::string_view name, double price)
-    : Product{name, price}
-    , m_category{category}
-{}
-
-SoldProduct::SoldProduct(const Product &product, const ProductCategory &category)
-    : Product{product}
-    , m_category{category}
-{}
 
 SoldProduct::SoldProduct(const SoldProduct &other)
     : Product{other}
-    , m_category{other.m_category}
+    , m_price{other.m_price}
+    , m_available{other.m_available}
+    , m_presentation{other.m_presentation}
 {
 
 }
@@ -34,7 +25,26 @@ SoldProduct::~SoldProduct()
 
 }
 
-void SoldProduct::updatePrice(const double newPrice)
+void SoldProduct::enable()
 {
-    Product::updateUnitValue(newPrice);
+    m_available = true;
+}
+
+void SoldProduct::disable()
+{
+    m_available = false;
+}
+
+void SoldProduct::setSalePrice(const double newPrice)
+{
+    double x = newPrice - m_price;
+    if (std::abs(x) > 0.000001)
+        m_price = newPrice;
+}
+
+void SoldProduct::setPresentation(std::string_view newPresentation)
+{
+    if (m_presentation == newPresentation)
+        return;
+    m_presentation = newPresentation;
 }

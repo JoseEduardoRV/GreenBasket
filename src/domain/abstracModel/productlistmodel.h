@@ -2,43 +2,49 @@
 #define PRODUCTLISTMODEL_H
 
 #include <QAbstractListModel>
-#include <QList>
 #include <QVariantList>
 #include <QString>
+#include <QList>
 
-#include <vector>
-
-#include "../soldproduct.h"
+#include "../submenu.h"
 
 class ProductListModel : public QAbstractListModel
 {
     Q_OBJECT
-    Q_PROPERTY(QVariantList categoryIds READ categoryIds NOTIFY categoriesChanged)
 
-    std::vector<int> m_categories;
-
-    const QList<SoldProduct> *m_products;
-
+    const QList<Submenu> *m_submenus;
 
 public:
     enum ProductRoles {
         ProductRowRole = Qt::UserRole + 1,
         NameRole,
-        SizeRole,
         PriceRole,
         CategoryIdRole,
         CategoryNameRole
     };
 
-    explicit ProductListModel(QObject *parent = nullptr);
+    explicit ProductListModel(const QList<Submenu> *submenus = nullptr, QObject *parent = nullptr);
+
+    int rowCount(const QModelIndex &parent = QModelIndex()) const override
+    {
+        if (parent.isValid())
+            return 0;
+
+        if (m_submenus == nullptr)
+            return 0;
+
+        return m_submenus->size();
+    }
+
+    QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
+
 
     void updateCategories();
 
-    void setProducts(const QList<SoldProduct> *products);
+    void setProducts(const QList<Submenu> &submenu);
 
-    int rowCount(const QModelIndex &parent = QModelIndex()) const override;
 
-    QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
+
 
     QHash<int, QByteArray> roleNames() const override;
 

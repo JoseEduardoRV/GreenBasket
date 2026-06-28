@@ -2,56 +2,30 @@
 
 #include "product.h"
 
-void Product::authorizeProduct()
+void Product::setName(std::string_view newName)
 {
-    m_validProduct = true;
-}
-
-void Product::invalidateProduct()
-{
-    m_validProduct = false;
-}
-
-bool Product::updateUnitValue(const double newValue)
-{
-    if(productIsValid())
-        return false;
-    else if (newValue < 1.0f)
-        return false;
-    else if (std::abs(newValue - unitValue()) > 0.00001f)
-    {
-        m_unitValue = newValue;
-        return true;
-    }
-    else return false;
-}
-
-void Product::setName(std::string_view name)
-{
-    //Esta funcion tiene muchos puntos en los que
-    // debo trabajar
-    if(productIsValid())
+    if(m_name == newName)
         return;
-    m_name = name;
+    m_name = newName;
 }
 
-Product::Product(std::string_view name, const double unitValue)
-    : m_validProduct{false}
-    , m_unitValue{unitValue}
+void Product::setId(const int newId)
+{
+    if ((m_id > 0) && (m_id != newId))
+        m_id = newId;
+}
+
+Product::Product(const int id, std::string_view name)
+    : m_id{id}
     , m_name{name}
 {
 
 }
 
 Product::Product(const Product &other)
-    : m_validProduct{other.m_validProduct}
-    , m_unitValue{other.m_unitValue}
+    : m_id{other.m_id}
     , m_name{other.m_name}
 {
 
 }
 
-Product::~Product()
-{
-
-}

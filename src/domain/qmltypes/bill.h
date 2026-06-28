@@ -17,23 +17,18 @@ class Bill : public QObject
     double m_foodTotal;
     double m_total;
 
-    QList<BillItem> m_billItem;
+    QList<BillItem> m_billItems;
 
 public:
     explicit Bill(QObject *parent = nullptr);
     ~Bill() override;
 
-    inline double total()      const { return m_total;      }
-    inline double drinkTotal() const { return m_drinkTotal; }
-    inline double foodTotal()  const { return m_foodTotal;  }
+    inline double total() const { return m_total; }
 
-    const QList<BillItem> &Items() const { return m_billItem; }
+    const QList<BillItem> &Items() const { return m_billItems; }
 
-    void addItem(const SoldProduct &item, std::size_t quantity = 1);
-
-    void deleteDrink(){}
-    void deleteFood(){}
-    void calculateTotal();
+    void addItem(const SoldProduct &product ,const int category);
+    void addItem(const SoldProduct &product, const int category, std::size_t quantity);
 
 signals:
 };
@@ -45,8 +40,6 @@ inline QDebug operator<<(QDebug debug, const Bill &bill)
     foreach (auto p, bill.Items())
         debug << p.name() << " $" << p.price() << " Pz" << p.quantity() << Qt::endl;
 
-    debug << "Total de comida: " << bill.foodTotal()  << Qt::endl;
-    debug << "Total de bebidas:" << bill.drinkTotal() << Qt::endl;
     debug << "Total:           " << bill.total()      << Qt::endl;
     return debug;
 }

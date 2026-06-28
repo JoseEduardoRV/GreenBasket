@@ -27,13 +27,14 @@ int main(int argc, char *argv[])
     QObject parent;
     Menu menu(&parent);
 
-    menu.loadDrink();
-    menu.loadFood();
+    menu.loadProducts();
 
-    Sale sale(menu, &parent);
+    qDebug() << menu;
 
-    sale.openBill();
-    sale.closeBill();
+    // Sale sale(menu, &parent);
+
+    // sale.openBill();
+    // sale.closeBill();
 
 
     QQmlApplicationEngine engine;
@@ -46,8 +47,8 @@ int main(int argc, char *argv[])
 
     //Se registran los tipos qml debe de concer antes de que se lance main
 
-    engine.rootContext()->setContextProperty("menuController", &menu);
-    engine.rootContext()->setContextProperty("saleController", &sale);
+    //engine.rootContext()->setContextProperty("menuController", &menu);
+    //engine.rootContext()->setContextProperty("saleController", &sale);
 
     engine.loadFromModule("GreenBasket", "Main");
 

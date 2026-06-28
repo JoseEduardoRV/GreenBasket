@@ -60,7 +60,6 @@ Page {
                     delegate: Button {
                         required property int productRow
                         required property string name
-                        required property string size
                         required property real price
                         required property int categoryId
 
@@ -69,7 +68,7 @@ Page {
                         width: visible ? 150 : 0
                         height: visible ? 90 : 0
 
-                        text: name + "\n" + size + "\n$ " + price
+                        text: name + "\n$ " + price
 
                         onClicked: {
                             saleController.addProductByRow(productRow, 1)

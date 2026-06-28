@@ -15,33 +15,47 @@ if (EXISTS "${CMAKE_CURRENT_LIST_DIR}/importedcontent/CMakeLists.txt")
 endif()
 
 qt_add_executable(appGreenBasket
-    main.cpp
+    src/main.cpp
 )
 
 qt_add_qml_module(appGreenBasket
     URI GreenBasket
 
     QML_FILES
-        Main.qml
-        qml/screens/Sale.qml
+        src/ui/Main.qml
 
-        RESOURCES class-diagram/diagram.qmodel
+        src/ui/screens/qml/Sale.qml
+        src/ui/screens/qml_ui/SaleView.ui.qml
 
-        SOURCES src/domain/product.h             src/domain/product.cpp
-        SOURCES src/domain/soldproduct.h         src/domain/soldproduct.cpp
-        SOURCES src/domain/stockproduct.h        src/domain/stockproduct.cpp
-        SOURCES src/domain/user.h                src/domain/user.cpp
-        SOURCES src/domain/account.h             src/domain/account.cpp
-        SOURCES src/domain/billitem.h            src/domain/billitem.cpp
+        src/ui/controls/ActionButton2.qml
+        src/ui/controls/IconButton.qml
+        src/ui/controls/ActionButton.qml
+        src/ui/controls/TicketPanel.qml
+        src/ui/controls/TabButton1.qml
 
-        SOURCES src/domain/qmltypes/bill.h       src/domain/qmltypes/bill.cpp
-        SOURCES src/domain/qmltypes/sale.h       src/domain/qmltypes/sale.cpp
-        SOURCES src/domain/qmltypes/stock.h      src/domain/qmltypes/stock.cpp
-        SOURCES src/domain/qmltypes/inventory.h  src/domain/qmltypes/inventory.cpp
-        SOURCES src/domain/qmltypes/menu.h       src/domain/qmltypes/menu.cpp
+        src/ui/shapes/Tab.qml
 
-        SOURCES src/domain/abstracModel/productlistmodel.h src/domain/abstracModel/productlistmodel.cpp
-        SOURCES src/domain/productcategory.h src/domain/productcategory.cpp
+    RESOURCES
+        class-diagram/diagram.qmodel
+
+    SOURCES
+        src/domain/product.h             src/domain/product.cpp
+        src/domain/soldproduct.h         src/domain/soldproduct.cpp
+        src/domain/stockproduct.h        src/domain/stockproduct.cpp
+        src/domain/user.h                src/domain/user.cpp
+        src/domain/account.h             src/domain/account.cpp
+        src/domain/billitem.h            src/domain/billitem.cpp
+        src/domain/productcategory.h     src/domain/productcategory.cpp
+        src/domain/submenu.h             src/domain/submenu.cpp
+        src/domain/inventoryitem.h       src/domain/inventoryitem.cpp
+
+        src/domain/qmltypes/bill.h       src/domain/qmltypes/bill.cpp
+        src/domain/qmltypes/sale.h       src/domain/qmltypes/sale.cpp
+        src/domain/qmltypes/stock.h      src/domain/qmltypes/stock.cpp
+        src/domain/qmltypes/inventory.h  src/domain/qmltypes/inventory.cpp
+        src/domain/qmltypes/menu.h       src/domain/qmltypes/menu.cpp
+
+        src/domain/abstracModel/productlistmodel.h src/domain/abstracModel/productlistmodel.cpp
 )
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.

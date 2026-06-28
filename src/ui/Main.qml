@@ -1,16 +1,16 @@
 import QtQuick
+import QtQuick.Controls
 import QtQuick.Layouts
-import QtQuick.Controls.Basic
 
-import "qml/screens"
+import "../ui/screens/qml_ui"
 
 ApplicationWindow {
-    width: 420
-    height: 720
+    width: 800
+    height: 1200
     visible: true
     title: "GreenBasket"
 
-    Sale {
+    SaleView {
         anchors.fill: parent
     }
 }

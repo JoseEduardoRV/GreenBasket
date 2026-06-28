@@ -20,6 +20,9 @@ como se agrega un producto a la cuenta al menu? eso se hace dese qml, en la inte
 una lista dinamica que mjesrra los menus creados yndesd ahi sepasa una copia sea por referencia o por valor
 eso depende del diseño
 
+Sería conveniente que QML pasará un id o apartir de una referencia pasar una copiar directamente
+de MenuSubset y los modelos
+→ debe recibir modelos Qt: MenuSubsetListModel y modelos de productos por submenú
 
 
  
@@ -56,7 +59,7 @@ public:
         if (quantity <= 0)
             return;
 
-        const SoldProduct *product = m_menu.productAtRow(productRow);
+        const SoldProduct *product = nullptr;
 
         if (product == nullptr)
             return;

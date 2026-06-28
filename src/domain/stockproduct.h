@@ -6,10 +6,9 @@
 class StockProduct : public Product
 {
 protected:
-    void verifyProductData() override;
 
 public:
-    explicit StockProduct(std::string_view name, const double cost = 1.0f);
+    explicit StockProduct(const Product &product);
 
     ~StockProduct() override;
 };

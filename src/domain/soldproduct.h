@@ -2,31 +2,35 @@
 #define SOLDPRODUCT_H
 
 #include "product.h"
-#include "productcategory.h"
 
 class SoldProduct : public Product
 {
-    ProductCategory m_category;
-
-protected:
-    void verifyProductData() override;
+    double      m_price;
+    bool        m_available;
+    std::string m_presentation;
 
 public:
-    explicit SoldProduct(const ProductCategory &category, std::string_view name,
-                         double price = 0.0f);
-
-    explicit SoldProduct(const Product &product, const ProductCategory &category);
+    explicit SoldProduct(const Product &product,
+                         const double price,
+                         std::string_view presentation);
 
     SoldProduct(const SoldProduct& other);
 
     ~SoldProduct() override;
 
-    const ProductCategory &category() const { return m_category; }
+    inline double salePrice() const { return m_price; }
 
-    inline double price() const { return Product::unitValue(); }
+    inline bool   available() const { return m_available; }
 
+    const std::string_view presentation() const { return m_presentation; }
 
-    void updatePrice(const double newPrice);
+    void enable();
+
+    void disable();
+
+    void setSalePrice(const double newPrice);
+
+    void setPresentation(std::string_view newPresentation);
 };
 
 #endif // SOLDPRODUCT_H

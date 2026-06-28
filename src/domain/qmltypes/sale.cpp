@@ -27,7 +27,7 @@ void Sale::closeBill()
 {
     if(m_bill == nullptr)
         return;
-    m_bill->calculateTotal();
+
     qDebug() << "*** Cobrar cuenta ***" << Qt::endl
              << *m_bill;
 }

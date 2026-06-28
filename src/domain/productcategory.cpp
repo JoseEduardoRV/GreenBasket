@@ -1,9 +1,9 @@
 #include "productcategory.h"
 
-ProductCategory::ProductCategory(std::string_view name, std::string_view size, int id)
+ProductCategory::ProductCategory(std::string_view name, int id)
     : m_id{id}
     , m_name{name}
-    , m_size{size}
+    , m_key{ }
 {
 
 }
@@ -11,7 +11,7 @@ ProductCategory::ProductCategory(std::string_view name, std::string_view size, i
 ProductCategory::ProductCategory(const ProductCategory &other)
     : m_id{other.m_id}
     , m_name{other.m_name}
-    , m_size{other.m_size}
+    , m_key{other.m_key}
 
 {
 
@@ -19,5 +19,5 @@ ProductCategory::ProductCategory(const ProductCategory &other)
 
 bool ProductCategory::isValid() const
 {
-    return m_id > 0 && !m_name.empty() && !m_size.empty();
+    return m_id > 0 && !m_name.empty() /*&& !m_size.empty()*/;
 }

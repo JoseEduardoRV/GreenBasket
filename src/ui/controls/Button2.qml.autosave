@@ -1,0 +1,32 @@
+import QtQuick
+import QtQuick.Controls
+
+Button {
+    id: root
+
+    property url   iconSource:   "file:///C:/Users/Ing-Eduardo/Documents/Glintec/Proyects/Windows-11/GreenBasket/icons/pagar.png"
+    property color normalColor:  "#66bb6a"
+    property color pressedColor: "#202820"
+    property color borderColor:  "#353a28"
+
+    implicitWidth: 256
+    implicitHeight: 256
+
+    padding: 0
+
+    background: Rectangle {
+        radius: 20
+        color: root.pressed ? root.pressedColor : root.normalColor
+        border.color: root.borderColor
+        border.width: 2
+    }
+
+    contentItem: Image {
+        anchors.fill: parent
+        anchors.margins: 20
+
+        source: root.iconSource
+
+        fillMode: Image.PreserveAspectFit
+    }
+}

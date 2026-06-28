@@ -5,66 +5,38 @@
 → administra el modelo para QML.
 → permite buscar productos.
 
-
 Falta codificar
 ProductProvider / Repository / Loader
 → obtiene productos desde JSON, SQLite, archivo o memoria.
-
-
  */
 
 #ifndef MENU_H
 #define MENU_H
 
-#include <QAbstractListModel>
-#include "../abstracModel/productlistmodel.h"
-
 #include <QObject>
 #include <QDebug>
 #include <QList>
 
-#include "../soldproduct.h"
+#include "../submenu.h"
 
 class Menu : public QObject
 {
     Q_OBJECT
-    Q_PROPERTY(QAbstractListModel* productsModel READ productsModel CONSTANT)
 
-    QList<SoldProduct> m_products;
-    ProductListModel m_productsModel;
+    QList<Submenu> m_submenus;
 
 public:
     explicit Menu(QObject *parent = nullptr);
     ~Menu() override;
 
-    /*Aqui va el argumenteo para pasarle el archivo JSOM de bebidas*/
-    void loadDrink();
-    /*Aqui va el argumenteo para pasarle el archivo JSOM de alimentos*/
-    void loadFood();
-    /*Aqui va el argumenteo para pasarle el archivo JSOM de alimentos*/
-    void loadDesserts();
+    void loadProducts();
 
-    const SoldProduct *productAtRow(int row) const
-    {
-        if (row < 0 || row >= m_products.size())
-            return nullptr;
+    void addSubmenu(const Submenu &newSubmenu);
 
-        return &m_products.at(row);
-    }
-
-    const QList<SoldProduct> &products() const { return m_products;   }
-
-    QAbstractListModel *productsModel() { return &m_productsModel;   }
+    const QList<Submenu> &submenus() const { return m_submenus; }
 
 signals:
 };
 
-inline QDebug operator<<(QDebug debug, const Menu &menu)
-{
-    debug << "-------------- Menu  class -----------------------" << Qt::endl;
-    debug << "--------------   bebidas   -----------------------" << Qt::endl;
-    foreach (const SoldProduct &p, menu.products())
-        debug << p.name() << p.category().size() << p.price() << Qt::endl;
-    return debug;
-}
+QDebug operator<<(QDebug debug, const Menu &menu);
 #endif // MENU_H

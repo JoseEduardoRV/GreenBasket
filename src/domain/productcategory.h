@@ -8,19 +8,20 @@ class ProductCategory
 {
     int         m_id;
     std::string m_name;
-    std::string m_size;
+    std::string m_key;
 
 public:
-    explicit ProductCategory(std::string_view name, std::string_view size, int id = 0);
+    explicit ProductCategory(std::string_view name, int id = 0);
 
     ProductCategory(const ProductCategory & other);
 
     ~ProductCategory() = default;
 
+    //bool operator==(const ProductCategory& other) const { return m_id == other.m_id; }
+
     inline int id() const { return m_id; }
 
     inline const std::string_view name() const { return m_name; }
-    inline const std::string_view size() const { return m_size; }
 
     bool isValid() const;
 };

@@ -1,18 +1,19 @@
 #include "menu.h"
+#include "src/domain/productcategory.h"
 
-Menu::Menu(QObject *parent)
-    : QObject{parent}
+Menu::Menu(QObject *parent) : QObject{parent}
 {
     qDebug() << "*** Building the Menu *** " << this;
-    m_productsModel.setProducts(&m_products);
+    //m_productsModel.setProducts(&m_products);
 }
 
 Menu::~Menu()
 {
+    //Se debe de gestionar la memoria de los contenedores sea QList o QVector etc.
     qDebug() << "*** detroying the Menu *** " << this;
 }
 
-void Menu::loadDrink()
+void Menu::loadProducts() // Esta funcion solo es para depurar
 {
     //Consideraciones pendientes
     //Opción A: si ya hay datos, no volver a cargar
@@ -20,47 +21,62 @@ void Menu::loadDrink()
 
     qDebug() << "*** Loading drinks to Menu *** ";
 
-    m_products.append(SoldProduct(ProductCategory("hot-drink", "16 oz",  1), "Cafe", 26.50f));
-    m_products.append(SoldProduct(ProductCategory("hot-drink", "20 oz",  1), "Cafe", 36.50f));
-    m_products.append(SoldProduct(ProductCategory("hot-drink", "24 oz",  1), "Cafe", 46.50f));
+     // Submenu(const ProductCategory &category, const std::vector<SoldProduct> &products);
 
-    m_products.append(SoldProduct(ProductCategory("cold-drink", "350ml", 2), "Agua", 10.50f));
-    m_products.append(SoldProduct(ProductCategory("cold-drink", "500ml", 2), "Agua", 16.50f));
-    m_products.append(SoldProduct(ProductCategory("cold-drink", "1L   ", 2), "Agua", 26.50f));
-
-    m_products.append(SoldProduct(ProductCategory("cold-drink", "16 oz", 2), "Agua fresca", 16.50f));
-    m_products.append(SoldProduct(ProductCategory("cold-drink", "20 oz", 2), "Agua fresca", 26.50f));
-    m_products.append(SoldProduct(ProductCategory("cold-drink", "24 oz", 2), "Agua fresca", 36.50f));
-
-    m_products.append(SoldProduct(ProductCategory("juge", "16 oz", 3), "Jugo verde", 25.50f));
-    m_products.append(SoldProduct(ProductCategory("juge", "20 oz", 3), "Jugo verde", 35.50f));
-    m_products.append(SoldProduct(ProductCategory("juge", "24 oz", 3), "Jugo verde", 45.50f));
-
-    m_productsModel.updateCategories();
-}
-
-void Menu::loadFood()
-{
-    //Consideraciones pendientes
-    //Opción A: si ya hay datos, no volver a cargar
-    //Opción B: limpiar la lista antes de cargar.
-
+    int c {1};
+    addSubmenu(Submenu(ProductCategory("hot-drink", c), std::vector<SoldProduct> { SoldProduct(Product(1001, "Cafe"), 20.50f, "16 Oz"),
+                                                                                   SoldProduct(Product(1002, "Cafe"), 26.50f, "20 Oz"),
+                                                                                   SoldProduct(Product(1003, "Cafe"), 32.50f, "24 Oz") }));
+        c = 2;
+    addSubmenu(Submenu(ProductCategory("cold-drink", c), std::vector<SoldProduct> { SoldProduct(Product(1004, "Agua"), 10.50f, "350ml"),
+                                                                                    SoldProduct(Product(1005, "Agua"), 16.50f, "500ml"),
+                                                                                    SoldProduct(Product(1006, "Agua"), 26.50f, "1L") }));
+    addSubmenu(Submenu(ProductCategory("cold-drink", c), std::vector<SoldProduct> { SoldProduct(Product(1007, "Agua fresca"), 13.50f, "16 Oz"),
+                                                                                    SoldProduct(Product(1008, "Agua fresca"), 17.50f, "20 Oz"),
+                                                                                    SoldProduct(Product(1009, "Agua fresca"), 28.50f, "24 Oz") }));
+        c = 2;
+    addSubmenu(Submenu(ProductCategory("cold-drink", c), std::vector<SoldProduct> { SoldProduct(Product(1010, "juge"), 25.50f, "16 Oz"),
+                                                                                    SoldProduct(Product(1011, "juge"), 35.50f, "20 Oz"),
+                                                                                    SoldProduct(Product(1012, "juge"), 45.50f, "24 Oz") }));
     qDebug() << "*** Loading food to Menu *** ";
-
-    m_products.append(SoldProduct(ProductCategory("healthy-food","Small ", 4), "Ensalada", 60.00f));
-    m_products.append(SoldProduct(ProductCategory("healthy-food","Medium", 4), "Ensalada", 78.00f));
-    m_products.append(SoldProduct(ProductCategory("healthy-food","Large ", 4), "Ensalada", 95.00f));
-
-    m_products.append(SoldProduct(ProductCategory("Italian fast-food"," ", 5), "Baguette Pollo    ", 80.00f));
-    m_products.append(SoldProduct(ProductCategory("Italian fast-food"," ", 5), "Baguette Combinado", 85.00f));
-    m_products.append(SoldProduct(ProductCategory("Italian fast-food"," ", 5), "Baguette Milaneza ", 95.00f));
-
-    m_productsModel.updateCategories();
+    c = 4;
+    addSubmenu(Submenu(ProductCategory("healthy-food", c), std::vector<SoldProduct> { SoldProduct(Product(1010, "Ensalada"), 25.50f, "Small"),
+                                                                                      SoldProduct(Product(1011, "Ensalada"), 35.50f, "Medium"),
+                                                                                      SoldProduct(Product(1012, "Ensalada"), 45.50f, "Large") }));
+        c = 5;
+    addSubmenu(Submenu(ProductCategory("Italian fast-food", c), std::vector<SoldProduct> { SoldProduct(Product(1013, "Baguette"), 75.50f, "Pollo"),
+                                                                                           SoldProduct(Product(1014, "Baguette"), 85.50f, "Combinado"),
+                                                                                           SoldProduct(Product(1015, "Baguette"), 95.50f, "Milaneza"), }));
+    addSubmenu(Submenu(ProductCategory("Italian fast-food", c), std::vector<SoldProduct> { SoldProduct(Product(1015, "Baguette"), 95.50f, "Milaneza") }));
 }
 
-void Menu::loadDesserts()
+void Menu::addSubmenu(const Submenu &newSubmenu)
 {
-    qDebug() << "*** Loading desserts to Menu *** ";
+    Submenu *submenu{nullptr};
 
-    m_productsModel.updateCategories();
+    for (Submenu &item : m_submenus) {
+        if (item.id() == newSubmenu.id()) {
+            submenu = &item;
+            break;
+        }
+    }
+
+    if (submenu) {
+        for (const SoldProduct &item : newSubmenu.products()) {
+            submenu->addProduct(item);
+        }
+    } else {
+        m_submenus.push_back(newSubmenu);
+    }
+}
+
+QDebug operator<<(QDebug debug, const Menu &menu)
+{
+    debug << "---                     Menu                     ---" << Qt::endl;
+    foreach (const auto &m, menu.submenus()) {
+        debug << Qt::endl << Qt::endl << "---" << m.name() << m.id() << Qt::endl << Qt::endl;
+        foreach (const auto i, m.products())
+            debug << "---" << i.name() << i.presentation() << "$" << i.salePrice() << Qt::endl;
+    }
+    return debug;
 }

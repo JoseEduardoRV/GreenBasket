@@ -1,18 +1,19 @@
 #include "billitem.h"
 
-BillItem::BillItem(const SoldProduct &product, std::size_t quantity)
-    : m_quantity {quantity}
-    , m_product {product}
+BillItem::BillItem(const SoldProduct &product, const int category, std::size_t quantity)
+    : m_category{category}
+    , m_quantity{quantity > 0 ? quantity : 1}
+    , m_product{product}
 {
 
 }
 
-BillItem::~BillItem()
+void BillItem::addOne()
 {
-
+    m_quantity++;
 }
 
-void BillItem::updateQuantity(std::size_t newQuantity)
+void BillItem::setQuantity(std::size_t newQuantity)
 {
     if (newQuantity > 0)
         m_quantity = newQuantity;
