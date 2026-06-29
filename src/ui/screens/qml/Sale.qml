@@ -56,7 +56,7 @@ SaleView {
             onClicked: {
                 console.log("Ticket seleccionado:", index)
                 view.itemsList.currentIndex = index
-                saleController.selectBill(index)
+                saleController.selectBill(modelData)
             }
         }
     }
@@ -80,9 +80,7 @@ SaleView {
     cancelBillButton.text: "Canelar cuenta"
     cancelBillButton.onClicked: {
         console.log("Cancel Bill Button")
-
-        if (view.itemsList.currentIndex >= 0)
-            saleController.cancelBill(view.itemsList.currentIndex)
+            saleController.cancelBill()
     }
 
     getPaidBillButton.iconSource: "file:///C:/Users/Ing-Eduardo/Documents/Glintec/Proyects/Windows-11/GreenBasket/icons/creditCard.png"
@@ -91,7 +89,7 @@ SaleView {
         console.log("Get Paid Bill Button")
 
         if (view.itemsList.currentIndex >= 0)
-            saleController.getPaidBill(view.itemsList.currentIndex)
+            saleController.getPaidBill()
     }
 
     showMenuButton.iconSource: "file:///C:/Users/Ing-Eduardo/Documents/Glintec/Proyects/Windows-11/GreenBasket/icons/user.png"

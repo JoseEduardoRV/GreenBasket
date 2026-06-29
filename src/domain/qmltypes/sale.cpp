@@ -16,31 +16,47 @@ Sale::~Sale()
 
 void Sale::openBill()
 {
-    Bill *bill = new Bill(this);
+    Bill *bill = createBill();
 
-    bill->setTicketNumber(m_bills.size());
+    if(bill) {
+        m_bills.push_back(bill);
 
-    bill->setCreatedAt();
+        m_editingBill = bill;
 
-    m_bills.push_back(bill);
+        emit billsChanged();
 
-    m_editingBill = bill;
-
-    emit billsChanged();
-
-    qDebug() << "Se agregó una nueva cuenta. Total:" << m_bills.size();
+        qDebug() << "Se agregó una nueva cuenta:" << bill;
+    }
 }
 
-void Sale::cancelBill(int item)
+void Sale::cancelBill()
 {
-    //m_bills.push_back(Bill(this));
-    qDebug() << "Se canselo la cuenta:" << item;
+    if (m_editingBill) {
+
+        if (canCancelBill(*m_editingBill)) {
+
+            m_editingBill->clean();
+
+            m_editingBill->setStatus(Bill::BillStatus::Canceled);
+
+            emit billsChanged();
+        }
+    }
 }
 
-void Sale::getPaidBill(int item)
+void Sale::getPaidBill()
 {
-    qDebug() << "Se pago la cuenta:" << item;
-    //m_bills.push_back(Bill(this));
+    if (m_editingBill) {
+
+        if (canGetPaidBill(*m_editingBill)) {
+
+            //m_editingBill->clean(); Algoritmo para cobro
+
+            m_editingBill->setStatus(Bill::BillStatus::Paid);
+
+            emit billsChanged();
+        }
+    }
 }
 
 void Sale::showMenu()
@@ -57,8 +73,65 @@ void Sale::changeUser()
     qDebug() << "Se pago la cuenta:";
 }
 
-void Sale::selectBill(const int index)
+void Sale::selectBill(Bill *bill)
 {
-    m_editingBill = m_bills.value(index);
-    qDebug() << "Selected tiket:" << index;
+    if (m_bills.contains(bill)) {
+        m_editingBill = bill;
+        m_editingBill->settotal();
+
+        qDebug() << "Selected ticket:" << m_editingBill;
+    }
+}
+
+Bill *Sale::createBill()
+{
+    Bill *bill = new Bill(this);
+
+    if(bill) {
+        bill->setTicketNumber(m_bills.size() + 1);
+        bill->setCreatedAt();
+        bill->setStatus(Bill::BillStatus::Active);
+    }
+
+    return bill;
+}
+
+bool Sale::canCancelBill(const Bill &bill) const
+{
+    switch (bill.status()) {
+    case Bill::BillStatus::Active:
+    case Bill::BillStatus::Suspended:
+    case Bill::BillStatus::ReadyToPay:
+        return true;
+
+    case Bill::BillStatus::Closed:
+    case Bill::BillStatus::Paid:
+    case Bill::BillStatus::Canceled:
+    case Bill::BillStatus::Refunded:
+    default:
+        break;
+        return false;
+    }
+
+    return false;
+}
+
+bool Sale::canGetPaidBill(const Bill &bill) const
+{
+    switch (bill.status()) {
+    case Bill::BillStatus::Active:
+    case Bill::BillStatus::ReadyToPay:
+        return true;
+
+    case Bill::BillStatus::Suspended:
+    case Bill::BillStatus::Closed:
+    case Bill::BillStatus::Paid:
+    case Bill::BillStatus::Canceled:
+    case Bill::BillStatus::Refunded:
+    default:
+        break;
+        return false;
+    }
+
+    return false;
 }

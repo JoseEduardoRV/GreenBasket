@@ -1,13 +1,19 @@
 #include "bill.h"
 
+void Bill::setStatus(BillStatus newStatus)
+{
+    m_status = newStatus;
+}
+
 Bill::Bill(QObject *parent)
     : QObject{parent}
-    , m_customerIdentity{ }
-    , m_accountLabel{ }
-    , m_total{ }
-    , m_ticketNumber{ }
-    , m_createdAt{ }
-    , m_billItems{ }
+    , m_status{BillStatus::None}
+    , m_customerIdentity{}
+    , m_accountLabel{}
+    , m_total{}
+    , m_ticketNumber{}
+    , m_createdAt{}
+    , m_billItems{}
 {
     qDebug() << "*** Building a new Bill ***" << this << Qt::endl;
 }
@@ -55,7 +61,7 @@ void Bill::addItem(const SoldProduct &product, const int category, std::size_t q
 
 void Bill::setTicketNumber(int index)
 {
-    m_ticketNumber = { QString("Ticket B20-1203-%1").arg(index + 1) };
+    m_ticketNumber = { QString("Ticket B20-1203-%1").arg(index) };
     emit ticketNumberChanged();
 }
 

@@ -43,15 +43,21 @@ public:
     int billCount() const { return m_bills.size(); }
 
     Q_INVOKABLE void openBill();
-    Q_INVOKABLE void cancelBill(int item);
-    Q_INVOKABLE void getPaidBill(int item);
+    Q_INVOKABLE void cancelBill();
+    Q_INVOKABLE void getPaidBill();
     Q_INVOKABLE void showMenu();
     Q_INVOKABLE void changeUser();
-    Q_INVOKABLE void selectBill(const int index);
+    Q_INVOKABLE void selectBill(Bill* bill);
 
 signals:
     void billCountChanged();
     void billsChanged();
+
+private:
+
+    Bill* createBill();
+    bool canCancelBill(const Bill &bill) const;
+    bool canGetPaidBill(const Bill &bill) const;
 };
 
 #endif // SALE_H

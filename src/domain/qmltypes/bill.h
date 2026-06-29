@@ -28,16 +28,33 @@ class Bill : public QObject
     QList<BillItem> m_billItems;
 
 public:
+
+    enum /*class*/ BillStatus
+    {
+        None,
+        Active,     // Cuenta activa
+        Suspended,  // Cuenta suspendida/en espera
+        Closed,
+        ReadyToPay, // Lista para cobrar
+        Paid,       // Cobrada
+        Canceled,   // Cancelada
+        Refunded    // Reembolsada
+    }; Q_ENUM(BillStatus)
+
     explicit Bill(QObject *parent = nullptr);
     ~Bill() override;
 
     inline double total() const { return m_total; }
+
+    inline BillStatus status() const { return m_status; }
 
     const QString &ticketNumber() const { return m_ticketNumber; }
 
     const QDateTime &createdAt() const { return m_createdAt; }
 
     const QList<BillItem> &Items() const { return m_billItems; }
+
+    void setStatus(BillStatus newStatus);
 
     void addItem(const SoldProduct &product ,const int category);
 
@@ -47,11 +64,24 @@ public:
 
     void setCreatedAt();
 
+    void settotal() { m_total += m_total + 500 + 1 ;}
+
+    void clean()
+    {
+        m_total = 0;
+    }
+
 signals:
     void totalChanged();
     void ticketNumberChanged();
     void createdAtChanged();
+
+private:
+    BillStatus m_status;
+
+
 };
+
 
 inline QDebug operator<<(QDebug debug, const Bill &bill)
 {
