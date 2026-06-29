@@ -4,10 +4,8 @@
 #ifndef SALE_H
 #define SALE_H
 
-#include <QObject>
-#include <QDateTime>
+#include <QQmlListProperty>
 
-#include "menu.h"
 #include "bill.h"
 
 /* Observaciones de diseño
@@ -29,17 +27,18 @@ class Sale : public QObject
 {
     Q_OBJECT
 
-    Q_PROPERTY(int billCount READ billCount NOTIFY billCountChanged)
-    //Q_PROPERTY(int currentBillIndex READ currentBillIndex NOTIFY currentBillChanged)
+    Q_PROPERTY(int billCount READ billCount NOTIFY billCountChanged) // Esta variable se eliminará
+    Q_PROPERTY(QQmlListProperty<Bill> bills READ bills NOTIFY billsChanged)
 
-    const Menu *m_menu;
     QList<Bill*> m_bills;
-
     Bill* m_editingBill;
 
 public:
-    explicit Sale(const Menu *menu = nullptr, QObject *parent = nullptr);
+    explicit Sale(QObject *parent = nullptr);
+
     ~Sale() override;
+
+    QQmlListProperty<Bill> bills() { return QQmlListProperty<Bill>(this, &m_bills); }
 
     int billCount() const { return m_bills.size(); }
 
@@ -52,10 +51,7 @@ public:
 
 signals:
     void billCountChanged();
-    void addedBill();
-    void canceledBill();
-    void paidedBill();
-    void changedUser();
+    void billsChanged();
 };
 
 #endif // SALE_H

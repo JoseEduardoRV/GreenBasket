@@ -4,38 +4,33 @@
 
 #include "src/domain/qmltypes/sale.h"
 
-/*
-    Menu → Catálogo disponible de productos vendibles.
-
-    Sale
-    → Controla la sesión de ventas.
-    → Administra varias cuentas abiertas.
-
-    Bill
-    → Representa una cuenta individual.
-    → Agrega productos del menú.
-    → Calcula totales.
- */
-
 int main(int argc, char *argv[])
 {
     QGuiApplication app(argc, argv);
 
     /////                     /////
     QObject parent;
-    Menu menu(&parent);
 
-    menu.loadProducts();
-
-    qDebug() << menu;
-
-    Sale sale(&menu, &parent);
-
-    // sale.openBill();
-    // sale.closeBill();
-
+    Sale sale(&parent);
 
     QQmlApplicationEngine engine;
+
+/* =========================================================================
+       REGISTRO DE TIPOS C++ PARA QML (Colócalo aquí)
+   =========================================================================*/
+
+    qmlRegisterUncreatableType<Bill>(
+        "GreenBasket.Domain",  // Nombre del módulo a importar en QML
+        1, 0,                  // Versión Mayor (1), Versión Menor (0)
+        "Bill",                // Nombre del tipo en QML
+        "Bill is created from C++" // Mensaje de error si QML intenta instanciarlo
+        );
+
+
+
+
+
+
     QObject::connect(
         &engine,
         &QQmlApplicationEngine::objectCreationFailed,

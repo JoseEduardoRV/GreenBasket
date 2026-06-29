@@ -1,14 +1,12 @@
 #include "sale.h"
 
-Sale::Sale(const Menu *menu, QObject *parent)
+Sale::Sale(QObject *parent)
     : QObject{parent}
-    , m_menu{menu}
     , m_bills{}
     , m_editingBill{nullptr}
 {
     qDebug() << "*** Building Sale ***" << Qt::endl
-             << "*** Menu disponible:"  << Qt::endl
-             << m_menu;
+             << "*** Menu disponible:"  << Qt::endl;
 }
 
 Sale::~Sale()
@@ -18,36 +16,38 @@ Sale::~Sale()
 
 void Sale::openBill()
 {
-    Bill* b { new Bill(this) };
-    m_bills.push_back(b);
+    Bill *bill = new Bill(this);
 
-    qDebug() << "Se agregó una nueva cuenta. Total de cuentas:" << m_bills.size();
+    bill->setTicketNumber(m_bills.size());
 
-    emit billCountChanged();
-    emit addedBill();
+    bill->setCreatedAt();
+
+    m_bills.push_back(bill);
+
+    m_editingBill = bill;
+
+    emit billsChanged();
+
+    qDebug() << "Se agregó una nueva cuenta. Total:" << m_bills.size();
 }
 
 void Sale::cancelBill(int item)
 {
     //m_bills.push_back(Bill(this));
     qDebug() << "Se canselo la cuenta:" << item;
-    emit billCountChanged();
-    emit canceledBill();
 }
 
 void Sale::getPaidBill(int item)
 {
     qDebug() << "Se pago la cuenta:" << item;
     //m_bills.push_back(Bill(this));
-    emit billCountChanged();
-    emit paidedBill();
 }
 
 void Sale::showMenu()
 {
-    if (m_menu)
-        qDebug() << "Mostrar menu:" << *m_menu;
-    else
+    // if (m_menu)
+    //     qDebug() << "Mostrar menu:" << *m_menu;
+    // else
         qDebug() << "Menu vacio";
 }
 
@@ -55,7 +55,6 @@ void Sale::changeUser()
 {
     //m_bills.push_back(Bill(this));
     qDebug() << "Se pago la cuenta:";
-    emit changedUser();
 }
 
 void Sale::selectBill(const int index)

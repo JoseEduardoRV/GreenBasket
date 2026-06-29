@@ -2,9 +2,12 @@
 
 Bill::Bill(QObject *parent)
     : QObject{parent}
-    , m_drinkTotal{ }
-    , m_foodTotal{ }
+    , m_customerIdentity{ }
+    , m_accountLabel{ }
     , m_total{ }
+    , m_ticketNumber{ }
+    , m_createdAt{ }
+    , m_billItems{ }
 {
     qDebug() << "*** Building a new Bill ***" << this << Qt::endl;
 }
@@ -48,4 +51,16 @@ void Bill::addItem(const SoldProduct &product, const int category, std::size_t q
     } else {
         m_billItems.push_back(BillItem(product, category, quantity));
     }
+}
+
+void Bill::setTicketNumber(int index)
+{
+    m_ticketNumber = { QString("Ticket B20-1203-%1").arg(index + 1) };
+    emit ticketNumberChanged();
+}
+
+void Bill::setCreatedAt()
+{
+    m_createdAt.setDate(QDate::currentDate());
+    emit createdAtChanged();
 }
