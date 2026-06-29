@@ -4,8 +4,6 @@
 
 #include "src/domain/qmltypes/sale.h"
 
-
-
 /*
     Menu → Catálogo disponible de productos vendibles.
 
@@ -31,7 +29,7 @@ int main(int argc, char *argv[])
 
     qDebug() << menu;
 
-    // Sale sale(menu, &parent);
+    Sale sale(&menu, &parent);
 
     // sale.openBill();
     // sale.closeBill();
@@ -48,7 +46,7 @@ int main(int argc, char *argv[])
     //Se registran los tipos qml debe de concer antes de que se lance main
 
     //engine.rootContext()->setContextProperty("menuController", &menu);
-    //engine.rootContext()->setContextProperty("saleController", &sale);
+    engine.rootContext()->setContextProperty("saleController", &sale);
 
     engine.loadFromModule("GreenBasket", "Main");
 

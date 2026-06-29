@@ -72,7 +72,6 @@ SaleView {
         saleController.showMenu()
     }
 
-
     Connections {
         target: saleController
 

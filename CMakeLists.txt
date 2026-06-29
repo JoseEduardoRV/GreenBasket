@@ -41,18 +41,18 @@ qt_add_qml_module(appGreenBasket
     SOURCES
         src/domain/product.h             src/domain/product.cpp
         src/domain/soldproduct.h         src/domain/soldproduct.cpp
-        src/domain/stockproduct.h        src/domain/stockproduct.cpp
-        src/domain/user.h                src/domain/user.cpp
-        src/domain/account.h             src/domain/account.cpp
+        #src/domain/stockproduct.h        src/domain/stockproduct.cpp
+        #src/domain/user.h                src/domain/user.cpp
+        #src/domain/account.h             src/domain/account.cpp
         src/domain/billitem.h            src/domain/billitem.cpp
         src/domain/productcategory.h     src/domain/productcategory.cpp
         src/domain/submenu.h             src/domain/submenu.cpp
-        src/domain/inventoryitem.h       src/domain/inventoryitem.cpp
+        #src/domain/inventoryitem.h       src/domain/inventoryitem.cpp
 
         src/domain/qmltypes/bill.h       src/domain/qmltypes/bill.cpp
         src/domain/qmltypes/sale.h       src/domain/qmltypes/sale.cpp
-        src/domain/qmltypes/stock.h      src/domain/qmltypes/stock.cpp
-        src/domain/qmltypes/inventory.h  src/domain/qmltypes/inventory.cpp
+        #src/domain/qmltypes/stock.h      src/domain/qmltypes/stock.cpp
+        #src/domain/qmltypes/inventory.h  src/domain/qmltypes/inventory.cpp
         src/domain/qmltypes/menu.h       src/domain/qmltypes/menu.cpp
 
         src/domain/abstracModel/productlistmodel.h src/domain/abstracModel/productlistmodel.cpp

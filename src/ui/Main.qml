@@ -2,7 +2,7 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
 
-import "../ui/screens/qml_ui"
+import "../ui/screens/qml"
 
 ApplicationWindow {
     width: 800
@@ -10,7 +10,7 @@ ApplicationWindow {
     visible: true
     title: "GreenBasket"
 
-    SaleView {
+    Sale {
         anchors.fill: parent
     }
 }

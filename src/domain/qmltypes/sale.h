@@ -23,52 +23,39 @@ eso depende del diseño
 Sería conveniente que QML pasará un id o apartir de una referencia pasar una copiar directamente
 de MenuSubset y los modelos
 → debe recibir modelos Qt: MenuSubsetListModel y modelos de productos por submenú
-
-
- 
  */
 
 class Sale : public QObject
 {
     Q_OBJECT
 
-    const Menu &m_menu;
-    QList<Bill*> m_bills; // Hay que tener cuidado con este Objeto porlas copias ya que hereda de QObject
-    Bill* m_bill; // apunta a la ultima cunata creada;
+    Q_PROPERTY(int billCount READ billCount NOTIFY billCountChanged)
+    //Q_PROPERTY(int currentBillIndex READ currentBillIndex NOTIFY currentBillChanged)
+
+    const Menu *m_menu;
+    QList<Bill*> m_bills;
+
+    Bill* m_editingBill;
 
 public:
-    explicit Sale(const Menu &menu, QObject *parent = nullptr);
+    explicit Sale(const Menu *menu = nullptr, QObject *parent = nullptr);
     ~Sale() override;
 
-    inline const Menu  &menu()  const { return m_menu; } //probablemente se usa para QML
-    /* Probablemente esta funcion desaparesca ya que se
-       esta evaluando la posibilidad que la Case Menu tango
-       pueda ser compatible con QML o se  use una funcion
-       addProduct a la cuenta.
-    */
+    int billCount() const { return m_bills.size(); }
 
     Q_INVOKABLE void openBill();
-    /*Q_INVOKABLE*/ void changeBill(){}
-    Q_INVOKABLE void closeBill();
-
-    Q_INVOKABLE void addProductByRow(int productRow, int quantity)
-    {
-        if (m_bill == nullptr)
-            return;
-
-        if (quantity <= 0)
-            return;
-
-        const SoldProduct *product = nullptr;
-
-        if (product == nullptr)
-            return;
-
-        m_bill->addItem(*product, static_cast<std::size_t>(quantity));
-    }
+    Q_INVOKABLE void cancelBill(int item);
+    Q_INVOKABLE void getPaidBill(int item);
+    Q_INVOKABLE void showMenu();
+    Q_INVOKABLE void changeUser();
+    Q_INVOKABLE void selectBill(const int index);
 
 signals:
-    void paidBill(); // Esta señal desencadena todos los proceso necesarion para registrar que la cuenta debe de cobrar y se esta cobrando
+    void billCountChanged();
+    void addedBill();
+    void canceledBill();
+    void paidedBill();
+    void changedUser();
 };
 
 #endif // SALE_H

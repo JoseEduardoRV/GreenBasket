@@ -3,15 +3,19 @@ import QtQuick.Layouts
 import QtQuick.Controls.Basic
 
 import "../../controls"
-/*
-imagen completa 256x256 icono: 180-205 px, Margen transparente: 25-38 px por lado
-*/
 
 Item {
     id: root
 
-    implicitWidth: 430
+    implicitWidth:  430
     implicitHeight: 820
+
+    property alias changeUserButton:  changeUserButton
+    property alias openBillButton:    openBillButton
+    property alias cancelBillButton:  cancelBillButton
+    property alias getPaidBillButton: getPaidBillButton
+    property alias showMenuButton:    showMenuButton
+    property alias itemsList:         itemsList
 
     //Propiedades para definir el color de la interfaz
 
@@ -48,10 +52,8 @@ Item {
             anchors.right: parent.right
 
             ActionButton2 {
+                id: changeUserButton
 
-                iconSource: "file:///C:/Users/Ing-Eduardo/Documents/Glintec/Proyects/Windows-11/GreenBasket/icons/user.png"
-
-                text:       "Usuario"
                 textColor : root.textColor
                 textFont:   root.textFont
 
@@ -136,10 +138,8 @@ Item {
                     Layout.maximumHeight: 100
 
                     ActionButton {
+                        id: openBillButton
 
-                        iconSource:   "file:///C:/Users/Ing-Eduardo/Documents/Glintec/Proyects/Windows-11/GreenBasket/icons/add.png"
-
-                        text:      "Nueva cuenta"
                         textColor: root.textColor
                         textFont:  16 // Falta configurar una propiedad de auto ajuste del tamaño de la fuente
 
@@ -155,10 +155,8 @@ Item {
                     }
 
                     ActionButton {
+                        id: cancelBillButton
 
-                        iconSource:   "file:///C:/Users/Ing-Eduardo/Documents/Glintec/Proyects/Windows-11/GreenBasket/icons/billCancel.png"
-
-                        text:       "Canelar cuenta"
                         textColor:  root.textColor
                         textFont:   16 // Falta configurar una propiedad de auto ajuste del tamaño de la fuente
 
@@ -174,10 +172,8 @@ Item {
                     }
 
                     ActionButton {
+                        id: getPaidBillButton
 
-                        iconSource:   "file:///C:/Users/Ing-Eduardo/Documents/Glintec/Proyects/Windows-11/GreenBasket/icons/creditCard.png"
-
-                        text:       "Cobrar cuenta"
                         textColor:  root.textColor
                         textFont:   16 // Falta configurar una propiedad de auto ajuste del tamaño de la fuente
 
@@ -194,7 +190,7 @@ Item {
                 }
 
                 TicketPanel {
-                    id: ticketPanel
+                    id: itemsPanel
 
                     text: "Tickets"
 
@@ -210,41 +206,25 @@ Item {
                     radius: root.radius
 
                     ListView {
+                        id: itemsList
 
-                            clip: true
+                        clip: true
 
-                            model: 100
-
-                            delegate: Rectangle {
-                                width: ListView.view.width
-                                height: 48
-                                color: index % 2 === 0 ? "#ffffff" : "#f2f2f2"
-
-                                Text {
-                                    anchors.centerIn: parent
-                                    text: "Ticket " + (index + 1)
-                                    color: "#263238"
-                                    font.pixelSize: 16
-                                }
-                            }
-
-                            anchors.fill: parent
-                        }
+                        anchors.fill: parent
+                    }
 
                     Layout.fillWidth: true
                     Layout.fillHeight: true
                 }
 
                 ActionButton2 {
+                    id: showMenuButton
 
-                    iconSource:   "file:///C:/Users/Ing-Eduardo/Documents/Glintec/Proyects/Windows-11/GreenBasket/icons/user.png"
-
-                    text: "Menu"
                     textColor:  root.textColor
                     textFont:   root.textFont
 
-                    primaryColor :   root.primaryColor
-                    secondaryColor : root.secondaryColor
+                    primaryColor:    root.primaryColor
+                    secondaryColor:  root.secondaryColor
                     bordeColor:      root.bordeColor
 
                     borderWidth: root.borderWidth
