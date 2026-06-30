@@ -17,25 +17,29 @@ ProductProvider / Repository / Loader
 #include <QDebug>
 #include <QList>
 
-#include "../submenu.h"
+#include "../productgroup.h"
+#include "submenu.h"
 
 class Menu : public QObject
 {
     Q_OBJECT
+    //Q_PROPERTY(QQmlListProperty<ProductGroup> bills READ bills NOTIFY billsChanged)
 
-    QList<Submenu> m_submenus;
+    QList<ProductGroup> m_submenus;
 
 public:
     explicit Menu(QObject *parent = nullptr);
     ~Menu() override;
 
-    void loadProducts();
+    void addSubmenu(const ProductGroup &newSubmenu);
 
-    void addSubmenu(const Submenu &newSubmenu);
-
-    const QList<Submenu> &submenus() const { return m_submenus; }
+    const QList<ProductGroup> &submenus() const { return m_submenus; }
 
 signals:
+
+private:
+    ProductGroup *findSubmenu(const ProductGroup &newSubmenu);
+    void addProduct(ProductGroup *submenu, const ProductGroup &newSubmenu);
 };
 
 QDebug operator<<(QDebug debug, const Menu &menu);

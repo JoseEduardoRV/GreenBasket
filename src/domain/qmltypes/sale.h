@@ -7,6 +7,7 @@
 #include <QQmlListProperty>
 
 #include "bill.h"
+#include "menu.h"
 
 /* Observaciones de diseño
  * Bills no deberia pertenecera a Sale? o si?
@@ -27,21 +28,23 @@ class Sale : public QObject
 {
     Q_OBJECT
 
-    Q_PROPERTY(int billCount READ billCount NOTIFY billCountChanged) // Esta variable se eliminará
     Q_PROPERTY(QQmlListProperty<Bill> bills READ bills NOTIFY billsChanged)
 
+    const Menu *m_menu;
+    Bill *m_editingBill;
     QList<Bill*> m_bills;
-    Bill* m_editingBill;
+
 
 public:
-    explicit Sale(QObject *parent = nullptr);
+    explicit Sale(const Menu *menu, QObject *parent = nullptr);
 
     ~Sale() override;
 
-    QQmlListProperty<Bill> bills() { return QQmlListProperty<Bill>(this, &m_bills); }
+    QQmlListProperty<Bill> bills();
 
     int billCount() const { return m_bills.size(); }
 
+    // Acciones públicas llamadas desde QML
     Q_INVOKABLE void openBill();
     Q_INVOKABLE void cancelBill();
     Q_INVOKABLE void getPaidBill();
@@ -50,14 +53,27 @@ public:
     Q_INVOKABLE void selectBill(Bill* bill);
 
 signals:
-    void billCountChanged();
     void billsChanged();
 
 private:
+    // Reglas de negocio
+    Bill *createBill();
+    Bill *findBill(Bill *bill) const;
 
-    Bill* createBill();
     bool canCancelBill(const Bill &bill) const;
     bool canGetPaidBill(const Bill &bill) const;
+
+    void storeBill(Bill *bill)
+    {
+        if (!bill)
+            return;
+    }
+
+    // void storeBill(Bill *bill);
+    // void markBillAsCanceled(Bill *bill);
+    // void markBillAsPaid(Bill *bill);
+    // void selectStoredBill(Bill *bill);
+    // Operaciones internas
 };
 
 #endif // SALE_H

@@ -1,25 +1,35 @@
-#include <cmath>
+#include <stdexcept>
 
 #include "product.h"
 
-void Product::setName(std::string_view newName)
+void Product::validateId(int id)
 {
-    if(m_name == newName)
-        return;
-    m_name = newName;
+    if (id <= 0)
+        throw std::invalid_argument("Product id must be greater than zero");
 }
 
-void Product::setId(const int newId)
+void Product::validateName(std::string_view name)
 {
-    if ((m_id > 0) && (m_id != newId))
-        m_id = newId;
+    if (name.empty())
+        throw std::invalid_argument("Product name cannot be empty");
+}
+
+void Product::rename(std::string_view newName)
+{
+    validateName(newName);
+
+    if (m_name == newName)
+        return;
+
+    m_name = newName;
 }
 
 Product::Product(const int id, std::string_view name)
     : m_id{id}
     , m_name{name}
 {
-
+    validateId(id);
+    validateName(name);
 }
 
 Product::Product(const Product &other)
@@ -28,4 +38,3 @@ Product::Product(const Product &other)
 {
 
 }
-

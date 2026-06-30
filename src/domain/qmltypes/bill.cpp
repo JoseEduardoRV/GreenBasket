@@ -1,20 +1,52 @@
 #include "bill.h"
 
-void Bill::setStatus(BillStatus newStatus)
+BillItem *Bill::findItemByProduct(const ProductList *product)
 {
-    m_status = newStatus;
+    BillItem *ptr{nullptr};
+
+    if (product) {
+        for (BillItem &item : m_billItems) {
+            if (item.productid() == product->id()) {
+                ptr = &item;
+                break;
+            }
+        }
+    }
+
+    return ptr;
+}
+
+void Bill::recalculateTotals()
+{
+    double newSubTotal { 0 };
+
+    foreach (const BillItem &item, m_billItems) {
+        newSubTotal += item.subtotal();
+    }
+
+    if (m_subTotal != newSubTotal) {
+        m_subTotal = newSubTotal;
+        emit subTotalChanged(m_subTotal);
+    }
+
+    const double newTotal = m_subTotal;
+
+    if (m_total != newTotal) {
+        m_total = newTotal; /*hay que agregar los cargos extrar*/;
+        emit totalChanged(m_total);
+    }
 }
 
 Bill::Bill(QObject *parent)
     : QObject{parent}
     , m_status{BillStatus::None}
-    , m_customerIdentity{}
-    , m_accountLabel{}
     , m_total{}
     , m_ticketNumber{}
     , m_createdAt{}
     , m_billItems{}
 {
+    m_createdAt = QDateTime::currentDateTime();
+    m_ticketNumber = "Ticket";
     qDebug() << "*** Building a new Bill ***" << this << Qt::endl;
 }
 
@@ -23,50 +55,42 @@ Bill::~Bill()
     qDebug() << "*** Destroying Bill ***" << this << Qt::endl;
 }
 
-void Bill::addItem(const SoldProduct &product, const int category)
+void Bill::addItem(const ProductList &product)
 {
-    BillItem *billItem{nullptr};
+    addItem(product, 1);
+}
 
-    for (BillItem &item : m_billItems) {
-        if (item.id() == product.id()) {
-            billItem = &item;
-            break;
-        }
-    }
+void Bill::addItem(const ProductList &product, std::size_t quantity)
+{
+    BillItem *billItem = findItemByProduct(&product);
 
     if (billItem) {
-        billItem->addOne();
-    } else {
-        m_billItems.push_back(BillItem(product, category));
+        billItem->changeQuantity(quantity);
     }
-}
-
-void Bill::addItem(const SoldProduct &product, const int category, std::size_t quantity)
-{
-    BillItem *billItem{nullptr};
-
-    for (BillItem &item : m_billItems) {
-        if (item.id() == product.id()) {
-            billItem = &item;
-            break;
-        }
+    else {
+        m_billItems.push_back(BillItem(product, quantity));
     }
 
-    if (billItem) {
-        billItem->setQuantity(billItem->quantity() + quantity);
-    } else {
-        m_billItems.push_back(BillItem(product, category, quantity));
-    }
+    recalculateTotals();
 }
 
-void Bill::setTicketNumber(int index)
+void Bill::changeItemQuantity(const ProductList &product, std::size_t quantity)
 {
-    m_ticketNumber = { QString("Ticket B20-1203-%1").arg(index) };
-    emit ticketNumberChanged();
+    BillItem *item = findItemByProduct(&product);
+
+    if (!item)
+        return;
+
+    item->changeQuantity(quantity);
+
+    recalculateTotals();
 }
 
-void Bill::setCreatedAt()
+void Bill::changeStatus(BillStatus newStatus)
 {
-    m_createdAt.setDate(QDate::currentDate());
-    emit createdAtChanged();
+    if (m_status == newStatus)
+        return;
+
+    m_status = newStatus;
+    emit statusChanged();;
 }

@@ -1,9 +1,10 @@
 #include "sale.h"
 
-Sale::Sale(QObject *parent)
-    : QObject{parent}
+Sale::Sale(const Menu *menu, QObject *parent)
+    : QObject{ parent }
+    , m_menu{ menu }
+    , m_editingBill{ nullptr }
     , m_bills{}
-    , m_editingBill{nullptr}
 {
     qDebug() << "*** Building Sale ***" << Qt::endl
              << "*** Menu disponible:"  << Qt::endl;
@@ -14,49 +15,47 @@ Sale::~Sale()
     qDebug() << "*** Destroying Sale ***" << Qt::endl;
 }
 
+QQmlListProperty<Bill> Sale::bills()
+{
+    return QQmlListProperty<Bill>(this, &m_bills);
+}
+
 void Sale::openBill()
 {
     Bill *bill = createBill();
 
-    if(bill) {
-        m_bills.push_back(bill);
+    m_bills.push_back(bill);
+    selectBill(bill);
 
-        m_editingBill = bill;
+    emit billsChanged();
 
-        emit billsChanged();
-
-        qDebug() << "Se agregó una nueva cuenta:" << bill;
-    }
+    qDebug() << "Se agregó una nueva cuenta:" << bill;
 }
 
 void Sale::cancelBill()
 {
-    if (m_editingBill) {
+    if (!m_editingBill)
+        return;
 
-        if (canCancelBill(*m_editingBill)) {
+    if (!canCancelBill(*m_editingBill))
+        return;
 
-            m_editingBill->clean();
+    m_editingBill->changeStatus(Bill::BillStatus::Canceled);
 
-            m_editingBill->setStatus(Bill::BillStatus::Canceled);
-
-            emit billsChanged();
-        }
-    }
+    emit billsChanged();
 }
 
 void Sale::getPaidBill()
 {
-    if (m_editingBill) {
+    if (!m_editingBill)
+        return;
 
-        if (canGetPaidBill(*m_editingBill)) {
+    if (!canGetPaidBill(*m_editingBill))
+        return;
 
-            //m_editingBill->clean(); Algoritmo para cobro
+    m_editingBill->changeStatus(Bill::BillStatus::Paid);
 
-            m_editingBill->setStatus(Bill::BillStatus::Paid);
-
-            emit billsChanged();
-        }
-    }
+    emit billsChanged();
 }
 
 void Sale::showMenu()
@@ -75,45 +74,49 @@ void Sale::changeUser()
 
 void Sale::selectBill(Bill *bill)
 {
-    if (m_bills.contains(bill)) {
-        m_editingBill = bill;
-        m_editingBill->settotal();
+    Bill *storedBill = findBill(bill);
 
-        qDebug() << "Selected ticket:" << m_editingBill;
-    }
+    if (!storedBill)
+        return;
+
+    m_editingBill = storedBill;
+
+    qDebug() << "Selected ticket:" << m_editingBill;
 }
 
 Bill *Sale::createBill()
 {
     Bill *bill = new Bill(this);
 
-    if(bill) {
-        bill->setTicketNumber(m_bills.size() + 1);
-        bill->setCreatedAt();
-        bill->setStatus(Bill::BillStatus::Active);
-    }
+    bill->changeStatus(Bill::BillStatus::Active);
 
     return bill;
+}
+
+Bill *Sale::findBill(Bill *bill) const
+{
+    const int index = m_bills.indexOf(bill);
+
+    if (index < 0)
+        return nullptr;
+
+    return m_bills.at(index);
 }
 
 bool Sale::canCancelBill(const Bill &bill) const
 {
     switch (bill.status()) {
     case Bill::BillStatus::Active:
-    case Bill::BillStatus::Suspended:
     case Bill::BillStatus::ReadyToPay:
         return true;
 
-    case Bill::BillStatus::Closed:
+    case Bill::BillStatus::Suspended:
     case Bill::BillStatus::Paid:
     case Bill::BillStatus::Canceled:
     case Bill::BillStatus::Refunded:
     default:
-        break;
         return false;
     }
-
-    return false;
 }
 
 bool Sale::canGetPaidBill(const Bill &bill) const
@@ -124,7 +127,6 @@ bool Sale::canGetPaidBill(const Bill &bill) const
         return true;
 
     case Bill::BillStatus::Suspended:
-    case Bill::BillStatus::Closed:
     case Bill::BillStatus::Paid:
     case Bill::BillStatus::Canceled:
     case Bill::BillStatus::Refunded:

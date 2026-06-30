@@ -10,8 +10,10 @@ int main(int argc, char *argv[])
 
     /////                     /////
     QObject parent;
+    Menu menu(&parent);
+    Sale sale(&menu, &parent);
 
-    Sale sale(&parent);
+    qDebug() << menu;
 
     QQmlApplicationEngine engine;
 

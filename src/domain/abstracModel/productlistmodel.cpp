@@ -1,6 +1,6 @@
 #include "productlistmodel.h"
 
-ProductListModel::ProductListModel(const QList<Submenu> *submenus, QObject *parent)
+ProductListModel::ProductListModel(const QList<ProductGroup> *submenus, QObject *parent)
     : QAbstractListModel{parent}
     , m_submenus{submenus}
 {
@@ -15,7 +15,7 @@ void ProductListModel::updateCategories()
 
 
 
-void ProductListModel::setProducts(const QList<Submenu> &submenu)
+void ProductListModel::setProducts(const QList<ProductGroup> &submenu)
 {
     beginResetModel();
     // m_submenu = submenu;
@@ -34,7 +34,7 @@ QVariant ProductListModel::data(const QModelIndex &index, int role) const
     if (index.row() < 0 || index.row() >= m_submenus->size())
         return {};
 
-    const Submenu &submenu = m_submenus->at(index.row());
+    const ProductGroup &submenu = m_submenus->at(index.row());
 
     // switch (role) {
     // case NameRole:

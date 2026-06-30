@@ -12,7 +12,7 @@ class ProductListModel : public QAbstractListModel
 {
     Q_OBJECT
 
-    const QList<Submenu> *m_submenus;
+    const QList<ProductGroup> *m_submenus;
 
 public:
     enum ProductRoles {
@@ -23,7 +23,7 @@ public:
         CategoryNameRole
     };
 
-    explicit ProductListModel(const QList<Submenu> *submenus = nullptr, QObject *parent = nullptr);
+    explicit ProductListModel(const QList<ProductGroup> *submenus = nullptr, QObject *parent = nullptr);
 
     int rowCount(const QModelIndex &parent = QModelIndex()) const override
     {
@@ -41,7 +41,7 @@ public:
 
     void updateCategories();
 
-    void setProducts(const QList<Submenu> &submenu);
+    void setProducts(const QList<ProductGroup> &submenu);
 
 
 

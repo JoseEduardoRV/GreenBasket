@@ -3,33 +3,37 @@
 
 #include <cstddef>
 
-#include "soldproduct.h"
+#include "productlist.h"
 
 class BillItem
 {
-    int m_category;
     std::size_t m_quantity;
-    SoldProduct m_product;
+    ProductList m_product;
+
+    static void validateQuantity(std::size_t quantity);
 
 public:
-    explicit BillItem(const SoldProduct &product,
-                      const int category,
-                      std::size_t quantity = 1);
+    explicit BillItem(const ProductList &product, std::size_t quantity);
 
     ~BillItem() = default;
 
-    inline int id() const { return m_product.id();}
+    bool operator==(const BillItem &other) const;
 
-    inline int category() const { return m_category; }
+    int productid() const;
 
-    inline double price() const { return m_product.salePrice(); }
+    double unitPrice() const;
 
-    inline std::size_t quantity() const { return m_quantity;        }
+    double subtotal() const;
 
-    const std::string_view name() const { return m_product.name(); }
+    std::size_t quantity() const { return m_quantity; }
 
-    void addOne();
-    void setQuantity(std::size_t newQuantity);
+    std::string_view productName() const;
+
+    std::string_view presentation() const;
+
+    void incrementQuantityByOne();
+
+    void changeQuantity(std::size_t newQuantity);
 };
 
 #endif // BILLITEM_H

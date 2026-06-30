@@ -1,10 +1,73 @@
 #include "menu.h"
-#include "src/domain/productcategory.h"
+#include "src/domain/sectioninfo.h"
 
 Menu::Menu(QObject *parent) : QObject{parent}
 {
+    //Consideraciones pendientes
+    //Opción A: si ya hay datos, no volver a cargar
+    //Opción B: limpiar la lista antes de cargar.
+
+    int c {1};
+    addSubmenu(
+        ProductGroup(
+            SectionInfo("hot-drink", c),
+            std::list<ProductList> {
+                ProductList(Product(1001, "Cafe"), 20.50f, "16 Oz"),
+                ProductList(Product(1002, "Cafe"), 26.50f, "20 Oz"),
+                ProductList(Product(1003, "Cafe"), 32.50f, "24 Oz")}));
+
+    c = 2;
+    addSubmenu(
+        ProductGroup(
+            SectionInfo("cold-drink", c),
+            std::list<ProductList> {
+                ProductList(Product(1004, "Agua"), 10.50f, "350ml"),
+                ProductList(Product(1005, "Agua"), 16.50f, "500ml"),
+                ProductList(Product(1006, "Agua"), 26.50f, "1L") }));
+
+    addSubmenu(
+        ProductGroup(
+            SectionInfo("cold-drink", c),
+            std::list<ProductList> {
+                ProductList(Product(1007, "Agua fresca"), 13.50f, "16 Oz"),
+                ProductList(Product(1008, "Agua fresca"), 17.50f, "20 Oz"),
+                ProductList(Product(1009, "Agua fresca"), 28.50f, "24 Oz") }));
+
+    c = 2;
+    addSubmenu(
+        ProductGroup(
+            SectionInfo(
+                "cold-drink", c),
+            std::list<ProductList> {
+                ProductList(Product(1010, "juge"), 25.50f, "16 Oz"),
+                ProductList(Product(1011, "juge"), 35.50f, "20 Oz"),
+                ProductList(Product(1012, "juge"), 45.50f, "24 Oz") }));
+
+    c = 4;
+    addSubmenu(
+        ProductGroup(
+            SectionInfo("healthy-food", c),
+            std::list<ProductList> {
+                ProductList(Product(1010, "Ensalada"), 25.50f, "Small"),
+                ProductList(Product(1011, "Ensalada"), 35.50f, "Medium"),
+                ProductList(Product(1012, "Ensalada"), 45.50f, "Large") }));
+
+    c = 5;
+    addSubmenu(
+        ProductGroup(
+            SectionInfo("Italian fast-food", c),
+            std::list<ProductList> {
+                ProductList(Product(1013, "Baguette"), 75.50f, "Pollo"),
+                ProductList(Product(1014, "Baguette"), 85.50f, "Combinado"),
+                ProductList(Product(1015, "Baguette"), 95.50f, "Milaneza"), }));
+
+    addSubmenu(
+        ProductGroup(
+            SectionInfo("Italian fast-food", c),
+            std::list<ProductList> {
+                ProductList(Product(1015, "Baguette"), 95.50f, "Milaneza") }));
+
     qDebug() << "*** Building the Menu *** " << this;
-    //m_productsModel.setProducts(&m_products);
 }
 
 Menu::~Menu()
@@ -13,60 +76,37 @@ Menu::~Menu()
     qDebug() << "*** detroying the Menu *** " << this;
 }
 
-void Menu::loadProducts() // Esta funcion solo es para depurar
+void Menu::addSubmenu(const ProductGroup &newSubmenu)
 {
-    //Consideraciones pendientes
-    //Opción A: si ya hay datos, no volver a cargar
-    //Opción B: limpiar la lista antes de cargar.
+    ProductGroup *submenu = findSubmenu(newSubmenu);
 
-    qDebug() << "*** Loading drinks to Menu *** ";
-
-     // Submenu(const ProductCategory &category, const std::vector<SoldProduct> &products);
-
-    int c {1};
-    addSubmenu(Submenu(ProductCategory("hot-drink", c), std::vector<SoldProduct> { SoldProduct(Product(1001, "Cafe"), 20.50f, "16 Oz"),
-                                                                                   SoldProduct(Product(1002, "Cafe"), 26.50f, "20 Oz"),
-                                                                                   SoldProduct(Product(1003, "Cafe"), 32.50f, "24 Oz") }));
-        c = 2;
-    addSubmenu(Submenu(ProductCategory("cold-drink", c), std::vector<SoldProduct> { SoldProduct(Product(1004, "Agua"), 10.50f, "350ml"),
-                                                                                    SoldProduct(Product(1005, "Agua"), 16.50f, "500ml"),
-                                                                                    SoldProduct(Product(1006, "Agua"), 26.50f, "1L") }));
-    addSubmenu(Submenu(ProductCategory("cold-drink", c), std::vector<SoldProduct> { SoldProduct(Product(1007, "Agua fresca"), 13.50f, "16 Oz"),
-                                                                                    SoldProduct(Product(1008, "Agua fresca"), 17.50f, "20 Oz"),
-                                                                                    SoldProduct(Product(1009, "Agua fresca"), 28.50f, "24 Oz") }));
-        c = 2;
-    addSubmenu(Submenu(ProductCategory("cold-drink", c), std::vector<SoldProduct> { SoldProduct(Product(1010, "juge"), 25.50f, "16 Oz"),
-                                                                                    SoldProduct(Product(1011, "juge"), 35.50f, "20 Oz"),
-                                                                                    SoldProduct(Product(1012, "juge"), 45.50f, "24 Oz") }));
-    qDebug() << "*** Loading food to Menu *** ";
-    c = 4;
-    addSubmenu(Submenu(ProductCategory("healthy-food", c), std::vector<SoldProduct> { SoldProduct(Product(1010, "Ensalada"), 25.50f, "Small"),
-                                                                                      SoldProduct(Product(1011, "Ensalada"), 35.50f, "Medium"),
-                                                                                      SoldProduct(Product(1012, "Ensalada"), 45.50f, "Large") }));
-        c = 5;
-    addSubmenu(Submenu(ProductCategory("Italian fast-food", c), std::vector<SoldProduct> { SoldProduct(Product(1013, "Baguette"), 75.50f, "Pollo"),
-                                                                                           SoldProduct(Product(1014, "Baguette"), 85.50f, "Combinado"),
-                                                                                           SoldProduct(Product(1015, "Baguette"), 95.50f, "Milaneza"), }));
-    addSubmenu(Submenu(ProductCategory("Italian fast-food", c), std::vector<SoldProduct> { SoldProduct(Product(1015, "Baguette"), 95.50f, "Milaneza") }));
+    if (submenu) {
+        addProduct(submenu, newSubmenu);
+    } else {
+        m_submenus.push_back(newSubmenu);
+    }
 }
 
-void Menu::addSubmenu(const Submenu &newSubmenu)
+ProductGroup *Menu::findSubmenu(const ProductGroup &newSubmenu)
 {
-    Submenu *submenu{nullptr};
+    ProductGroup *submenu { nullptr };
 
-    for (Submenu &item : m_submenus) {
+    for (ProductGroup &item : m_submenus) {
         if (item.id() == newSubmenu.id()) {
             submenu = &item;
             break;
         }
     }
 
+    return submenu;
+}
+
+void Menu::addProduct(ProductGroup *submenu, const ProductGroup &newSubmenu)
+{
     if (submenu) {
-        for (const SoldProduct &item : newSubmenu.products()) {
+        for (const ProductList &item : newSubmenu.products()) {
             submenu->addProduct(item);
         }
-    } else {
-        m_submenus.push_back(newSubmenu);
     }
 }
 

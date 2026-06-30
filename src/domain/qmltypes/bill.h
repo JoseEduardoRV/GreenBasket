@@ -14,39 +14,50 @@ class Bill : public QObject
 {
     Q_OBJECT
 
-    Q_PROPERTY(double total READ total NOTIFY totalChanged FINAL)
-    Q_PROPERTY(QString ticketNumber READ ticketNumber NOTIFY ticketNumberChanged)
-    Q_PROPERTY(QDateTime createdAt READ createdAt NOTIFY createdAtChanged)
-
-    int m_customerIdentity; //!>Mesa/Cliente
-    int m_accountLabel;     //!>Mesero/Cajero
+    Q_PROPERTY(double total READ total NOTIFY totalChanged)
+    Q_PROPERTY(double subTotal READ subTotal NOTIFY subTotalChanged)
+    Q_PROPERTY(QString ticketNumber READ ticketNumber CONSTANT)
+    Q_PROPERTY(QDateTime createdAt READ createdAt CONSTANT)
+    Q_PROPERTY(BillStatus status READ status NOTIFY statusChanged)
+/*  Estos datos seran obtenidos cunado se tenga el usuarios que abrió la cuenta (mesero/cliente)
+    int m_customerId;   //!>Mesa/Cliente
+    int m_waiterId;     //!>Mesero/Cajero
+    int m_cashierId;    //!>Cajero
+*/
     double m_total;
+    double m_subTotal;
 
     QString m_ticketNumber;
     QDateTime m_createdAt; //!> Hora / Fecha
+    QDate m;
 
     QList<BillItem> m_billItems;
 
+    BillItem *findItemByProduct(const ProductList *product);
+
+    void recalculateTotals();
+
 public:
 
-    enum /*class*/ BillStatus
+    enum BillStatus
     {
         None,
         Active,     // Cuenta activa
         Suspended,  // Cuenta suspendida/en espera
-        Closed,
         ReadyToPay, // Lista para cobrar
         Paid,       // Cobrada
-        Canceled,   // Cancelada
+        Canceled,   // Cuenta Cancelada
         Refunded    // Reembolsada
     }; Q_ENUM(BillStatus)
 
     explicit Bill(QObject *parent = nullptr);
     ~Bill() override;
 
-    inline double total() const { return m_total; }
+    double total() const { return m_total; }
 
-    inline BillStatus status() const { return m_status; }
+    double subTotal() const { return m_subTotal; }
+
+    BillStatus status() const { return m_status; }
 
     const QString &ticketNumber() const { return m_ticketNumber; }
 
@@ -54,41 +65,31 @@ public:
 
     const QList<BillItem> &Items() const { return m_billItems; }
 
-    void setStatus(BillStatus newStatus);
+    void addItem(const ProductList &product);
 
-    void addItem(const SoldProduct &product ,const int category);
+    void addItem(const ProductList &product, std::size_t quantity);
 
-    void addItem(const SoldProduct &product, const int category, std::size_t quantity);
+    void changeItemQuantity(const ProductList &product, std::size_t quantity);
 
-    void setTicketNumber(int index);
+    void changeStatus(BillStatus newStatus);
 
-    void setCreatedAt();
-
-    void settotal() { m_total += m_total + 500 + 1 ;}
-
-    void clean()
-    {
-        m_total = 0;
-    }
 
 signals:
-    void totalChanged();
-    void ticketNumberChanged();
-    void createdAtChanged();
+    void totalChanged(double);
+    void subTotalChanged(double);
+    void statusChanged();
 
 private:
-    BillStatus m_status;
-
-
+    BillStatus m_status;    
 };
-
 
 inline QDebug operator<<(QDebug debug, const Bill &bill)
 {
     debug << "-------------- Bill -----------------------" << Qt::endl;
 
     foreach (auto p, bill.Items())
-        debug << p.name() << " $" << p.price() << " Pz" << p.quantity() << Qt::endl;
+        debug << p.productName() << " $" << p.unitPrice() << " cant."
+              << p.quantity() << " subtotal: $"<< p.subtotal() << Qt::endl;
 
     debug << "Total:           " << bill.total()      << Qt::endl;
     return debug;
