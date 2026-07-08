@@ -8,7 +8,7 @@
 #include <QDateTime>
 #include <QDebug>
 #include <QList>
-#include "../billitem.h"
+#include "../listitem.h"
 
 class Bill : public QObject
 {
@@ -19,7 +19,8 @@ class Bill : public QObject
     Q_PROPERTY(QString ticketNumber READ ticketNumber CONSTANT)
     Q_PROPERTY(QDateTime createdAt READ createdAt CONSTANT)
     Q_PROPERTY(BillStatus status READ status NOTIFY statusChanged)
-/*  Estos datos seran obtenidos cunado se tenga el usuarios que abrió la cuenta (mesero/cliente)
+
+    /*  Estos datos seran obtenidos cunado se tenga el usuarios que abrió la cuenta (mesero/cliente)
     int m_customerId;   //!>Mesa/Cliente
     int m_waiterId;     //!>Mesero/Cajero
     int m_cashierId;    //!>Cajero
@@ -29,11 +30,10 @@ class Bill : public QObject
 
     QString m_ticketNumber;
     QDateTime m_createdAt; //!> Hora / Fecha
-    QDate m;
 
-    QList<BillItem> m_billItems;
+    QList<ListItem> m_billItems;
 
-    BillItem *findItemByProduct(const ProductList *product);
+    ListItem *findItemByProduct(const MenuProduct *product);
 
     void recalculateTotals();
 
@@ -63,16 +63,23 @@ public:
 
     const QDateTime &createdAt() const { return m_createdAt; }
 
-    const QList<BillItem> &Items() const { return m_billItems; }
+    void addItem(const MenuProduct &product);
 
-    void addItem(const ProductList &product);
+    void addItem(const MenuProduct &product, std::size_t quantity);
 
-    void addItem(const ProductList &product, std::size_t quantity);
-
-    void changeItemQuantity(const ProductList &product, std::size_t quantity);
+    void changeItemQuantity(const MenuProduct &product, std::size_t quantity);
 
     void changeStatus(BillStatus newStatus);
 
+    Q_INVOKABLE double unitPrice(const int index) const;
+
+    Q_INVOKABLE double subtotal(const int index) const;
+
+    Q_INVOKABLE int quantity(const int index) const;
+
+    Q_INVOKABLE QString productName(const int index) const;
+
+    Q_INVOKABLE QString presentation(const int index) const;
 
 signals:
     void totalChanged(double);
@@ -83,16 +90,16 @@ private:
     BillStatus m_status;    
 };
 
-inline QDebug operator<<(QDebug debug, const Bill &bill)
-{
-    debug << "-------------- Bill -----------------------" << Qt::endl;
+// inline QDebug operator<<(QDebug debug, const Bill &bill)
+// {
+//     debug << "-------------- Bill -----------------------" << Qt::endl;
 
-    foreach (auto p, bill.Items())
-        debug << p.productName() << " $" << p.unitPrice() << " cant."
-              << p.quantity() << " subtotal: $"<< p.subtotal() << Qt::endl;
+//     foreach (auto p, bill.Items())
+//         debug << p.productName() << " $" << p.unitPrice() << " cant."
+//               << p.quantity() << " subtotal: $"<< p.subtotal() << Qt::endl;
 
-    debug << "Total:           " << bill.total()      << Qt::endl;
-    return debug;
-}
+//     debug << "Total:           " << bill.total()      << Qt::endl;
+//     return debug;
+// }
 
 #endif // BILL_H

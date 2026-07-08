@@ -1,5 +1,5 @@
 #include "menu.h"
-#include "src/domain/sectioninfo.h"
+#include "src/domain/menuproduct.h"
 
 Menu::Menu(QObject *parent) : QObject{parent}
 {
@@ -7,116 +7,102 @@ Menu::Menu(QObject *parent) : QObject{parent}
     //Opción A: si ya hay datos, no volver a cargar
     //Opción B: limpiar la lista antes de cargar.
 
-    int c {1};
     addSubmenu(
-        ProductGroup(
-            SectionInfo("hot-drink", c),
-            std::list<ProductList> {
-                ProductList(Product(1001, "Cafe"), 20.50f, "16 Oz"),
-                ProductList(Product(1002, "Cafe"), 26.50f, "20 Oz"),
-                ProductList(Product(1003, "Cafe"), 32.50f, "24 Oz")}));
+        new SubMenu(
+            SubList(101, "cold-drink",
+                std::list<Product*> {
+                    new MenuProduct(1001, "Cafe", "16 Oz", 20.50f),
+                    new MenuProduct(1002, "Cafe", "20 Oz", 26.50f),
+                    new MenuProduct(1003, "Cafe", "24 Oz", 32.50f)
+                })));
 
-    c = 2;
-    addSubmenu(
-        ProductGroup(
-            SectionInfo("cold-drink", c),
-            std::list<ProductList> {
-                ProductList(Product(1004, "Agua"), 10.50f, "350ml"),
-                ProductList(Product(1005, "Agua"), 16.50f, "500ml"),
-                ProductList(Product(1006, "Agua"), 26.50f, "1L") }));
 
     addSubmenu(
-        ProductGroup(
-            SectionInfo("cold-drink", c),
-            std::list<ProductList> {
-                ProductList(Product(1007, "Agua fresca"), 13.50f, "16 Oz"),
-                ProductList(Product(1008, "Agua fresca"), 17.50f, "20 Oz"),
-                ProductList(Product(1009, "Agua fresca"), 28.50f, "24 Oz") }));
-
-    c = 2;
+        new SubMenu(
+            SubList(102, "cold-drink",
+                std::list<Product*> {
+                    new MenuProduct(1004, "Agua", "350ml", 10.50f),
+                    new MenuProduct(1005, "Agua", "500ml", 16.50f),
+                    new MenuProduct(1006, "Agua", "1L",    26.50f)
+                })));
     addSubmenu(
-        ProductGroup(
-            SectionInfo(
-                "cold-drink", c),
-            std::list<ProductList> {
-                ProductList(Product(1010, "juge"), 25.50f, "16 Oz"),
-                ProductList(Product(1011, "juge"), 35.50f, "20 Oz"),
-                ProductList(Product(1012, "juge"), 45.50f, "24 Oz") }));
-
-    c = 4;
+        new SubMenu(
+            SubList(102, "cold-drink",
+                std::list<Product*> {
+                    new MenuProduct(1007, "Agua fresca", "16 Oz", 13.50f),
+                    new MenuProduct(1008, "Agua fresca", "20 Oz", 17.50f),
+                    new MenuProduct(1009, "Agua fresca", "24 Oz", 28.50f)
+                })));
     addSubmenu(
-        ProductGroup(
-            SectionInfo("healthy-food", c),
-            std::list<ProductList> {
-                ProductList(Product(1010, "Ensalada"), 25.50f, "Small"),
-                ProductList(Product(1011, "Ensalada"), 35.50f, "Medium"),
-                ProductList(Product(1012, "Ensalada"), 45.50f, "Large") }));
-
-    c = 5;
+        new SubMenu(
+            SubList(102, "cold-drink",
+                std::list<Product*> {
+                    new MenuProduct(1010, "juge", "16 Oz", 25.50f),
+                    new MenuProduct(1011, "juge", "20 Oz", 35.50f),
+                    new MenuProduct(1012, "juge", "24 Oz", 45.50f)
+                })));
     addSubmenu(
-        ProductGroup(
-            SectionInfo("Italian fast-food", c),
-            std::list<ProductList> {
-                ProductList(Product(1013, "Baguette"), 75.50f, "Pollo"),
-                ProductList(Product(1014, "Baguette"), 85.50f, "Combinado"),
-                ProductList(Product(1015, "Baguette"), 95.50f, "Milaneza"), }));
-
+        new SubMenu(
+            SubList(103, "healthy-food",
+                std::list<Product*> {
+                    new MenuProduct(1010, "Ensalada", "Small",  25.50f),
+                    new MenuProduct(1011, "Ensalada", "Medium", 35.50f),
+                    new MenuProduct(1012, "Ensalada", "Large",  45.50f)
+                })));
     addSubmenu(
-        ProductGroup(
-            SectionInfo("Italian fast-food", c),
-            std::list<ProductList> {
-                ProductList(Product(1015, "Baguette"), 95.50f, "Milaneza") }));
+        new SubMenu(
+            SubList(104, "Italian fast-food",
+                std::list<Product*> {
+                    new MenuProduct(1013, "Baguette", "Pollo", 75.50f),
+                    new MenuProduct(1014, "Baguette", "Combinado", 85.50f),
+                    new MenuProduct(1015, "Baguette", "Milaneza", 95.50f)
+                })));
+    addSubmenu(
+        new SubMenu(
+            SubList(104, "Italian fast-food",
+                std::list<Product*> {
+                    new MenuProduct(1015, "Baguette", "Milaneza", 95.50f)
+                })));
 
     qDebug() << "*** Building the Menu *** " << this;
 }
 
 Menu::~Menu()
 {
-    //Se debe de gestionar la memoria de los contenedores sea QList o QVector etc.
+    m_submenus.clear();
     qDebug() << "*** detroying the Menu *** " << this;
 }
 
-void Menu::addSubmenu(const ProductGroup &newSubmenu)
+QQmlListProperty<SubMenu> Menu::submenus()
 {
-    ProductGroup *submenu = findSubmenu(newSubmenu);
-
-    if (submenu) {
-        addProduct(submenu, newSubmenu);
-    } else {
-        m_submenus.push_back(newSubmenu);
-    }
+    return QQmlListProperty<SubMenu>(this, &m_submenus);
 }
 
-ProductGroup *Menu::findSubmenu(const ProductGroup &newSubmenu)
+void Menu::addSubmenu(SubMenu *newSubmenu)
 {
-    ProductGroup *submenu { nullptr };
+    if (!newSubmenu)
+        return;
 
-    for (ProductGroup &item : m_submenus) {
-        if (item.id() == newSubmenu.id()) {
-            submenu = &item;
-            break;
+    if (!newSubmenu->parent())
+        newSubmenu->setParent(this);
+
+    qDebug() << Q_FUNC_INFO << " : SubMenu : " << newSubmenu;
+
+    m_submenus.emplaceBack(newSubmenu);
+    emit submenusChanged();
+}
+
+
+SubMenu *Menu::findSubmenu(const SubMenu *newSubmenu) const
+{
+    if (!newSubmenu)
+        return nullptr;
+
+    for (SubMenu *item : m_submenus) {
+        if (item->id() == newSubmenu->id()) {
+            return item;
         }
     }
 
-    return submenu;
-}
-
-void Menu::addProduct(ProductGroup *submenu, const ProductGroup &newSubmenu)
-{
-    if (submenu) {
-        for (const ProductList &item : newSubmenu.products()) {
-            submenu->addProduct(item);
-        }
-    }
-}
-
-QDebug operator<<(QDebug debug, const Menu &menu)
-{
-    debug << "---                     Menu                     ---" << Qt::endl;
-    foreach (const auto &m, menu.submenus()) {
-        debug << Qt::endl << Qt::endl << "---" << m.name() << m.id() << Qt::endl << Qt::endl;
-        foreach (const auto i, m.products())
-            debug << "---" << i.name() << i.presentation() << "$" << i.salePrice() << Qt::endl;
-    }
-    return debug;
+    return nullptr;
 }

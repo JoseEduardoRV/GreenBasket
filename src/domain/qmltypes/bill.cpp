@@ -1,26 +1,24 @@
 #include "bill.h"
 
-BillItem *Bill::findItemByProduct(const ProductList *product)
+ListItem *Bill::findItemByProduct(const MenuProduct *product)
 {
-    BillItem *ptr{nullptr};
+    if (!product)
+        return nullptr;
 
-    if (product) {
-        for (BillItem &item : m_billItems) {
-            if (item.productid() == product->id()) {
-                ptr = &item;
-                break;
-            }
+    for (ListItem &item : m_billItems) {
+        if (item.productId() == product->id()) {
+            return &item;
         }
     }
 
-    return ptr;
+    return nullptr;
 }
 
 void Bill::recalculateTotals()
 {
     double newSubTotal { 0 };
 
-    foreach (const BillItem &item, m_billItems) {
+    foreach (const ListItem &item, m_billItems) {
         newSubTotal += item.subtotal();
     }
 
@@ -55,28 +53,28 @@ Bill::~Bill()
     qDebug() << "*** Destroying Bill ***" << this << Qt::endl;
 }
 
-void Bill::addItem(const ProductList &product)
+void Bill::addItem(const MenuProduct &product)
 {
     addItem(product, 1);
 }
 
-void Bill::addItem(const ProductList &product, std::size_t quantity)
+void Bill::addItem(const MenuProduct &product, std::size_t quantity)
 {
-    BillItem *billItem = findItemByProduct(&product);
+    ListItem *billItem = findItemByProduct(&product);
 
     if (billItem) {
         billItem->changeQuantity(quantity);
     }
     else {
-        m_billItems.push_back(BillItem(product, quantity));
+        m_billItems.push_back(ListItem(product, quantity));
     }
 
     recalculateTotals();
 }
 
-void Bill::changeItemQuantity(const ProductList &product, std::size_t quantity)
+void Bill::changeItemQuantity(const MenuProduct &product, std::size_t quantity)
 {
-    BillItem *item = findItemByProduct(&product);
+    ListItem *item = findItemByProduct(&product);
 
     if (!item)
         return;
@@ -93,4 +91,29 @@ void Bill::changeStatus(BillStatus newStatus)
 
     m_status = newStatus;
     emit statusChanged();;
+}
+
+double Bill::unitPrice(const int index) const
+{
+    return {};
+}
+
+double Bill::subtotal(const int index) const
+{
+    return {};
+}
+
+int Bill::quantity(const int index) const
+{
+    return {};
+}
+
+QString Bill::productName(const int index) const
+{
+    return {};
+}
+
+QString Bill::presentation(const int index) const
+{
+    return {};
 }

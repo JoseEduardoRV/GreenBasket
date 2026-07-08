@@ -14,33 +14,34 @@ ProductProvider / Repository / Loader
 #define MENU_H
 
 #include <QObject>
-#include <QDebug>
 #include <QList>
+#include <QQmlListProperty>
 
-#include "../productgroup.h"
 #include "submenu.h"
 
 class Menu : public QObject
 {
     Q_OBJECT
-    //Q_PROPERTY(QQmlListProperty<ProductGroup> bills READ bills NOTIFY billsChanged)
 
-    QList<ProductGroup> m_submenus;
+    Q_PROPERTY(QQmlListProperty<SubMenu> submenus READ submenus NOTIFY submenusChanged)
+
+    QList<SubMenu*> m_submenus;
 
 public:
     explicit Menu(QObject *parent = nullptr);
     ~Menu() override;
 
-    void addSubmenu(const ProductGroup &newSubmenu);
+    int count() const { return m_submenus.size(); }
 
-    const QList<ProductGroup> &submenus() const { return m_submenus; }
+    QQmlListProperty<SubMenu> submenus();
+
+    void addSubmenu(SubMenu *newSubmenu);
 
 signals:
+    void submenusChanged();
 
 private:
-    ProductGroup *findSubmenu(const ProductGroup &newSubmenu);
-    void addProduct(ProductGroup *submenu, const ProductGroup &newSubmenu);
+    SubMenu *findSubmenu(const SubMenu *newSubmenu) const;
 };
 
-QDebug operator<<(QDebug debug, const Menu &menu);
 #endif // MENU_H

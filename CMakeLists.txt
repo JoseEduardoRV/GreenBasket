@@ -30,7 +30,7 @@ qt_add_qml_module(appGreenBasket
         src/ui/controls/ActionButton2.qml
         src/ui/controls/IconButton.qml
         src/ui/controls/ActionButton.qml
-        src/ui/controls/TicketPanel.qml
+        src/ui/controls/ItemsPanel.qml
         src/ui/controls/TabButton1.qml
 
         src/ui/shapes/Tab.qml
@@ -40,21 +40,29 @@ qt_add_qml_module(appGreenBasket
 
     SOURCES
         src/domain/product.h             src/domain/product.cpp
-        src/domain/productlist.h         src/domain/productlist.cpp
+        src/domain/menuproduct.h         src/domain/menuproduct.cpp
         #src/domain/stockproduct.h        src/domain/stockproduct.cpp
         #src/domain/user.h                src/domain/user.cpp
         #src/domain/account.h             src/domain/account.cpp
-        src/domain/billitem.h            src/domain/billitem.cpp
-        src/domain/sectioninfo.h     src/domain/sectioninfo.cpp
-        src/domain/productgroup.h             src/domain/productgroup.cpp
+        src/domain/listitem.cpp
+
+        src/domain/sublist.h             src/domain/sublist.cpp
         #src/domain/inventoryitem.h       src/domain/inventoryitem.cpp
 
-        src/domain/qmltypes/bill.h       src/domain/qmltypes/bill.cpp
-        src/domain/qmltypes/sale.h       src/domain/qmltypes/sale.cpp
+
+        #src/domain/qmltypes/sale.h       src/domain/qmltypes/sale.cpp
         #src/domain/qmltypes/stock.h      src/domain/qmltypes/stock.cpp
         #src/domain/qmltypes/inventory.h  src/domain/qmltypes/inventory.cpp
         src/domain/qmltypes/menu.h       src/domain/qmltypes/menu.cpp
-        SOURCES src/domain/qmltypes/submenu.h src/domain/qmltypes/submenu.cpp
+        src/domain/qmltypes/submenu.h    src/domain/qmltypes/submenu.cpp
+        SOURCES src/domain/qmltypes/greenbasket.h src/domain/qmltypes/greenbasket.cpp
+        QML_FILES src/ui/screens/qml/SubMenu.qml
+        SOURCES src/domain/ticketitem.h src/domain/ticketitem.cpp
+        SOURCES src/domain/ticket.h src/domain/ticket.cpp
+        SOURCES src/domain/qmltypes/wticket.h src/domain/qmltypes/wticket.cpp
+        QML_FILES src/ui/screens/qml/Menu.qml
+        QML_FILES src/ui/screens/qml/TicketList.qml
+        SOURCES src/domain/qmltypes/ticketlist.h src/domain/qmltypes/ticketlist.cpp
 
 
 )

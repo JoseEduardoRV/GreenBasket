@@ -7,6 +7,7 @@
 #include <QQmlListProperty>
 
 #include "bill.h"
+#include "wticket.h"
 #include "menu.h"
 
 /* Observaciones de diseño
@@ -28,19 +29,28 @@ class Sale : public QObject
 {
     Q_OBJECT
 
-    Q_PROPERTY(QQmlListProperty<Bill> bills READ bills NOTIFY billsChanged)
+    Q_PROPERTY(QQmlListProperty<Ticket> tickets READ tickets NOTIFY ticketsChanged)
 
-    const Menu *m_menu;
-    Bill *m_editingBill;
+    QList<WTickets*> m_ticket;
+    WTickets *m_selectedTicket;
+
+    Q_PROPERTY(QQmlListProperty<Bill> bills READ bills NOTIFY billsChanged)
+    Q_PROPERTY(Bill* selectedBill READ selectedBill NOTIFY selectedBillChanged)
+
+    Bill *m_selectedBill;
     QList<Bill*> m_bills;
 
+    const Menu &m_menu;
 
 public:
-    explicit Sale(const Menu *menu, QObject *parent = nullptr);
+    explicit Sale(const Menu & menu, QObject *parent = nullptr);
 
     ~Sale() override;
 
-    QQmlListProperty<Bill> bills();
+    Bill *selectedBill() const { return m_selectedBill; }
+    QQmlListProperty<Bill> bills() { return QQmlListProperty<Bill>(this, &m_bills); }
+
+    QQmlListProperty<WTickets> tickets();
 
     int billCount() const { return m_bills.size(); }
 
@@ -54,6 +64,9 @@ public:
 
 signals:
     void billsChanged();
+    void ticketsChanged();
+
+    void selectedBillChanged();
 
 private:
     // Reglas de negocio

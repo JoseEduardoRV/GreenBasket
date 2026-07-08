@@ -8,6 +8,8 @@ import "../shapes"
 Item {
     id: root
 
+    property alias tabButton:  tabButton
+
     property color primaryColor:   "#3D4C15"
     property color secondaryColor: "#566B1E"
     property color bordeColor :    "#93B833"
@@ -21,6 +23,7 @@ Item {
 
     property string text: "Texto"
 
+    readonly property int offset : tabButton.offset
     default property alias lists: list.data
 
     implicitWidth:  380

@@ -7,28 +7,31 @@ import "../../controls"
 Item {
     id: root
 
-    implicitWidth:  430
+    implicitWidth: 430
     implicitHeight: 820
 
-    property alias changeUserButton:  changeUserButton
-    property alias openBillButton:    openBillButton
-    property alias cancelBillButton:  cancelBillButton
+
+    property alias changeUserButton: changeUserButton
+    property alias openBillButton: openBillButton
+    property alias cancelBillButton: cancelBillButton
     property alias getPaidBillButton: getPaidBillButton
-    property alias showMenuButton:    showMenuButton
-    property alias itemsList:         itemsList
+    property alias showMenuButton: showMenuButton
+    //property alias itemsList: itemsList
+    property alias tabButton:  panel.tabButton
+    property alias itemsStack: itemsStack
 
     //Propiedades para definir el color de la interfaz
 
-    property color primaryColor:   "#3D4C15"
+    property color primaryColor: "#3D4C15"
     property color secondaryColor: "#566B1E"
-    property color bordeColor :    "#93B833"
+    property color bordeColor: "#93B833"
     property color softBackground: "#C4C4c4"
 
     property int textFont: 24
-    property color textColor : "#FFFFFF"
+    property color textColor: "#FFFFFF"
 
     property int borderWidth: 2
-    property real radius:     20
+    property real radius: 20
 
     //Propiedades para definir el tipo de fuente
     property string appFont: "Segoe UI Semibold"
@@ -189,8 +192,8 @@ Item {
                     }
                 }
 
-                TicketPanel {
-                    id: itemsPanel
+                ItemsPanel {
+                    id: panel
 
                     text: "Tickets"
 
@@ -205,12 +208,23 @@ Item {
                     borderWidth: root.borderWidth
                     radius: root.radius
 
-                    ListView {
-                        id: itemsList
+                    // ListView {
+                    //     id: itemsList
+
+                    //     clip: true
+
+                    //     anchors.fill: parent
+                    // }
+                    StackView {
+                        id: itemsStack
+
+                        anchors.top: parent.top
+                        anchors.topMargin: panel.offset
+                        anchors.left: parent.left
+                        anchors.right: parent.right
+                        anchors.bottom: parent.bottom
 
                         clip: true
-
-                        anchors.fill: parent
                     }
 
                     Layout.fillWidth: true

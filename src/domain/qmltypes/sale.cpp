@@ -1,13 +1,12 @@
 #include "sale.h"
 
-Sale::Sale(const Menu *menu, QObject *parent)
-    : QObject{ parent }
-    , m_menu{ menu }
-    , m_editingBill{ nullptr }
+Sale::Sale(const Menu & menu,  QObject *parent)
+    : QObject{parent}
+    , m_menu{menu}
+    , m_selectedBill{nullptr}
     , m_bills{}
 {
-    qDebug() << "*** Building Sale ***" << Qt::endl
-             << "*** Menu disponible:"  << Qt::endl;
+    qDebug() << "*** Building Sale ***" << Qt::endl;
 }
 
 Sale::~Sale()
@@ -15,9 +14,9 @@ Sale::~Sale()
     qDebug() << "*** Destroying Sale ***" << Qt::endl;
 }
 
-QQmlListProperty<Bill> Sale::bills()
+QQmlListProperty<Tickets> Sale::tickets()
 {
-    return QQmlListProperty<Bill>(this, &m_bills);
+    return QQmlListProperty<Tickets>(this, &m_ticket);
 }
 
 void Sale::openBill()
@@ -30,40 +29,48 @@ void Sale::openBill()
     emit billsChanged();
 
     qDebug() << "Se agregó una nueva cuenta:" << bill;
+
+    auto i = new MenuProduct(1001, "Cafe", "16 Oz", 20.50f);
+
+    TicketItem * newProduct = new TicketItem(i, 4);
+
+    Tickets *tikect = new Tickets;
+
+    tikect->addProducto(newProduct);
+
+    m_ticket.append(tikect);
+
 }
 
 void Sale::cancelBill()
 {
-    if (!m_editingBill)
+    if (!m_selectedBill)
         return;
 
-    if (!canCancelBill(*m_editingBill))
+    if (!canCancelBill(*m_selectedBill))
         return;
 
-    m_editingBill->changeStatus(Bill::BillStatus::Canceled);
+    m_selectedBill->changeStatus(Bill::BillStatus::Canceled);
 
     emit billsChanged();
 }
 
 void Sale::getPaidBill()
 {
-    if (!m_editingBill)
+    if (!m_selectedBill)
         return;
 
-    if (!canGetPaidBill(*m_editingBill))
+    if (!canGetPaidBill(*m_selectedBill))
         return;
 
-    m_editingBill->changeStatus(Bill::BillStatus::Paid);
+    m_selectedBill->changeStatus(Bill::BillStatus::Paid);
 
     emit billsChanged();
 }
 
 void Sale::showMenu()
 {
-    // if (m_menu)
-    //     qDebug() << "Mostrar menu:" << *m_menu;
-    // else
-        qDebug() << "Menu vacio";
+
 }
 
 void Sale::changeUser()
@@ -79,9 +86,9 @@ void Sale::selectBill(Bill *bill)
     if (!storedBill)
         return;
 
-    m_editingBill = storedBill;
+    m_selectedBill = storedBill;
 
-    qDebug() << "Selected ticket:" << m_editingBill;
+    qDebug() << "Selected ticket:" << m_selectedBill;
 }
 
 Bill *Sale::createBill()
@@ -137,3 +144,4 @@ bool Sale::canGetPaidBill(const Bill &bill) const
 
     return false;
 }
+
