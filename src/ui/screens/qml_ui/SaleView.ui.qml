@@ -208,13 +208,6 @@ Item {
                     borderWidth: root.borderWidth
                     radius: root.radius
 
-                    // ListView {
-                    //     id: itemsList
-
-                    //     clip: true
-
-                    //     anchors.fill: parent
-                    // }
                     StackView {
                         id: itemsStack
 

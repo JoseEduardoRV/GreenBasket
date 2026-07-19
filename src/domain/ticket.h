@@ -4,12 +4,14 @@
 #include <list>
 #include <chrono>
 
-#include "ticketitem.h"
+#include "ticketproduct.h"
+
+using date = std::chrono::system_clock::time_point;
 
 class Ticket
 { 
     int m_ticketNumber;
-    std::chrono::system_clock::time_point m_date;
+    date m_date;
     // Branch* m_branch {};
     // Client* m_client {};
     // Cashier* m_cashier {};
@@ -17,7 +19,7 @@ class Ticket
     double m_tax;
     double m_total;
 
-    std::list<TicketItem*> m_items;
+    std::list<TicketProduct*> m_items;
 
     void recalculateTotals();
 
@@ -32,7 +34,7 @@ public:
 
     int ticketNumber() const { return m_ticketNumber; }
 
-    std::string_view date() const { return { "DD/MM/AAAA" }; }
+    date date() const { return m_date; }
 
     double subtotal() const { return m_subtotal; }
 
@@ -42,11 +44,11 @@ public:
 
     std::size_t itemCount() const;
 
-    bool findProduct(const TicketItem *newProduct);
+    bool findProduct(const TicketProduct *newProduct);
 
-    const TicketItem *findProductByIndex(const int index) const;
+    const TicketProduct *findProductByIndex(const int index) const;
 
-    bool addProduct(TicketItem *newProduct);
+    bool addProduct(TicketProduct *newProduct);
 };
 
 #endif // TICKET_H

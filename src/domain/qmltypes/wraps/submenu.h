@@ -5,7 +5,7 @@
 #include <QString>
 #include <QList>
 
-#include "../sublist.h"
+#include "../../sublist.h"
 
 class SubMenu : public QObject
 {

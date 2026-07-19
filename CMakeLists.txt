@@ -18,53 +18,68 @@ qt_add_executable(appGreenBasket
     src/main.cpp
 )
 
+target_include_directories(appGreenBasket PRIVATE
+    ${CMAKE_CURRENT_SOURCE_DIR}
+    ${CMAKE_CURRENT_SOURCE_DIR}/src
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/domain
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/domain/qmltypes
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/domain/qmltypes/wraps
+)
+
 qt_add_qml_module(appGreenBasket
     URI GreenBasket
+    VERSION 1.0
 
     QML_FILES
         src/ui/Main.qml
-
         src/ui/screens/qml/Sale.qml
         src/ui/screens/qml_ui/SaleView.ui.qml
-
+        src/ui/screens/qml/SubMenu.qml
+        src/ui/screens/qml/Menu.qml
+        src/ui/screens/qml/TicketList.qml
         src/ui/controls/ActionButton2.qml
         src/ui/controls/IconButton.qml
         src/ui/controls/ActionButton.qml
         src/ui/controls/ItemsPanel.qml
         src/ui/controls/TabButton1.qml
-
         src/ui/shapes/Tab.qml
+
+        SOURCES
+                src/domain/menuproduct.h
+                src/domain/menuproduct.cpp
+                src/domain/product.h
+                src/domain/product.cpp
+                src/domain/sublist.h
+                src/domain/sublist.cpp
+                src/domain/ticket.h
+                src/domain/ticket.cpp
+                src/domain/ticketproduct.h
+                src/domain/ticketproduct.cpp
+
+                src/domain/qmltypes/greenbasket.h
+                src/domain/qmltypes/greenbasket.cpp
+                src/domain/qmltypes/inventorycontroller.h
+                src/domain/qmltypes/inventorycontroller.cpp
+                src/domain/qmltypes/menucontroller.h
+                src/domain/qmltypes/menucontroller.cpp
+                src/domain/qmltypes/salecontroller.h
+                src/domain/qmltypes/salecontroller.cpp
+                src/domain/qmltypes/settingscontroller.h
+                src/domain/qmltypes/settingscontroller.cpp
+                src/domain/qmltypes/usercontroller.h
+                src/domain/qmltypes/usercontroller.cpp
+
+                src/domain/qmltypes/wraps/wticket.h
+                src/domain/qmltypes/wraps/wticket.cpp
+                src/domain/qmltypes/wraps/ticketlist.h
+                src/domain/qmltypes/wraps/ticketlist.cpp
+                src/domain/qmltypes/wraps/submenu.h
+                src/domain/qmltypes/wraps/submenu.cpp
 
     RESOURCES
         class-diagram/diagram.qmodel
-
-    SOURCES
-        src/domain/product.h             src/domain/product.cpp
-        src/domain/menuproduct.h         src/domain/menuproduct.cpp
-        #src/domain/stockproduct.h        src/domain/stockproduct.cpp
-        #src/domain/user.h                src/domain/user.cpp
-        #src/domain/account.h             src/domain/account.cpp
-        src/domain/listitem.cpp
-
-        src/domain/sublist.h             src/domain/sublist.cpp
-        #src/domain/inventoryitem.h       src/domain/inventoryitem.cpp
-
-
-        #src/domain/qmltypes/sale.h       src/domain/qmltypes/sale.cpp
-        #src/domain/qmltypes/stock.h      src/domain/qmltypes/stock.cpp
-        #src/domain/qmltypes/inventory.h  src/domain/qmltypes/inventory.cpp
-        src/domain/qmltypes/menu.h       src/domain/qmltypes/menu.cpp
-        src/domain/qmltypes/submenu.h    src/domain/qmltypes/submenu.cpp
-        SOURCES src/domain/qmltypes/greenbasket.h src/domain/qmltypes/greenbasket.cpp
-        QML_FILES src/ui/screens/qml/SubMenu.qml
-        SOURCES src/domain/ticketitem.h src/domain/ticketitem.cpp
-        SOURCES src/domain/ticket.h src/domain/ticket.cpp
-        SOURCES src/domain/qmltypes/wticket.h src/domain/qmltypes/wticket.cpp
-        QML_FILES src/ui/screens/qml/Menu.qml
-        QML_FILES src/ui/screens/qml/TicketList.qml
-        SOURCES src/domain/qmltypes/ticketlist.h src/domain/qmltypes/ticketlist.cpp
-
-
+        SOURCES src/domain/qmltypes/services/iservice.h src/domain/qmltypes/services/iservice.cpp
+        SOURCES src/domain/qmltypes/services/addticket.h src/domain/qmltypes/services/addticket.cpp
 )
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.

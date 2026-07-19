@@ -1,11 +1,9 @@
 import QtQuick
 import QtQuick.Controls.Basic
 
-import GreenBasket.Domain 1.0
-
 ListView {
     id: menuList
-    model: saleController.tickets
+    model: 10
     clip: true
 
     delegate: Column {
@@ -17,14 +15,14 @@ ListView {
           width: parent.width
 
           Text {
-             text: modelData.ticketNumber
+             text: "modelData.ticketNumber"
              font.pixelSize: 20
              font.bold: true
              color: "#263238"
           }
 
           Text {
-             text: modelData.createdAt
+             text: "modelData.createdAt"
              font.pixelSize: 20
              font.bold: true
              color: "#263238"

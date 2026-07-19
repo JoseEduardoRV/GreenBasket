@@ -4,7 +4,7 @@
 #include <QObject>
 #include <QString>
 
-#include "../ticket.h"
+#include "../../ticket.h"
 
 class WTicket : public QObject
 {
@@ -17,7 +17,10 @@ class WTicket : public QObject
     Q_PROPERTY(double total READ total NOTIFY totalChanged)
     Q_PROPERTY(int itemCount READ itemCount NOTIFY listChanged)
 
+    int m_index;
     Ticket m_ticket;
+
+    int index() const { return m_index; }
 
 public:
     explicit WTicket(QObject *parent = nullptr);
@@ -36,13 +39,15 @@ public:
 
     int itemCount() const;
 
-    void addProducto(TicketItem *newProduct);
+    void addProducto(TicketProduct *newProduct);
 
-    Q_INVOKABLE QString productName(const int index) const;
-    Q_INVOKABLE QString productPresentation(const int index) const;
-    Q_INVOKABLE double productPrice(const int index) const;
-    Q_INVOKABLE int quantity(const int index) const;
-    Q_INVOKABLE double subtotal(const int index) const;
+    Q_INVOKABLE QString productName() const;
+    Q_INVOKABLE QString productPresentation() const;
+    Q_INVOKABLE double productPrice() const;
+    Q_INVOKABLE int quantity() const;
+    Q_INVOKABLE double productSubtotal() const;
+
+    Q_INVOKABLE void selecteItem(const int index);
 
 private:
     static QString toQString(std::string_view value);

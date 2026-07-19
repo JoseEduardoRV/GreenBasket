@@ -15,7 +15,7 @@ QQmlListProperty<WTicket> TicketList::tickets()
     return QQmlListProperty<WTicket>(this, &m_tickets);
 }
 
-void TicketList::addSubmenu(WTicket *newTicket)
+void TicketList::addTicket(WTicket *newTicket)
 {
     if (!newTicket)
         return;
@@ -29,7 +29,7 @@ void TicketList::addSubmenu(WTicket *newTicket)
     emit ticketsChanged();
 }
 
-WTicket *TicketList::findSubmenu(const WTicket *newTicket) const
+WTicket *TicketList::findTicket(const WTicket *newTicket) const
 {
     if (!newTicket)
         return nullptr;

@@ -1,22 +1,13 @@
-#include <stdexcept>
-
 #include "menuproduct.h"
-
-void MenuProduct::validatePresentation(std::string_view presentation)
-{
-    if (presentation.empty())
-        throw std::invalid_argument("SoldProduct presentation cannot be empty");
-}
 
 MenuProduct::MenuProduct(const int id,
                          std::string_view name,
                          std::string_view presentation,
                          const double price)
-    : Product(id, name, price)
+    : Product(id, name, presentation, price)
     , m_available{ true }
-    , m_presentation{ presentation }
 {
-    validatePresentation(presentation);
+
 }
 
 bool MenuProduct::operator==(const MenuProduct &other) const
@@ -24,7 +15,7 @@ bool MenuProduct::operator==(const MenuProduct &other) const
     return Product::operator==(other)
            && m_available == other.m_available
            && Product::samePrice(unitValue(), other.unitValue())
-           && m_presentation == other.m_presentation;
+           && Product::presentation() == other.presentation();
 }
 
 void MenuProduct::markAvailable()
@@ -44,10 +35,5 @@ void MenuProduct::changeSalePrice(double newPrice)
 
 void MenuProduct::changePresentation(std::string_view newPresentation)
 {
-    validatePresentation(newPresentation);
-
-    if (m_presentation == newPresentation)
-        return;
-
-    m_presentation = newPresentation;
+    Product::changePresentation(newPresentation);
 }

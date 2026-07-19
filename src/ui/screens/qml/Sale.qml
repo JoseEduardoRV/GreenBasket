@@ -1,7 +1,7 @@
 import QtQuick
 import QtQuick.Controls.Basic
 
-import GreenBasket.Domain 1.0
+import GreenBasket
 
 import "../qml_ui"
 
@@ -14,7 +14,7 @@ SaleView {
         ListView {
             id: list
 
-    model: ticketsController.bills
+    model: 10
 
     delegate: Rectangle {
         width: ListView.view.width
@@ -29,19 +29,19 @@ SaleView {
             spacing: 4
 
             Text {
-                text: modelData.ticketNumber +" "+ (index + 1)
+                text: "modelData.ticketNumber + (index + 1)"
                 color: "#263238"
                 font.pixelSize: 18
                 font.bold: true
             }
             Text {
-                text: "    " + Qt.formatDateTime(modelData.createdAt, "dd - MMMM - yyyy hh:mm")
+                text: "     + Qt.formatDateTime(modelData.createdAt, dd - MMMM - yyyy hh:mm)"
                 color: "#607D8B"
                 font.pixelSize: 18
             }
 
             Text {
-                text: "Total: $" + modelData.total.toFixed(2)
+                text: "Total: $ + modelData.total.toFixed(2)"
                 color: "#263238"
                 font.pixelSize: 18
             }
@@ -53,7 +53,6 @@ SaleView {
             onClicked: {
                 list.currentIndex = index
                 view.itemsStack.push(ticketDetailPage)
-                //saleController.selectBill(modelData)
             }
         }
     }
@@ -84,59 +83,49 @@ SaleView {
     Component {
         id: menu
         Menu {
-            id: menuList
         }
     }
-
 
     changeUserButton.iconSource: "file:///C:/Users/Ing-Eduardo/Documents/Glintec/Proyects/Windows-11/GreenBasket/icons/user.png"
     changeUserButton.text: "Usuario"
     changeUserButton.onClicked: {
-        //console.log("Change User Button")
-        greenBasket.changeUser()
+        console.log("Button Usuario")
+        GreenBasket.sale.changeUser()
     }
 
     openBillButton.iconSource: "file:///C:/Users/Ing-Eduardo/Documents/Glintec/Proyects/Windows-11/GreenBasket/icons/add.png"
     openBillButton.text: "Nueva cuenta"
     openBillButton.onClicked: {
-        //console.log("Open Bill Button")
-        greenBasket.openBill()
+        console.log("Button Nueva cuenta")
+        GreenBasket.sale.openBill()
     }
 
     cancelBillButton.iconSource: "file:///C:/Users/Ing-Eduardo/Documents/Glintec/Proyects/Windows-11/GreenBasket/icons/billCancel.png"
     cancelBillButton.text: "Canelar cuenta"
     cancelBillButton.onClicked: {
-        //console.log("Cancel Bill Button")
-        greenBasket.cancelBill()
+        console.log("Button Canelar cuenta")
+        GreenBasket.sale.cancelBill()
     }
 
     getPaidBillButton.iconSource: "file:///C:/Users/Ing-Eduardo/Documents/Glintec/Proyects/Windows-11/GreenBasket/icons/creditCard.png"
     getPaidBillButton.text: "Cobrar cuenta"
     getPaidBillButton.onClicked: {
-        //view.itemsStack.push(ticket)
-        greenBasket.getPaidBill()
+        console.log("Button Cobrar cuenta")
+        GreenBasket.sale.getPaidBill()
     }
 
     showMenuButton.iconSource: "file:///C:/Users/Ing-Eduardo/Documents/Glintec/Proyects/Windows-11/GreenBasket/icons/user.png"
     showMenuButton.text: "Menu"
     showMenuButton.onClicked: {
-        //view.itemsStack.push(menu)
-        greenBasket.showMenu()
+        console.log("Button Menu")
+        GreenBasket.sale.showMenu()
     }
 
     tabButton.onDoubleClicked: {
-        //view.itemsStack.push(ticket)
-        greenBasket.showTickets()
+        console.log("Button tab")
+        GreenBasket.sale.showTickets()
     }
-
-    // Connections {
-    //     target: saleController
-
-
-    // }
-
     Component.onCompleted: {
-        view.itemsStack.push(ticketsListPage)
         console.log("Sale.qml cargado")
     }
 }

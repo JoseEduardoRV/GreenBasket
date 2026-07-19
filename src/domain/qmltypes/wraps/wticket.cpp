@@ -1,7 +1,9 @@
 #include "wticket.h"
 
 WTicket::WTicket(QObject *parent)
-    : QObject{parent} , m_ticket{ }
+    : QObject{parent}
+    , m_index {0}
+    , m_ticket{ }
 {
 
 }
@@ -13,7 +15,7 @@ QString WTicket::ticketNumber() const
 
 QString WTicket::date() const
 {
-    return toQString(m_ticket.date());
+    return { };/*toQString(m_ticket.date())*/
 }
 
 double WTicket::tax() const
@@ -36,7 +38,7 @@ int WTicket::itemCount() const
     return m_ticket.itemCount();
 }
 
-void WTicket::addProducto(TicketItem *newProduct)
+void WTicket::addProducto(TicketProduct *newProduct)
 {
     if (!newProduct) {
         return;
@@ -44,23 +46,26 @@ void WTicket::addProducto(TicketItem *newProduct)
 
     if (m_ticket.addProduct(newProduct)) {
         emit listChanged();
+        emit subtotalChanged();
+        emit taxChanged();
+        emit totalChanged();
     }
 }
 
-QString WTicket::productName(const int index) const
+QString WTicket::productName() const
 {
-    const TicketItem *item = m_ticket.findProductByIndex(index);
+    const TicketProduct *item = m_ticket.findProductByIndex(index());
 
     if (!item){
         return { };
     }
 
-    return toQString(item->productName());
+    return toQString(item->name());
 }
 
-QString WTicket::productPresentation(const int index) const
+QString WTicket::productPresentation() const
 {
-    const TicketItem *item = m_ticket.findProductByIndex(index);
+    const TicketProduct *item = m_ticket.findProductByIndex(index());
 
     if (!item){
         return { };
@@ -69,20 +74,20 @@ QString WTicket::productPresentation(const int index) const
     return toQString(item->presentation());
 }
 
-double WTicket::productPrice(const int index) const
+double WTicket::productPrice() const
 {
-    const TicketItem *item = m_ticket.findProductByIndex(index);
+    const TicketProduct *item = m_ticket.findProductByIndex(index());
 
     if (!item){
         return 0.0f;
     }
 
-    return item->unitPrice();
+    return item->unitValue();
 }
 
-int WTicket::quantity(const int index) const
+int WTicket::quantity() const
 {
-    const TicketItem *item = m_ticket.findProductByIndex(index);
+    const TicketProduct *item = m_ticket.findProductByIndex(index());
 
     if (!item){
         return 0;
@@ -91,15 +96,20 @@ int WTicket::quantity(const int index) const
     return item->quantity();
 }
 
-double WTicket::subtotal(const int index) const
+double WTicket::productSubtotal() const
 {
-    const TicketItem *item = m_ticket.findProductByIndex(index);
+    const TicketProduct *item = m_ticket.findProductByIndex(index());
 
     if (!item){
         return 0;
     }
 
     return item->subtotal();
+}
+
+void WTicket::selecteItem(const int index)
+{
+    m_index = index;
 }
 
 QString WTicket::toQString(std::string_view value)

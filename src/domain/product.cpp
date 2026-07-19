@@ -23,19 +23,28 @@ void Product::validateName(std::string_view name)
         throw std::invalid_argument("Product name cannot be empty");
 }
 
+void Product::validatePresentation(std::string_view presentation)
+{
+    if (presentation.empty())
+        throw std::invalid_argument("SoldProduct presentation cannot be empty");
+}
+
 bool Product::samePrice(double lhs, double rhs)
 {
     return std::abs(lhs - rhs) < 0.000001;
 }
 
-Product::Product(const int id, std::string_view name, const double unitValue)
+Product::Product(const int id, std::string_view name,
+                 std::string_view presentation, const double unitValue)
     : m_id{ id }
     , m_unitValue{ unitValue }
     , m_name{ name }
+    , m_presentation { presentation }
 {
     validateId(id);
     validateName(name);
     validateUnitValue(unitValue);
+    validatePresentation(presentation);
 
     qDebug() << Q_FUNC_INFO << "New created product - id:"<< id << " name: " << name;
 }
@@ -58,6 +67,16 @@ void Product::chageUnitValue(const double newUnitValue)
         return;
 
     m_unitValue = newUnitValue;
+}
+
+void Product::changePresentation(std::string_view newPresentation)
+{
+    validatePresentation(newPresentation);
+
+    if (m_presentation == newPresentation)
+        return;
+
+    m_presentation = newPresentation;
 }
 
 Product::~Product()

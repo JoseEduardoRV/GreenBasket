@@ -1,14 +1,14 @@
-#include "menu.h"
+#include "menucontroller.h"
 #include "src/domain/menuproduct.h"
 
-Menu::Menu(QObject *parent) : QObject{parent}
+MenuController::MenuController(QObject *parent) : QObject{parent}
 {
     //Consideraciones pendientes
     //Opción A: si ya hay datos, no volver a cargar
     //Opción B: limpiar la lista antes de cargar.
 
     addSubmenu(
-        new SubMenu(
+        new SaleController(
             SubList(101, "cold-drink",
                 std::list<Product*> {
                     new MenuProduct(1001, "Cafe", "16 Oz", 20.50f),
@@ -18,7 +18,7 @@ Menu::Menu(QObject *parent) : QObject{parent}
 
 
     addSubmenu(
-        new SubMenu(
+        new SaleController(
             SubList(102, "cold-drink",
                 std::list<Product*> {
                     new MenuProduct(1004, "Agua", "350ml", 10.50f),
@@ -26,7 +26,7 @@ Menu::Menu(QObject *parent) : QObject{parent}
                     new MenuProduct(1006, "Agua", "1L",    26.50f)
                 })));
     addSubmenu(
-        new SubMenu(
+        new SaleController(
             SubList(102, "cold-drink",
                 std::list<Product*> {
                     new MenuProduct(1007, "Agua fresca", "16 Oz", 13.50f),
@@ -34,7 +34,7 @@ Menu::Menu(QObject *parent) : QObject{parent}
                     new MenuProduct(1009, "Agua fresca", "24 Oz", 28.50f)
                 })));
     addSubmenu(
-        new SubMenu(
+        new SaleController(
             SubList(102, "cold-drink",
                 std::list<Product*> {
                     new MenuProduct(1010, "juge", "16 Oz", 25.50f),
@@ -42,7 +42,7 @@ Menu::Menu(QObject *parent) : QObject{parent}
                     new MenuProduct(1012, "juge", "24 Oz", 45.50f)
                 })));
     addSubmenu(
-        new SubMenu(
+        new SaleController(
             SubList(103, "healthy-food",
                 std::list<Product*> {
                     new MenuProduct(1010, "Ensalada", "Small",  25.50f),
@@ -50,7 +50,7 @@ Menu::Menu(QObject *parent) : QObject{parent}
                     new MenuProduct(1012, "Ensalada", "Large",  45.50f)
                 })));
     addSubmenu(
-        new SubMenu(
+        new SaleController(
             SubList(104, "Italian fast-food",
                 std::list<Product*> {
                     new MenuProduct(1013, "Baguette", "Pollo", 75.50f),
@@ -58,7 +58,7 @@ Menu::Menu(QObject *parent) : QObject{parent}
                     new MenuProduct(1015, "Baguette", "Milaneza", 95.50f)
                 })));
     addSubmenu(
-        new SubMenu(
+        new SaleController(
             SubList(104, "Italian fast-food",
                 std::list<Product*> {
                     new MenuProduct(1015, "Baguette", "Milaneza", 95.50f)
@@ -67,18 +67,18 @@ Menu::Menu(QObject *parent) : QObject{parent}
     qDebug() << "*** Building the Menu *** " << this;
 }
 
-Menu::~Menu()
+MenuController::~MenuController()
 {
     m_submenus.clear();
     qDebug() << "*** detroying the Menu *** " << this;
 }
 
-QQmlListProperty<SubMenu> Menu::submenus()
+QQmlListProperty<SaleController> MenuController::submenus()
 {
-    return QQmlListProperty<SubMenu>(this, &m_submenus);
+    return QQmlListProperty<SaleController>(this, &m_submenus);
 }
 
-void Menu::addSubmenu(SubMenu *newSubmenu)
+void MenuController::addSubmenu(SaleController *newSubmenu)
 {
     if (!newSubmenu)
         return;
@@ -93,12 +93,12 @@ void Menu::addSubmenu(SubMenu *newSubmenu)
 }
 
 
-SubMenu *Menu::findSubmenu(const SubMenu *newSubmenu) const
+SaleController *MenuController::findSubmenu(const SaleController *newSubmenu) const
 {
     if (!newSubmenu)
         return nullptr;
 
-    for (SubMenu *item : m_submenus) {
+    for (SaleController *item : m_submenus) {
         if (item->id() == newSubmenu->id()) {
             return item;
         }

@@ -1,44 +1,33 @@
 import QtQuick
 import QtQuick.Controls.Basic
 
-import GreenBasket.Domain 1.0
-
 ListView {
     id: menuList
-    model: menuController.submenus
+    model: 10
     clip: true
 
-    delegate: Column {
-        width: ListView.view.width
-        spacing: 6
+    delegate: Rectangle {
 
-        property var submenu: modelData
-        property int submenuIndex: index
+        width: ListView.view.width
+        height: 48
+
+        color: ListView.isCurrentItem
+               ? "#dbe8b5"
+               : (index % 2 === 0 ? "#ffffff" : "#f2f2f2")
 
         Text {
-            text: submenuIndex + ". " + submenu.name
-            font.pixelSize: 20
+            text: "modelData.name"
+            color: "black"
+            font.pixelSize: 24
             font.bold: true
-            color: "#263238"
         }
 
-        Repeater {
-            model: submenu.itemCount
+        MouseArea {
+            anchors.fill: parent
 
-            delegate: Text {
-                property int productIndex: index
-
-                text: "   "
-                      + productIndex
-                      + ". "
-                      + submenu.productName(productIndex)
-                      + " "
-                      + submenu.productPresentation(productIndex)
-                      + " $"
-                      + submenu.productPrice(productIndex).toFixed(2)
-
-                font.pixelSize: 16
-                color: "#263238"
+            onClicked: {
+                menuList.currentIndex = index
+                console.log("index seleccionado " + index)
             }
         }
     }

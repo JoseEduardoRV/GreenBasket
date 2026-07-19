@@ -1,7 +1,7 @@
 #include <utility>
 
 #include "submenu.h"
-#include "../menuproduct.h"
+#include "../../menuproduct.h"
 
 SubMenu::SubMenu(SubList sublist, QObject *parent)
     : QObject{ parent },

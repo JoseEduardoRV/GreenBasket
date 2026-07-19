@@ -6,22 +6,24 @@ void Ticket::recalculateTotals()
 {
     m_subtotal = 0;
 
-    for (const TicketItem *item : m_items) {
+    for (const TicketProduct *item : m_items) {
         m_subtotal += item->subtotal();
     }
+
+    m_tax = m_subtotal * 0.16f;
 
     m_total = m_subtotal + m_tax;
 }
 
 Ticket::Ticket()
-    : m_ticketNumber{0}
+    : m_ticketNumber{ 0 }
     , m_date{} // Branch* m_branch {};
     // Client* m_client {};
     // Cashier* m_cashier {};
-    , m_subtotal{0}
-    , m_tax{1}
-    , m_total{0}
-    , m_items{}
+    , m_subtotal{ 0 }
+    , m_tax{ 0 }
+    , m_total{ 0 }
+    , m_items{ }
 {
     m_date = std::chrono::system_clock::now();
 }
@@ -31,7 +33,7 @@ Ticket::~Ticket()
     //std::list<std::unique_ptr<Product>> m_products;
 
     if (!m_items.empty()) {
-        for (TicketItem *product : m_items) {
+        for (TicketProduct *product : m_items) {
             delete product;
         }
     }
@@ -44,13 +46,13 @@ std::size_t Ticket::itemCount() const
     return m_items.size();
 }
 
-bool Ticket::findProduct(const TicketItem *newProduct)
+bool Ticket::findProduct(const TicketProduct *newProduct)
 {
     if (!newProduct) {
         throw std::invalid_argument("newProduct is invalid pointer");
     }
 
-    for (const TicketItem *item : m_items) {
+    for (const TicketProduct *item : m_items) {
         if (*item == *newProduct) {
             return true;
         }
@@ -59,7 +61,7 @@ bool Ticket::findProduct(const TicketItem *newProduct)
     return false;
 }
 
-const TicketItem *Ticket::findProductByIndex(const int index) const
+const TicketProduct *Ticket::findProductByIndex(const int index) const
 {
     if (index < 0 || index >= static_cast<int>(m_items.size())) {
         return nullptr;
@@ -74,7 +76,7 @@ const TicketItem *Ticket::findProductByIndex(const int index) const
     return *product;
 }
 
-bool Ticket::addProduct(TicketItem *newProduct)
+bool Ticket::addProduct(TicketProduct *newProduct)
 {
     if (!newProduct) {
         return false;

@@ -23,13 +23,13 @@ public:
 
     QQmlListProperty<WTicket> tickets();
 
-    void addSubmenu(WTicket *newTicket);
+    void addTicket(WTicket *newTicket);
 
 signals:
     void ticketsChanged();
 
 private:
-    WTicket *findSubmenu(const WTicket *newTicket) const;
+    WTicket *findTicket(const WTicket *newTicket) const;
 };
 
 #endif // TICKETLIST_H

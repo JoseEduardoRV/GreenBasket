@@ -1,8 +1,6 @@
-#include <memory>
-
 #include <QGuiApplication>
-
-#include "src/domain/qmltypes/greenbasket.h"
+#include <QQmlContext>
+#include <QQmlApplicationEngine>
 
 int main(int argc, char *argv[])
 {
@@ -10,24 +8,16 @@ int main(int argc, char *argv[])
 
     QGuiApplication app(argc, argv);
 
-    auto engine = std::make_unique<QQmlApplicationEngine>();
-    auto greenBasket = std::make_unique<GreenBasket>(*engine);
+    QQmlApplicationEngine engine;
 
     QObject::connect(
-        engine.get(),
+        &engine,
         &QQmlApplicationEngine::objectCreationFailed,
         &app,
         []() { QCoreApplication::exit(-1); },
         Qt::QueuedConnection);
 
-    engine->rootContext()->setContextProperty("greenBasket", greenBasket.get());
+    engine.loadFromModule("GreenBasket", "Main");
 
-    engine->loadFromModule("GreenBasket", "Main");
-
-    const int result = QGuiApplication::exec();
-
-    engine.reset();
-    greenBasket.reset();
-
-    return result;
+    return QGuiApplication::exec();
 }

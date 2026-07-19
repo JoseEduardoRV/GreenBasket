@@ -5,6 +5,9 @@
 
 #include "product.h"
 
+//Clase candidata para cambiar y ser una clase plantilla
+
+
 class SubList
 {
     int m_id;
@@ -20,7 +23,7 @@ class SubList
 
 public:
 
-    SubList() = delete;
+    SubList() = /*delete*/default;
 
     SubList(const int id, std::string_view name);
 

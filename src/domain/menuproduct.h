@@ -6,9 +6,6 @@
 class MenuProduct : public Product
 {
     bool m_available;
-    std::string m_presentation;
-
-    static void validatePresentation(std::string_view presentation);
 
 public:
     MenuProduct() = delete;
@@ -31,8 +28,6 @@ public:
     bool operator==(const MenuProduct &other) const;
 
     bool available() const { return m_available; }
-
-    std::string_view presentation() const { return m_presentation; }
 
     void markAvailable();
 
